@@ -30,6 +30,12 @@ Route::post('/input_pobpabrik', [Admin::class, 'tambah_pobpabrik']);
 Route::get('/pobpabrik', [Admin::class, 'tampil_pobpabrik']);
 Route::get('/hapus_pobpabrik/{id}', [Admin::class, 'hapus_pobpabrik']);
 
+Route::post('/input_catatbersih', [Admin::class, 'tambah_catatbersih']);
+
+Route::get('/pengolahanbatch',  [Admin::class, 'tampil_pengolahanbatch']);
+Route::post('/input_komposisi', [Admin::class, 'tambah_komposisi']);
+Route::post('/input_peralatan', [Admin::class, 'tambah_peralatan']);
+Route::post('/input_penimbangan', [Admin::class, 'tambah_catatbersih']);
 
 Route::get('/', function () {
     return view('dashboard');
@@ -51,7 +57,5 @@ Route::get('/penerimaanBB', function () {
     return view('penerimaanBB');
 });
 
-Route::get('/pengolahanbatch', function () {
-    return view('pengolahanbatch');
-});
+
 

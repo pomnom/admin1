@@ -167,18 +167,17 @@
                             </tr>
                         </thead>
                         <tbody>
+                        <?php $i = 0 ?>
+                            @foreach($list_kom as $row)
+                            <?php $i++; 
+                            ?>
                             <tr>
                                 <th scope="row">1</th>
                                 <td>Kunyit</td>
                                 <td>kyt01</td>
                                 <td>50</td>
                             </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Beras</td>
-                                <td>brs02</td>
-                                <td>20</td>
-                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -246,16 +245,16 @@
                             </tr>
                         </thead>
                         <tbody>
+                        <?php $i = 0 ?>
+                            @foreach($list_alat as $row)
+                            <?php $i++; 
+                            ?>
                             <tr>
                                 <th scope="row">1</th>
                                 <td>Belender/Mixer</td>
                                 <td>BLMX</td>
                             </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Bowl Aluminium</td>
-                                <td>BWAL</td>
-                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -348,6 +347,10 @@
                             </tr>
                         </thead>
                         <tbody>
+                        <?php $i = 0 ?>
+                            @foreach($list_nimbang as $row)
+                            <?php $i++; 
+                            ?>
                             <tr>
                                 <th scope="row">1</th>
                                 <td>kyt</td>
@@ -358,16 +361,7 @@
                                 <td>Ayu</td>
                                 <td>Saber</td>
                             </tr>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>brs</td>
-                                <td>Beras</td>
-                                <td>04</td>
-                                <td>2 KG</td>
-                                <td>2 KG</td>
-                                <td>Listya</td>
-                                <td>Dora</td>
-                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -438,7 +432,7 @@
                 </div>
             </div>
 
-            <a class="btn btn-primary" href="index.html">SIMPAN</a>
+            <a class="btn btn-primary" href="index" style="float:left; width: 100px;  margin-left:25px">SIMPAN</a>
         </div>
     </div>
 </main>

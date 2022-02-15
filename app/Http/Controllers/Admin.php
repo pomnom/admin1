@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\{coa,dip,perizinan,pobpabrik};
+use App\Models\{catatbersih, coa,dip,perizinan,pobpabrik,komposisi,peralatan,penimbangan};
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rules\Exists;
 
@@ -131,4 +131,103 @@ class Admin extends Controller
         // // user::deleted()
         return redirect('/pobpabrik');
     }
+
+    //catat bersh ruangan
+    public function tambah_catatbersih(Request $req) {
+
+        $hasil = [
+            'catatbersih_produk' => $req['tahun']."-".$req['bulan']."-".'1',
+            'catatbersih_batchnum' => $req['batchnum'],
+            'catatbersih_prosedurnum' => $req['produk_nama'],
+            'catatbersih_namaruang' => $req['namaruang'],
+            'catatbersih_carabersih' => $req['carabersih'],
+            'catatbersih_pelaksana' => $req['pelaksana'],
+            'catatbersih_periksa' => $req['periksa'],
+            'catatbersih_lantaidinding' => $req['lantaidinding']==null ? 0:1,
+            'catatbersih_meja' => $req['meja']==null ? 0:1,
+            'catatbersih_jendela' => $req['jendela']==null ? 0:1,
+            'catatbersih_plafon' => $req['plafon']==null ? 0:1,
+        ];
+        
+        catatbersih::insert($hasil);
+        
+        return redirect('/pembersihanruangan');
+    }
+
+    //tampil batch
+    public function tampil_pengolahanbatch(){
+        $kom = komposisi::all();
+        $alat = peralatan::all();
+        $nimbang = penimbangan::all();
+        return view('/pengolahanbatch', ['list_kom' => $kom,'list_alat'=>$alat, 'list_nimbang'=>$nimbang
+    ]);
+    }
+
+    //komposisi
+    public function tambah_komposisi(Request $req) {
+
+        $hasil = [
+            'komposisi_produk' => $req['tahun']."-".$req['bulan']."-".'1',
+            'komposisi_batchnum' => $req['batchnum'],
+            'komposisi_prosedurnum' => $req['produk_nama'],
+            'komposisi_namaruang' => $req['namaruang'],
+            'komposisi_carabersih' => $req['carabersih'],
+            'komposisi_pelaksana' => $req['pelaksana'],
+            'komposisi_periksa' => $req['periksa'],
+            'komposisi_lantaidinding' => $req['lantaidinding']==null ? 0:1,
+            'komposisi_meja' => $req['meja']==null ? 0:1,
+            'komposisi_jendela' => $req['jendela']==null ? 0:1,
+            'komposisi_plafon' => $req['plafon']==null ? 0:1,
+        ];
+        
+        komposisi::insert($hasil);
+        
+        return redirect('/pengolahanbatch');
+    }
+
+    //peralatan
+    public function tambah_peralatan(Request $req) {
+
+        $hasil = [
+            'peralatan_produk' => $req['tahun']."-".$req['bulan']."-".'1',
+            'peralatan_batchnum' => $req['batchnum'],
+            'peralatan_prosedurnum' => $req['produk_nama'],
+            'peralatan_namaruang' => $req['namaruang'],
+            'peralatan_carabersih' => $req['carabersih'],
+            'peralatan_pelaksana' => $req['pelaksana'],
+            'peralatan_periksa' => $req['periksa'],
+            'peralatan_lantaidinding' => $req['lantaidinding']==null ? 0:1,
+            'peralatan_meja' => $req['meja']==null ? 0:1,
+            'peralatan_jendela' => $req['jendela']==null ? 0:1,
+            'peralatan_plafon' => $req['plafon']==null ? 0:1,
+        ];
+        
+        peralatan::insert($hasil);
+        
+        return redirect('/pengolahanbatch');
+    }
+
+    //catat penimbangan
+    public function tambah_penimbangan(Request $req) {
+
+        $hasil = [
+            'penimbangan_produk' => $req['tahun']."-".$req['bulan']."-".'1',
+            'penimbangan_batchnum' => $req['batchnum'],
+            'penimbangan_prosedurnum' => $req['produk_nama'],
+            'penimbangan_namaruang' => $req['namaruang'],
+            'penimbangan_carabersih' => $req['carabersih'],
+            'penimbangan_pelaksana' => $req['pelaksana'],
+            'penimbangan_periksa' => $req['periksa'],
+            'penimbangan_lantaidinding' => $req['lantaidinding']==null ? 0:1,
+            'penimbangan_meja' => $req['meja']==null ? 0:1,
+            'penimbangan_jendela' => $req['jendela']==null ? 0:1,
+            'penimbangan_plafon' => $req['plafon']==null ? 0:1,
+        ];
+        
+        penimbangan::insert($hasil);
+        
+        return redirect('/pengolahanbatch');
+    }
+
+
 }

@@ -14,7 +14,9 @@ class CreatePenerimaanbbsTable extends Migration
     public function up()
     {
         Schema::create('penerimaanbbs', function (Blueprint $table) {
-            $table->id();
+            $table->id("penerimaanbb",5);
+            $table->string("penerimaanbb_produk",100);
+            $table->string("penerimaanbb_pobnom",100);
             $table->timestamps();
         });
     }
