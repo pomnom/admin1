@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,24 +14,29 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::post('/input_coa', [Admin::class, 'tambah_coa']);
+Route::get('/coa', [Admin::class, 'tampil_coa']);
+Route::get('/hapus_coa/{id}', [Admin::class, 'hapus_coa']);
+
+Route::post('/input_dip', [Admin::class, 'tambah_dip']);
+Route::get('/dip', [Admin::class, 'tampil_dip']);
+Route::get('/hapus_dip/{id}', [Admin::class, 'hapus_dip']);
+
+Route::post('/input_perizinan', [Admin::class, 'tambah_perizinan']);
+Route::get('/perizinan', [Admin::class, 'tampil_perizinan']);
+Route::get('/hapus_perizinan/{id}', [Admin::class, 'hapus_perizinan']);
+
+Route::post('/input_pobpabrik', [Admin::class, 'tambah_pobpabrik']);
+Route::get('/pobpabrik', [Admin::class, 'tampil_pobpabrik']);
+Route::get('/hapus_pobpabrik/{id}', [Admin::class, 'hapus_pobpabrik']);
+
+
 Route::get('/', function () {
     return view('dashboard');
 });
 
-Route::get('/coa', function () {
-    return view('coa');
-});
-
-Route::get('/dip', function () {
-    return view('dip');
-});
-
 Route::get('/laporan', function () {
     return view('laporan');
-});
-
-Route::get('/perizinan', function () {
-    return view('perizinan');
 });
 
 Route::get('/index', function () {
@@ -49,6 +55,3 @@ Route::get('/pengolahanbatch', function () {
     return view('pengolahanbatch');
 });
 
-Route::get('/pobpabrik', function () {
-    return view('pobpabrik');
-});

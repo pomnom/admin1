@@ -36,29 +36,34 @@
                                 <!-- Modal Body -->
                                 <div class="modal-body">
                                     <p class="statusMsg"></p>
-                                    <form role="form">
+                                    <form action="/input_pobpabrik" method="post" enctype="multipart/form-data" role="form">
+
+                                        @csrf
+                                        <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                                         <div class="form-group">
                                             <label for="inputName">Nama POB</label>
-                                            <input type="text" class="form-control" id="inputName" placeholder="Nama BB" />
+                                            <input type="text" class="form-control" id="inputName" name="nama" />
                                         </div>
-                                        <form>
-                                            <div class="form-group">
-                                                <label for="exampleFormControlFile1">Pilih File POB</label>
-                                                <input type="file" class="form-control-file" id="exampleFormControlFile1">
-                                            </div>
-                                        </form>
+
+                                        <div class="form-group">
+                                            <label for="exampleFormControlFile1">Pilih File POB</label>
+                                            <input type="file" name="upload" class="form-control-file" id="exampleFormControlFile1">
+                                        </div>
+                                        <!-- Modal Footer -->
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">
+                                                Close
+                                            </button>
+                                            <button type="submit" class="btn btn-primary submitBtn">
+                                                Tambah
+                                            </button>
+                                        </div>
+
+
                                     </form>
                                 </div>
 
-                                <!-- Modal Footer -->
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">
-                                        Close
-                                    </button>
-                                    <button type="button" class="btn btn-primary submitBtn" onclick="submitContactForm()">
-                                        Tambah
-                                    </button>
-                                </div>
+                                
                             </div>
                         </div>
                     </div>
@@ -73,134 +78,20 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <?php $i = 0 ?>
+                            @foreach($list_pobpabrik as $row)
+                            <?php $i++;
+                            $nama = $row['pobpabrik_nama'];
+                            ?>
                             <tr>
-                                <th scope="row">1</th>
-                                <td>Pembersihan Sanitasi Ruangan</td>
-                                <td><button type="button" class="btn btn-danger">Hapus</button>
-                                    <a href="assets/pdf/1.pdf" target="_blank" button type="button" class="btn btn-primary">Buka</button>
+                                <th scope="row">{{$i}}</th>
+                                <td>{{$row['pobpabrik_nama']}}</td>
+                                <td><a href="hapus_pobpabrik/{{$row['pobpabrik_id']}}" class="btn btn-danger">Hapus</a>
+                                    <a href="assets/pdf/{{$row['pobpabrik_file']}}" target="_blank" button type="button" class="btn btn-primary">Buka</button>
                                 </td>
                             </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Pembersihan dan Sanitasi ALat</td>
-                                <td><button type="button" class="btn btn-danger">Hapus</button>
-                                    <a href="assets/pdf/2.pdf" target="_blank" button type="button" class="btn btn-primary">Buka</button>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Pemeriksaan Bahan Pengemas</td>
-                                <td><button type="button" class="btn btn-danger">Hapus</button>
-                                    <a href="assets/pdf/3.pdf" target="_blank" button type="button" class="btn btn-primary">Buka</button>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <th scope="row">4</th>
-                                <td>Penerimaan Bahan Baku</td>
-                                <td><button type="button" class="btn btn-danger">Hapus</button>
-                                    <a href="assets/pdf/4.pdf" target="_blank" button type="button" class="btn btn-primary">Buka</button>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <th scope="row">5</th>
-                                <td>Tes Kesehatan Berkala</td>
-                                <td><button type="button" class="btn btn-danger">Hapus</button>
-                                    <a href="assets/pdf/5.pdf" target="_blank" button type="button" class="btn btn-primary">Buka</button>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <th scope="row">6</th>
-                                <td>Ctt Perorang Pelatihan Hygine dan Sanitasi Serta Dokumentasi</td>
-                                <td><button type="button" class="btn btn-danger">Hapus</button>
-                                    <a href="assets/pdf/6.pdf" target="_blank" button type="button" class="btn btn-primary">Buka</button>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <th scope="row">7</th>
-                                <td>Program Pelatihan Hygine dan Sanitasi</td>
-                                <td><button type="button" class="btn btn-danger">Hapus</button>
-                                    <a href="assets/pdf/7.pdf" target="_blank" button type="button" class="btn btn-primary">Buka</button>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <th scope="row">8</th>
-                                <td>Penomoran Batch</td>
-                                <td><button type="button" class="btn btn-danger">Hapus</button>
-                                    <a href="assets/pdf/8.pdf" target="_blank" button type="button" class="btn btn-primary">Buka</button>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <th scope="row">9</th>
-                                <td>Pengemasan</td>
-                                <td><button type="button" class="btn btn-danger">Hapus</button>
-                                    <a href="assets/pdf/9.pdf" target="_blank" button type="button" class="btn btn-primary">Buka</button>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <th scope="row">10</th>
-                                <td>Pendistribusian Produk</td>
-                                <td><button type="button" class="btn btn-danger">Hapus</button>
-                                    <a href="assets/pdf/10.pdf" target="_blank" button type="button" class="btn btn-primary">Buka</button>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <th scope="row">11</th>
-                                <td>Tera Alat</td>
-                                <td><button type="button" class="btn btn-danger">Hapus</button>
-                                    <a href="assets/pdf/11.pdf" target="_blank" button type="button" class="btn btn-primary">Buka</button>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <th scope="row">12</th>
-                                <td>Spesifikasi produk Antara atau Ruahan</td>
-                                <td><button type="button" class="btn btn-danger">Hapus</button>
-                                    <a href="assets/pdf/12.pdf" target="_blank" button type="button" class="btn btn-primary">Buka</button>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <th scope="row">13</th>
-                                <td>Spesifikasi Bahan Baku</td>
-                                <td><button type="button" class="btn btn-danger">Hapus</button>
-                                    <a href="assets/pdf/13.pdf" target="_blank" button type="button" class="btn btn-primary">Buka</button>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <th scope="row">14</th>
-                                <td>Spesifikasi Bahan Pengemas</td>
-                                <td><button type="button" class="btn btn-danger">Hapus</button>
-                                    <a href="assets/pdf/14.pdf" target="_blank" button type="button" class="btn btn-primary">Buka</button>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <th scope="row">15</th>
-                                <td>Pengambilan Contoh Bahan Awal</td>
-                                <td><button type="button" class="btn btn-danger">Hapus</button>
-                                    <a href="assets/pdf/15.pdf" target="_blank" button type="button" class="btn btn-primary">Buka</button>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <th scope="row">16</th>
-                                <td>Pengambilan Contoh Produk Jadi</td>
-                                <td><button type="button" class="btn btn-danger">Hapus</button>
-                                    <a href="assets/pdf/16.pdf" target="_blank" button type="button" class="btn btn-primary">Buka</button>
-                                </td>
-                            </tr>
-
                         </tbody>
+                        @endforeach
                     </table>
 
                 </div>
@@ -211,4 +102,3 @@
 
 </main>
 @endsection
-

@@ -36,28 +36,31 @@
                                 <!-- Modal Body -->
                                 <div class="modal-body">
                                     <p class="statusMsg"></p>
-                                    <form role="form">
+                                    <form action="/input_perizinan" method="post" enctype="multipart/form-data" role="form">
+
+                                        @csrf
+                                        <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                                         <div class="form-group">
                                             <label for="inputName">Nama Perizinan</label>
-                                            <input type="text" class="form-control" id="inputName" />
+                                            <input type="text" class="form-control" id="inputName" name="nama" />
                                         </div>
-                                        <form>
-                                            <div class="form-group">
-                                                <label for="exampleFormControlFile1">Pilih File Perizinan</label>
-                                                <input type="file" class="form-control-file" id="exampleFormControlFile1">
-                                            </div>
-                                        </form>
-                                    </form>
-                                </div>
 
-                                <!-- Modal Footer -->
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">
-                                        Close
-                                    </button>
-                                    <button type="button" class="btn btn-primary submitBtn" onclick="submitContactForm()">
-                                        Tambah
-                                    </button>
+                                        <div class="form-group">
+                                            <label for="exampleFormControlFile1">Pilih File Perizinan</label>
+                                            <input type="file" name="upload" class="form-control-file" id="exampleFormControlFile1">
+                                        </div>
+                                        <!-- Modal Footer -->
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">
+                                                Close
+                                            </button>
+                                            <button type="submit" class="btn btn-primary submitBtn">
+                                                Tambah
+                                            </button>
+                                        </div>
+
+
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -73,30 +76,20 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <?php $i = 0 ?>
+                            @foreach($list_perizinan as $row)
+                            <?php $i++; 
+                            $nama = $row['perizinan_nama'];
+                            ?>
                             <tr>
-                                <th scope="row">1</th>
-                                <td>Izin Uzaha</td>
-                                <td><button type="button" class="btn btn-danger">Hapus</button>
-                                    <a href="assets/pdf/izin_usaha.pdf" target="_blank" button type="button" class="btn btn-primary">Buka</button>
+                                <th scope="row">{{$i}}</th>
+                                <td>{{$row['perizinan_nama']}}</td>
+                                <td><a href="/hapus_perizinan/{{$row['perizinan_id']}}" type="button" class="btn btn-danger" onclick="return confirm('Hapus {{$nama}}? ')">Hapus</a>
+                                    <a href="/asset/perizinan/{{$row['perizinan_file']}}" button type="button" class="btn btn-primary">Buka</button>
                                 </td>
                             </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Izin Lingkungan</td>
-                                <td><button type="button" class="btn btn-danger">Hapus</button>
-                                    <a href="assets/pdf/izin_lingkungan.pdf" target="_blank" button type="button" class="btn btn-primary">Buka</button>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>NIB</td>
-                                <td><button type="button" class="btn btn-danger">Hapus</button>
-                                    <a href="assets/pdf/nib.pdf" target="_blank" button type="button" class="btn btn-primary">Buka</button>
-                                </td>
-                            </tr>
-
-
+        
+                            @endforeach
                         </tbody>
                     </table>
 

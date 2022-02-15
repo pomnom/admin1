@@ -36,29 +36,34 @@
                                 <!-- Modal Body -->
                                 <div class="modal-body">
                                     <p class="statusMsg"></p>
-                                    <form role="form">
+                                    <form action="/input_coa" method="post" enctype="multipart/form-data" role="form">
+
+                                        @csrf
+                                        <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                                         <div class="form-group">
                                             <label for="inputName">Nama COA</label>
-                                            <input type="text" class="form-control" id="inputName" />
+                                            <input type="text" class="form-control" id="inputName" name="nama" />
                                         </div>
-                                        <form>
-                                            <div class="form-group">
-                                                <label for="exampleFormControlFile1">Pilih File COA</label>
-                                                <input type="file" class="form-control-file" id="exampleFormControlFile1">
-                                            </div>
-                                        </form>
+
+                                        <div class="form-group">
+                                            <label for="exampleFormControlFile1">Pilih File COA</label>
+                                            <input type="file" name="upload" class="form-control-file" id="exampleFormControlFile1">
+                                        </div>
+                                        <!-- Modal Footer -->
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">
+                                                Close
+                                            </button>
+                                            <button type="submit" class="btn btn-primary submitBtn">
+                                                Tambah
+                                            </button>
+                                        </div>
+
+
                                     </form>
                                 </div>
 
-                                <!-- Modal Footer -->
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">
-                                        Close
-                                    </button>
-                                    <button type="button" class="btn btn-primary submitBtn" onclick="submitContactForm()">
-                                        Tambah
-                                    </button>
-                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -73,30 +78,20 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <?php $i = 0 ?>
+                            @foreach($list_coa as $row)
+                            <?php $i++; 
+                            $nama = $row['coa_nama'];
+                            ?>
                             <tr>
-                                <th scope="row">1</th>
-                                <td>COA 1</td>
-                                <td><button type="button" class="btn btn-danger">Hapus</button>
-                                    <a href="" button type="button" class="btn btn-primary">Buka</button>
+                                <th scope="row">{{$i}}</th>
+                                <td>{{$row['coa_nama']}}</td>
+                                <td><a href="/hapus_coa/{{$row['coa_id']}}" type="button" class="btn btn-danger" onclick="return confirm('Hapus {{$nama}}? ')">Hapus</a>
+                                    <a href="/asset/coa/{{$row['coa_file']}}" button type="button" class="btn btn-primary">Buka</button>
                                 </td>
                             </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>COA 2</td>
-                                <td><button type="button" class="btn btn-danger">Hapus</button>
-                                    <a href="" button type="button" class="btn btn-primary">Buka</button>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>COA 3</td>
-                                <td><button type="button" class="btn btn-danger">Hapus</button>
-                                    <a href="" button type="button" class="btn btn-primary">Buka</button>
-                                </td>
-                            </tr>
-
-
+        
+                            @endforeach
                         </tbody>
                     </table>
 
