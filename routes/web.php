@@ -17,6 +17,38 @@ Route::get('/', function () {
     return view('dashboard');
 });
 
-Route::get('/head', function () {
-    return view('layout.app');
+Route::get('/coa', function () {
+    return view('coa');
+});
+
+Route::get('/dip', function () {
+    return view('dip');
+});
+
+Route::get('/laporan', function () {
+    return view('laporan');
+});
+
+Route::get('/perizinan', function () {
+    return view('perizinan');
+});
+
+Route::get('/index', function () {
+    return view('index');
+});
+
+Route::get('/pembersihanruangan', function () {
+    return view('pembersihanruangan');
+});
+
+Route::get('/penerimaanBB', function () {
+    return view('penerimaanBB');
+});
+
+Route::get('/pengolahanbatch', function () {
+    return view('pengolahanbatch');
+});
+
+Route::get('/pobpabrik', function () {
+    return view('pobpabrik');
 });

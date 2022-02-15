@@ -19,9 +19,9 @@
                         <div class="collapse" id="cttpabrik1" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
                             <nav class="sb-sidenav-menu-nested nav">
 
-                                <a class="nav-link" href="pembersihanruangan.html">Pembersihan Ruangan</a>
-                                <a class="nav-link" href="pengolahanbatch.html">Pengolahan Batch</a>
-                                <a class="nav-link" href="penerimaanBB.html">Penerimaan dan Pengeluaran Bahan Awal</a>
+                                <a class="nav-link" href="pembersihanruangan">Pembersihan Ruangan</a>
+                                <a class="nav-link" href="pengolahanbatch">Pengolahan Batch</a>
+                                <a class="nav-link" href="penerimaanBB">Penerimaan dan Pengeluaran Bahan Awal</a>
                                 <a class="nav-link" href="#">Pembersihan dan Pemakaian Peralatan</a>
                                 <a class="nav-link" href="#">Pelatihan Hygine dan Sanitasi</a>
                                 <a class="nav-link" href="#">Program Pelatihan</a>
@@ -52,38 +52,38 @@
                 <div class="collapse" id="collapseLayouts1" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
                         <a class="nav-link" href="assets/pdf/cttbpom.pdf" target="_blank">FORMAT BAKU POB BPOM</a>
-                        <a class="nav-link" href="pobpabrik.html">POB PABRIK</a>
+                        <a class="nav-link" href="pobpabrik">POB PABRIK</a>
                     </nav>
                 </div>
 
                 <div class="sb-sidenav-menu-heading">Summary</div>
 
-                <a class="nav-link" href="laporan.html">
+                <a class="nav-link" href="laporan">
                     <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                     Laporan
                 </a>
 
 
-                <a class="nav-link" href="perizinan.html">
+                <a class="nav-link" href="perizinan">
                     <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                     Perizinan
                 </a>
 
-                <a class="nav-link" href="coa.html">
+                <a class="nav-link" href="coa">
                     <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                     COA
                 </a>
 
-                <a class="nav-link" href="dip.html">
+                <a class="nav-link" href="dip">
                     <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                     DIP
                 </a>
                 <!-- <div class="sb-sidenav-menu-heading">Addons</div>
-                            <a class="nav-link" href="charts.html">
+                            <a class="nav-link" href="charts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                                 Charts
                             </a>
-                            <a class="nav-link" href="tables.html">
+                            <a class="nav-link" href="tables">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 Tables -->
                 <!-- </a> -->
