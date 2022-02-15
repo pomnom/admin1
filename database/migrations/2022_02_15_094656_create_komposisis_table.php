@@ -16,7 +16,7 @@ class CreateKomposisisTable extends Migration
         Schema::create('komposisis', function (Blueprint $table) {
             $table->id("komposisi_id",10);
             $table->string("kompisisi_nama", 100);
-            $table->integer("komposisi_persen",3);
+            $table->integer("komposisi_persen",false);
             $table->timestamps();
         });
     }

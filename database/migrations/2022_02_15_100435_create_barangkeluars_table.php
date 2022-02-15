@@ -18,8 +18,8 @@ class CreateBarangkeluarsTable extends Migration
             $table->date("barangkeluar_tgl");
             $table->string("barangkeluar_utkproduk", 25);
             $table->string("barangkeluar_nobatch", 100);
-            $table->integer("barangkeluar_jumlah",5);
-            $table->integer("barangkeluar_sisa", 5);
+            $table->integer("barangkeluar_jumlah",false);
+            $table->integer("barangkeluar_sisa", false);
             $table->timestamps();
         });
     }
