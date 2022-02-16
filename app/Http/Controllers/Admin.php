@@ -208,5 +208,4 @@ class Admin extends Controller
         return redirect('/pengolahanbatch');
     }
 
-
 }
