@@ -166,18 +166,10 @@ class Admin extends Controller
     //komposisi
     public function tambah_komposisi(Request $req) {
 
-        $hasil = [
-            'komposisi_produk' => $req['tahun']."-".$req['bulan']."-".'1',
-            'komposisi_batchnum' => $req['batchnum'],
-            'komposisi_prosedurnum' => $req['produk_nama'],
-            'komposisi_namaruang' => $req['namaruang'],
-            'komposisi_carabersih' => $req['carabersih'],
-            'komposisi_pelaksana' => $req['pelaksana'],
-            'komposisi_periksa' => $req['periksa'],
-            'komposisi_lantaidinding' => $req['lantaidinding']==null ? 0:1,
-            'komposisi_meja' => $req['meja']==null ? 0:1,
-            'komposisi_jendela' => $req['jendela']==null ? 0:1,
-            'komposisi_plafon' => $req['plafon']==null ? 0:1,
+        $hasil = [            
+            'komposisi_id' => $req['id'],
+            'kompisisi_nama' => $req['nama'],
+            'komposisi_persen' => $req['persen'],            
         ];
         
         komposisi::insert($hasil);
@@ -189,17 +181,8 @@ class Admin extends Controller
     public function tambah_peralatan(Request $req) {
 
         $hasil = [
-            'peralatan_produk' => $req['tahun']."-".$req['bulan']."-".'1',
-            'peralatan_batchnum' => $req['batchnum'],
-            'peralatan_prosedurnum' => $req['produk_nama'],
-            'peralatan_namaruang' => $req['namaruang'],
-            'peralatan_carabersih' => $req['carabersih'],
-            'peralatan_pelaksana' => $req['pelaksana'],
-            'peralatan_periksa' => $req['periksa'],
-            'peralatan_lantaidinding' => $req['lantaidinding']==null ? 0:1,
-            'peralatan_meja' => $req['meja']==null ? 0:1,
-            'peralatan_jendela' => $req['jendela']==null ? 0:1,
-            'peralatan_plafon' => $req['plafon']==null ? 0:1,
+            'peralatan_id' => $req['kode'],
+            'peralatan_nama' => $req['nama'],
         ];
         
         peralatan::insert($hasil);
@@ -211,17 +194,13 @@ class Admin extends Controller
     public function tambah_penimbangan(Request $req) {
 
         $hasil = [
-            'penimbangan_produk' => $req['tahun']."-".$req['bulan']."-".'1',
-            'penimbangan_batchnum' => $req['batchnum'],
-            'penimbangan_prosedurnum' => $req['produk_nama'],
-            'penimbangan_namaruang' => $req['namaruang'],
-            'penimbangan_carabersih' => $req['carabersih'],
-            'penimbangan_pelaksana' => $req['pelaksana'],
-            'penimbangan_periksa' => $req['periksa'],
-            'penimbangan_lantaidinding' => $req['lantaidinding']==null ? 0:1,
-            'penimbangan_meja' => $req['meja']==null ? 0:1,
-            'penimbangan_jendela' => $req['jendela']==null ? 0:1,
-            'penimbangan_plafon' => $req['plafon']==null ? 0:1,
+            'penimbangan_kodebahan' => $req['kode_bahan'],
+            'penimbangan_namabahan' => $req['nama_bahan'],
+            'penimbangan_loth' => $req['no_loth'],
+            'penimbangan_jumlahbutuh' => $req['jumlah_butuh'],
+            'penimbangan_jumlahtimbang' => $req['jumlah_timbang'],
+            'penimbangan_timbangoleh' => $req['ditimbang'],
+            'penimbangan_periksaoleh' => $req['diperiksa'],
         ];
         
         penimbangan::insert($hasil);

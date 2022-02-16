@@ -35,10 +35,10 @@ Route::post('/input_catatbersih', [Admin::class, 'tambah_catatbersih']);
 Route::get('/pengolahanbatch',  [Admin::class, 'tampil_pengolahanbatch']);
 Route::post('/input_komposisi', [Admin::class, 'tambah_komposisi']);
 Route::post('/input_peralatan', [Admin::class, 'tambah_peralatan']);
-Route::post('/input_penimbangan', [Admin::class, 'tambah_catatbersih']);
+Route::post('/input_penimbangan', [Admin::class, 'tambah_penimbangan']);
 
 Route::get('/', function () {
-    return view('dashboard');
+    return view('auth.login');
 });
 
 Route::get('/laporan', function () {

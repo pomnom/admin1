@@ -15,6 +15,7 @@ class CreatePenimbangansTable extends Migration
     {
         Schema::create('penimbangans', function (Blueprint $table) {
             $table->id("penimbangan_id", 10);
+            $table->string("penimbangan_kodebahan", 100);
             $table->string("penimbangan_namabahan", 100);
             $table->string("penimbangan_loth", 100);
             $table->integer("penimbangan_jumlahbutuh", false);

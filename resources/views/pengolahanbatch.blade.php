@@ -126,31 +126,35 @@
                                 <!-- Modal Body -->
                                 <div class="modal-body">
                                     <p class="statusMsg"></p>
-                                    <form role="form">
+                                    <form action="/input_komposisi" method="post" role="form">
+                                        @csrf
+                                        <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+
                                         <div class="form-group">
                                             <label for="inputName">Nama BB</label>
-                                            <input type="text" class="form-control" id="inputName" placeholder="Nama BB" />
+                                            <input type="text" name="id" class="form-control" id="inputName" placeholder="Nama BB" />
                                         </div>
                                         <div class="form-group">
                                             <label for="inputEmail">Kode BB</label>
-                                            <input type="text" class="form-control" id="inputName" placeholder="Kode BB" />
+                                            <input type="text" name="nama" class="form-control" id="inputName" placeholder="Kode BB" />
                                         </div>
                                         <div class="form-group">
                                             <label for="inputMessage">Persentase</label>
-                                            <input type="text" class="form-control" id="inputName" placeholder="Persentase" />
+                                            <input type="text" name="persen" class="form-control" id="inputName" placeholder="Persentase" />
+                                        </div>
+                                        <!-- Modal Footer -->
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">
+                                                Close
+                                            </button>
+                                            <button type="submit" class="btn btn-primary submitBtn" onclick="submitContactForm()">
+                                                Tambah
+                                            </button>
                                         </div>
                                     </form>
                                 </div>
 
-                                <!-- Modal Footer -->
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">
-                                        Close
-                                    </button>
-                                    <button type="button" class="btn btn-primary submitBtn" onclick="submitContactForm()">
-                                        Tambah
-                                    </button>
-                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -167,15 +171,15 @@
                             </tr>
                         </thead>
                         <tbody>
-                        <?php $i = 0 ?>
+                            <?php $i = 0 ?>
                             @foreach($list_kom as $row)
-                            <?php $i++; 
+                            <?php $i++;
                             ?>
                             <tr>
-                                <th scope="row">1</th>
-                                <td>Kunyit</td>
-                                <td>kyt01</td>
-                                <td>50</td>
+                                <th scope="row">{{$i}}</th>
+                                <td>{{$row['kompisisi_nama']}}</td>
+                                <td>{{$row['komposisi_id']}}</td>
+                                <td>{{$row['komposisi_persen']}}</td>
                             </tr>
                             @endforeach
                         </tbody>
@@ -209,27 +213,31 @@
                                 <!-- Modal Body -->
                                 <div class="modal-body">
                                     <p class="statusMsg"></p>
-                                    <form role="form">
+                                    <form action="/input_peralatan" method="post" role="form">
+                                        @csrf
+                                        <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+
                                         <div class="form-group">
                                             <label for="inputName">Nama Alat</label>
-                                            <input type="text" class="form-control" id="inputName" placeholder="Nama Alat" />
+                                            <input name="nama" type="text" class="form-control" id="inputName" placeholder="Nama Alat" />
                                         </div>
                                         <div class="form-group">
                                             <label for="inputEmail">Kode Alat</label>
-                                            <input type="text" class="form-control" id="inputName" placeholder="Kode Alat" />
+                                            <input name="kode" type="text" class="form-control" id="inputName" placeholder="Kode Alat" />
+                                        </div>
+                                        <!-- Modal Footer -->
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">
+                                                Close
+                                            </button>
+                                            <button type="submit" class="btn btn-primary submitBtn" onclick="submitContactForm()">
+                                                Tambah
+                                            </button>
                                         </div>
                                     </form>
                                 </div>
 
-                                <!-- Modal Footer -->
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">
-                                        Close
-                                    </button>
-                                    <button type="button" class="btn btn-primary submitBtn" onclick="submitContactForm()">
-                                        Tambah
-                                    </button>
-                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -245,14 +253,14 @@
                             </tr>
                         </thead>
                         <tbody>
-                        <?php $i = 0 ?>
+                            <?php $i = 0 ?>
                             @foreach($list_alat as $row)
-                            <?php $i++; 
+                            <?php $i++;
                             ?>
                             <tr>
-                                <th scope="row">1</th>
-                                <td>Belender/Mixer</td>
-                                <td>BLMX</td>
+                                <th scope="row">{{$i}}</th>
+                                <td>{{$row['peralatan_nama']}}</td>
+                                <td>{{$row['peralatan_id']}}</td>
                             </tr>
                             @endforeach
                         </tbody>
@@ -286,47 +294,51 @@
                                 <!-- Modal Body -->
                                 <div class="modal-body">
                                     <p class="statusMsg"></p>
-                                    <form role="form">
+                                    <form action="/input_penimbangan" method="post" role="form">
+                                        @csrf
+                                        <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+
                                         <div class="form-group">
                                             <label for="inputName">Kode Bahan</label>
-                                            <input type="text" class="form-control" id="inputName" placeholder="Kode Bahan" />
+                                            <input type="text" name="kode_bahan" class="form-control" id="inputName" placeholder="Kode Bahan" />
                                         </div>
                                         <div class="form-group">
                                             <label for="inputEmail">Nama Bahan</label>
-                                            <input type="text" class="form-control" id="inputName" placeholder="Nama Bahan" />
+                                            <input type="text" name="nama_bahan" class="form-control" id="inputName" placeholder="Nama Bahan" />
                                         </div>
                                         <div class="form-group">
                                             <label for="inputEmail">Nomor Loth</label>
-                                            <input type="text" class="form-control" id="inputName" placeholder="Nomor Loth" />
+                                            <input type="text" name="no_loth" class="form-control" id="inputName" placeholder="Nomor Loth" />
                                         </div>
                                         <div class="form-group">
                                             <label for="inputEmail">Jumlah yang Dibutuhkan</label>
-                                            <input type="text" class="form-control" id="inputName" placeholder="Jumlah yang Dibutuhkan" />
+                                            <input type="text" name="jumlah_butuh" class="form-control" id="inputName" placeholder="Jumlah yang Dibutuhkan" />
                                         </div>
                                         <div class="form-group">
                                             <label for="inputEmail">Jumlah yang Ditimbang</label>
-                                            <input type="text" class="form-control" id="inputName" placeholder="Jumlah yang Ditimbang" />
+                                            <input type="text" name="jumlah_timbang" class="form-control" id="inputName" placeholder="Jumlah yang Ditimbang" />
                                         </div>
                                         <div class="form-group">
                                             <label for="inputEmail">Ditimbang Oleh</label>
-                                            <input type="text" class="form-control" id="inputName" placeholder="Ditimbang Oleh" />
+                                            <input type="text" name="ditimbang" class="form-control" id="inputName" placeholder="Ditimbang Oleh" />
                                         </div>
                                         <div class="form-group">
                                             <label for="inputEmail">Diperiksa Oleh</label>
-                                            <input type="text" class="form-control" id="inputName" placeholder="Diperiksa Oleh" />
+                                            <input type="text" name="diperiksa" class="form-control" id="inputName" placeholder="Diperiksa Oleh" />
+                                        </div>
+                                        <!-- Modal Footer -->
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">
+                                                Close
+                                            </button>
+                                            <button type="submit" class="btn btn-primary submitBtn" onclick="submitContactForm()">
+                                                Tambah
+                                            </button>
                                         </div>
                                     </form>
                                 </div>
 
-                                <!-- Modal Footer -->
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">
-                                        Close
-                                    </button>
-                                    <button type="button" class="btn btn-primary submitBtn" onclick="submitContactForm()">
-                                        Tambah
-                                    </button>
-                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -347,19 +359,19 @@
                             </tr>
                         </thead>
                         <tbody>
-                        <?php $i = 0 ?>
+                            <?php $i = 0 ?>
                             @foreach($list_nimbang as $row)
-                            <?php $i++; 
+                            <?php $i++;
                             ?>
                             <tr>
-                                <th scope="row">1</th>
-                                <td>kyt</td>
-                                <td>Kunyit</td>
-                                <td>02</td>
-                                <td>2 KG</td>
-                                <td>2 KG</td>
-                                <td>Ayu</td>
-                                <td>Saber</td>
+                                <th scope="row">{{$i}}</th>
+                                <td>{{$row['penimbangan_kodebahan']}}</td>
+                                <td>{{$row['penimbangan_namabahan']}}</td>
+                                <td>{{$row['penimbangan_loth']}}</td>
+                                <td>{{$row['penimbangan_jumlahbutuh']}}</td>
+                                <td>{{$row['penimbangan_jumlahtimbang']}}</td>
+                                <td>{{$row['penimbangan_timbangoleh']}}</td>
+                                <td>{{$row['penimbangan_periksaoleh']}}</td>
                             </tr>
                             @endforeach
                         </tbody>

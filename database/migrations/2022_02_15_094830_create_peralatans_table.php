@@ -14,7 +14,7 @@ class CreatePeralatansTable extends Migration
     public function up()
     {
         Schema::create('peralatans', function (Blueprint $table) {
-            $table->id("peralatan_id", 10);
+            $table->string("peralatan_id", 50);
             $table->string("peralatan_nama", 100);
             $table->timestamps();
         });
