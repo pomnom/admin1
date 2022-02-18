@@ -17,6 +17,7 @@ class CreateKomposisisTable extends Migration
             $table->string("komposisi_id",10);
             $table->string("kompisisi_nama", 100);
             $table->integer("komposisi_persen",false);
+            $table->integer("user_id",false);
             $table->timestamps();
         });
     }

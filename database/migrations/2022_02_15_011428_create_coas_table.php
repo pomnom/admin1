@@ -17,6 +17,7 @@ class CreateCoasTable extends Migration
             $table->id('coa_id',5);
             $table->string('coa_nama', 255);
             $table->string('coa_file', 255);
+            $table->integer("user_id",false);
             $table->timestamps();
         });
     }

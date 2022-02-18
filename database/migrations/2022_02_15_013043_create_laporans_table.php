@@ -17,6 +17,7 @@ class CreateLaporansTable extends Migration
             $table->id('laporan_id',5);
             $table->string('laporan_nama', 255);
             $table->string('laporan_file', 255);
+            $table->integer("user_id",false);
             $table->timestamps();
         });
     }

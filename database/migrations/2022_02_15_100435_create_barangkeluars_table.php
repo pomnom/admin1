@@ -20,6 +20,7 @@ class CreateBarangkeluarsTable extends Migration
             $table->string("barangkeluar_nobatch", 100);
             $table->integer("barangkeluar_jumlah",false);
             $table->integer("barangkeluar_sisa", false);
+            $table->integer("user_id",false);
             $table->timestamps();
         });
     }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePerizinansTable extends Migration
+class CreateCompaniesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,13 @@ class CreatePerizinansTable extends Migration
      */
     public function up()
     {
-        Schema::create('perizinans', function (Blueprint $table) {
-            $table->id('perizinan_id',5);
-            $table->string('perizinan_nama', 255);
-            $table->string('perizinan_file', 255);
+        Schema::create('companies', function (Blueprint $table) {
+            $table->id("company_id");
+            $table->string("company_nama",100);
+            $table->string("company_alamat",100);
+            $table->string("company_telepon",100);
+            $table->string("company_logo",100);
+            $table->string("company_tipe",100);
             $table->integer("user_id",false);
             $table->timestamps();
         });
@@ -29,6 +32,6 @@ class CreatePerizinansTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('perizinans');
+        Schema::dropIfExists('companies');
     }
 }

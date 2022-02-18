@@ -26,6 +26,7 @@ class CreateCatatbersihsTable extends Migration
             $table->boolean("catatbersih_meja");
             $table->boolean("catatbersih_jendela");
             $table->boolean("catatbersih_plafon");
+            $table->integer("user_id",false);
             $table->timestamps();
         });
     }

@@ -38,7 +38,7 @@ class AuthController extends Controller
         // echo Auth::user()->username;
         if (Auth::attempt($data)) { // true sekalian session field di users nanti bisa dipanggil via Auth
             echo "Login Success";
-            return redirect('/index');
+            return redirect('/setting');
 
         } else { // false
 

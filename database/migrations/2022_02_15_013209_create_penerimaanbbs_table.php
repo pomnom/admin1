@@ -17,6 +17,7 @@ class CreatePenerimaanbbsTable extends Migration
             $table->string("penerimaanbb",5);
             $table->string("penerimaanbb_produk",100);
             $table->string("penerimaanbb_pobnom",100);
+            $table->integer("user_id",false);
             $table->timestamps();
         });
     }

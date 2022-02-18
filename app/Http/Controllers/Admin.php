@@ -2,15 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\{catatbersih, coa,dip,perizinan,pobpabrik,komposisi,peralatan,penimbangan};
+use App\Models\{bahanbaku, catatbersih, coa, company, dip, kemasan, perizinan,pobpabrik,komposisi,peralatan,penimbangan, produk};
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rules\Exists;
 
 class Admin extends Controller
 {
     //COA
     public function tampil_coa() {
-        $data = coa::all();
+        $id=Auth::user()->id;
+        $data = coa::all()->where('user_id',$id);
         return view('/coa', ['list_coa' => $data]);
     }
 
@@ -29,9 +31,11 @@ class Admin extends Controller
         $nama = $file->getClientOriginalName();
         $tujuan_upload = 'asset/coa/';
 		$file->move($tujuan_upload,$nama);
+        $id=Auth::user()->id;
         $hasil = [
             'coa_file' => $nama,
             'coa_nama' => $req['nama'],
+            'user_id' => $id,
         ];
 
         coa::insert($hasil);
@@ -41,7 +45,8 @@ class Admin extends Controller
 
     //DIP
     public function tampil_dip() {
-        $data = dip::all();
+        $id=Auth::user()->id;
+        $data = dip::all()->where('user_id',$id);
         return view('/dip', ['list_dip' => $data]);
     }
 
@@ -60,9 +65,11 @@ class Admin extends Controller
         $nama = $file->getClientOriginalName();
         $tujuan_upload = 'asset/dip/';
 		$file->move($tujuan_upload,$nama);
+        $id=Auth::user()->id;
         $hasil = [
             'dip_file' => $nama,
             'dip_nama' => $req['nama'],
+            'user_id' => $id,
         ];
 
         dip::insert($hasil);
@@ -72,7 +79,8 @@ class Admin extends Controller
 
     //perizinan
     public function tampil_perizinan() {
-        $data = perizinan::all();
+        $id=Auth::user()->id;
+        $data = perizinan::all()->where('user_id',$id);
         return view('/perizinan', ['list_perizinan' => $data]);
     }
 
@@ -91,9 +99,11 @@ class Admin extends Controller
         $nama = $file->getClientOriginalName();
         $tujuan_upload = 'asset/perizinan/';
 		$file->move($tujuan_upload,$nama);
+        $id=Auth::user()->id;
         $hasil = [
             'perizinan_file' => $nama,
             'perizinan_nama' => $req['nama'],
+            'user_id' => $id,
         ];
 
         perizinan::insert($hasil);
@@ -103,7 +113,8 @@ class Admin extends Controller
 
     //pob
     public function tampil_pobpabrik() {
-        $data = pobpabrik::all();
+        $id=Auth::user()->id;
+        $data = pobpabrik::all()->where('user_id',$id);
         return view('/pobpabrik', ['list_pobpabrik' => $data]);
     }
 
@@ -122,9 +133,11 @@ class Admin extends Controller
         $nama = $file->getClientOriginalName();
         $tujuan_upload = 'asset/pobpabrik/';
 		$file->move($tujuan_upload,$nama);
+        $id=Auth::user()->id;
         $hasil = [
             'pobpabrik_file' => $nama,
             'pobpabrik_nama' => $req['nama'],
+            'user_id' => $id,
         ];
 
         pobpabrik::insert($hasil);
@@ -134,7 +147,7 @@ class Admin extends Controller
 
     //catat bersh ruangan
     public function tambah_catatbersih(Request $req) {
-
+        $id=Auth::user()->id;
         $hasil = [
             'catatbersih_produk' => $req['tahun']."-".$req['bulan']."-".'1',
             'catatbersih_batchnum' => $req['batchnum'],
@@ -147,6 +160,7 @@ class Admin extends Controller
             'catatbersih_meja' => $req['meja']==null ? 0:1,
             'catatbersih_jendela' => $req['jendela']==null ? 0:1,
             'catatbersih_plafon' => $req['plafon']==null ? 0:1,
+            'user_id' => $id,
         ];
         
         catatbersih::insert($hasil);
@@ -156,20 +170,22 @@ class Admin extends Controller
 
     //tampil batch
     public function tampil_pengolahanbatch(){
-        $kom = komposisi::all();
-        $alat = peralatan::all();
-        $nimbang = penimbangan::all();
+        $id=Auth::user()->id;
+        $kom = komposisi::all()->where('user_id',$id);
+        $alat = peralatan::all()->where('user_id',$id);
+        $nimbang = penimbangan::all()->where('user_id',$id);
         return view('/pengolahanbatch', ['list_kom' => $kom,'list_alat'=>$alat, 'list_nimbang'=>$nimbang
     ]);
     }
 
     //komposisi
     public function tambah_komposisi(Request $req) {
-
+        $id=Auth::user()->id;
         $hasil = [            
             'komposisi_id' => $req['id'],
             'kompisisi_nama' => $req['nama'],
-            'komposisi_persen' => $req['persen'],            
+            'komposisi_persen' => $req['persen'],
+            'user_id' => $id,            
         ];
         
         komposisi::insert($hasil);
@@ -179,10 +195,11 @@ class Admin extends Controller
 
     //peralatan
     public function tambah_peralatan(Request $req) {
-
+        $id=Auth::user()->id;
         $hasil = [
             'peralatan_id' => $req['kode'],
             'peralatan_nama' => $req['nama'],
+            'user_id' => $id,
         ];
         
         peralatan::insert($hasil);
@@ -192,7 +209,7 @@ class Admin extends Controller
 
     //catat penimbangan
     public function tambah_penimbangan(Request $req) {
-
+        $id=Auth::user()->id;
         $hasil = [
             'penimbangan_kodebahan' => $req['kode_bahan'],
             'penimbangan_namabahan' => $req['nama_bahan'],
@@ -201,11 +218,83 @@ class Admin extends Controller
             'penimbangan_jumlahtimbang' => $req['jumlah_timbang'],
             'penimbangan_timbangoleh' => $req['ditimbang'],
             'penimbangan_periksaoleh' => $req['diperiksa'],
+            'user_id' => $id,
         ];
         
         penimbangan::insert($hasil);
         
         return redirect('/pengolahanbatch');
+    }
+
+    public function tambah_company(Request $req)
+    {   $file = $req->file('upload');
+        $nama = $file->getClientOriginalName();
+        $tujuan_upload = 'asset/logo/';
+		$file->move($tujuan_upload,$nama);
+        $id=Auth::user()->id;
+        $hasil = [
+            'company_nama' => $req['nama'],
+            'company_alamat' => $req['alamat'],
+            'company_telepon' => $req['telp'],
+            'company_logo' => $nama,
+            'company_tipe' => $req['tipe'],
+            'user_id' => $id,
+        ];
+
+        company::insert($hasil);
+        // // user::deleted()
+        return redirect('/setting');
+    }
+
+    public function tambah_produk(Request $req)
+    {
+        $id=Auth::user()->id;
+        $hasil = [
+            'produk_nama' => $req['nama'],
+            'produk_kode' => $req['kode'],
+            'user_id' => $id,
+        ];
+
+        produk::insert($hasil);
+        // // user::deleted()
+        return redirect('/setting');
+    }
+
+    public function tambah_kemasan(Request $req)
+    {
+        $id=Auth::user()->id;
+        $hasil = [
+            'kemasan_nama' => $req['nama'],
+            'user_id' => $id,
+        ];
+
+        kemasan::insert($hasil);
+        // // user::deleted()
+        return redirect('/setting');
+    }
+
+    public function tambah_bahanbaku(Request $req)
+    {
+        $id=Auth::user()->id;
+        $hasil = [
+            'bahanbaku_nama' => $req['nama'],
+            'bahanbaku_kode' => $req['alamat'],
+            'user_id' => $id,
+        ];
+
+        bahanbaku::insert($hasil);
+        // // user::deleted()
+        return redirect('/setting');
+    }
+
+    public function tampil_setting(){
+        $id=Auth::user()->id;
+        $kom = company::all()->where('user_id',$id);
+        $produk = produk::all()->where('user_id',$id);
+        $kemasan = kemasan::all()->where('user_id',$id);
+        $bahanbaku = bahanbaku::all()->where('user_id',$id);
+        return view('setting', ['list_com' => $kom,'list_produk'=>$produk, 'list_kemasan'=>$kemasan, 'list_bahanbaku'=>$bahanbaku
+    ]);
     }
 
 }

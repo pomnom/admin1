@@ -17,14 +17,16 @@ use Illuminate\Support\Facades\Route;
 Route::get('/login', [AuthController::class, 'showFormLogin'])->name("login");
 Route::post('/login', [AuthController::class, 'login']);
 Route::get('/logout', [AuthController::class, 'logout']);
+
+Route::get('/showregister', [AuthController::class, 'showFormRegister']);
+Route::post('/register', [AuthController::class, 'register']);
+
 Route::get('/resetpass', function () {
     return view('auth.resetpass');
 });
 
 Route::group(['middleware' => 'auth'], function () {
 
-    Route::get('/showregister', [AuthController::class, 'showFormRegister']);
-    Route::post('/register', [AuthController::class, 'register']);
 
     Route::post('/input_coa', [Admin::class, 'tambah_coa']);
     Route::get('/coa', [Admin::class, 'tampil_coa']);
@@ -65,4 +67,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/penerimaanBB', function () {
         return view('penerimaanBB');
     });
+
+    Route::get('/setting', [Admin::class, 'tampil_setting'])->name("setting");
+    Route::post('/input_produk', [Admin::class, 'tambah_produk']);
+    Route::post('/input_kemasan', [Admin::class, 'tambah_kemasan']);
+    Route::post('/input_bahanbaku', [Admin::class, 'tambah_bahanbaku']);
+    Route::post('/input_company', [Admin::class, 'tambah_company']);
 });

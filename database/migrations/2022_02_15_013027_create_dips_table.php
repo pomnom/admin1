@@ -17,6 +17,7 @@ class CreateDipsTable extends Migration
             $table->id('dip_id',5);
             $table->string('dip_nama', 255);
             $table->string('dip_file', 255);
+            $table->integer("user_id",false);
             $table->timestamps();
         });
     }

@@ -22,6 +22,7 @@ class CreatePenimbangansTable extends Migration
             $table->integer("penimbangan_jumlahtimbang", false);
             $table->string("penimbangan_timbangoleh", 100);
             $table->string("penimbangan_periksaoleh", 100);
+            $table->integer("user_id",false);
             $table->timestamps();
         });
     }

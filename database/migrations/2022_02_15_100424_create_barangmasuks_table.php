@@ -21,6 +21,7 @@ class CreateBarangmasuksTable extends Migration
             $table->integer("barangmasuk_jumlah",false);
             $table->string("barangmasuk_nokontrol", 25);
             $table->date("barangmasuk_kadaluarsa");
+            $table->integer("user_id",false);
             $table->timestamps();
         });
     }

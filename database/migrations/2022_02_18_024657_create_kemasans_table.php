@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePerizinansTable extends Migration
+class CreateKemasansTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CreatePerizinansTable extends Migration
      */
     public function up()
     {
-        Schema::create('perizinans', function (Blueprint $table) {
-            $table->id('perizinan_id',5);
-            $table->string('perizinan_nama', 255);
-            $table->string('perizinan_file', 255);
+        Schema::create('kemasans', function (Blueprint $table) {
+            $table->id("kemasan_id");
+            $table->string("kemasan_nama",100);
             $table->integer("user_id",false);
             $table->timestamps();
         });
@@ -29,6 +28,6 @@ class CreatePerizinansTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('perizinans');
+        Schema::dropIfExists('kemasans');
     }
 }

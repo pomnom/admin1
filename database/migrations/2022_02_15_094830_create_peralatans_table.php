@@ -16,6 +16,7 @@ class CreatePeralatansTable extends Migration
         Schema::create('peralatans', function (Blueprint $table) {
             $table->string("peralatan_id", 50);
             $table->string("peralatan_nama", 100);
+            $table->integer("user_id",false);
             $table->timestamps();
         });
     }

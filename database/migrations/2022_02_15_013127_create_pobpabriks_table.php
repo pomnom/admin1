@@ -17,6 +17,7 @@ class CreatePobpabriksTable extends Migration
             $table->id('pobpabrik_id',5);
             $table->string('pobpabrik_nama', 255);
             $table->string('pobpabrik_file', 255);
+            $table->integer("user_id",false);
             $table->timestamps();
         });
     }
