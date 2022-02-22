@@ -237,7 +237,7 @@ class Admin extends Controller
             'company_alamat' => $req['alamat'],
             'company_telepon' => $req['telp'],
             'company_logo' => $nama,
-            'company_tipe' => $req['tipe'],
+            
             'user_id' => $id,
         ];
 

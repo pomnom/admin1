@@ -45,7 +45,7 @@ class AuthController extends Controller
             //Login Fail
             echo "Login fail";
             Session::flash('error', 'Email atau password salah');
-            return redirect('/');
+            return redirect('/login');
         }
     }
 
@@ -67,7 +67,7 @@ class AuthController extends Controller
 
         if ($simpan) {
             Session::flash('success', 'Register berhasil! Silahkan login untuk mengakses data');
-            return redirect('/');
+            return redirect('/login');
         } else {
             Session::flash('errors', ['' => 'Register gagal! Silahkan ulangi beberapa saat lagi']);
             return redirect('showregister');

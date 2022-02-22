@@ -19,7 +19,6 @@ class CreateCompaniesTable extends Migration
             $table->string("company_alamat",100);
             $table->string("company_telepon",100);
             $table->string("company_logo",100);
-            $table->string("company_tipe",100);
             $table->integer("user_id",false);
             $table->timestamps();
         });

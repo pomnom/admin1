@@ -49,22 +49,7 @@
                                 <input type="file" name="upload" class="form-control-file" id="exampleFormControlFile1">
                             </div>
                         </div>
-
-                        <div class="form-group row">
-                            <label for="inputEmail3" class="col-sm-2 col-form-label">Tipe Pabrik</label>
-                            <div class="col-sm-10">
-                                <select class="form-control" name="tipe" id="inlineFormCustomSelect">
-                                    <option selected>Choose...</option>
-                                    <option value="1">Tipe A</option>
-                                    <option value="2">Tipe B</option>
-                                </select>
-                            </div>
-                        </div>
-                        
-
-
-
-
+  
                 </div>
             </div>
 

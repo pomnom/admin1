@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::get('/login', [AuthController::class, 'showFormLogin'])->name("login");
 Route::post('/login', [AuthController::class, 'login']);
 Route::get('/logout', [AuthController::class, 'logout']);
@@ -59,7 +60,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/index', function () {
         return view('index');
     })->name("home");
-
+    Route::get('/', [AuthController::class, 'showFormLogin']);
     Route::get('/pembersihanruangan', function () {
         return view('pembersihanruangan');
     });
