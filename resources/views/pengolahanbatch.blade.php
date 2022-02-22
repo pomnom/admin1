@@ -383,9 +383,50 @@
                 <div class="card-header">
                     <i class="fas fa-table me-1"></i>
                     Produk
+
+                    <div class="dropdown float-right">
+                        <button class="btn btn-white dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Dropdown button
+                        </button>
+                        <div class="dropdown-menu">
+                            <li><a class="nav-link active" href="#tab-0" data-toggle="tab">Absolute Reference</a></li>
+                            <li><a class="nav-link" href="#tab-1" data-toggle="tab">Foot Plat</a></li>
+                            <li><a class="nav-link" href="#tab-2" data-toggle="tab">Pump Room</a></li>
+                            <li><a class="nav-link" href="#tab-3" data-toggle="tab">Batu Kali</a></li>
+                        </div>
+                    </div>
                 </div>
                 <div class="card-body">
-                    <table class="table">
+
+                    <div class="row m-t-sm">
+                        <div class="col-lg-12">
+                            <div class="panel blank-panel">
+
+                                <div class="panel-body">
+                                    <div class="tab-content">
+                                        <div class="tab-pane active" id="tab-0">
+                                            <b>tab-0</b>
+                                        </div>
+                                        <div class="tab-pane" id="tab-1">
+                                            <b>tab-1</b>
+                                        </div>
+                                        <div class="tab-pane" id="tab-2">
+                                            <b>tab-2</b>
+                                        </div>
+                                        <div class="tab-pane " id="tab-3">
+                                            <div class="wrapper wrapper-content animated fadeInRight">
+                                                <b>tab-3</b>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- <table class="table">
                         <tr>
                             <th scope="col">Tahap Pengolahan</th>
                             <th scope="col">Paraf Bagian Pengawasa Mutu</th>
@@ -440,7 +481,7 @@
                                 </select>
                             </div>
                         </div>
-                    </form>
+                    </form> -->
                 </div>
             </div>
 

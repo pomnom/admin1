@@ -12,33 +12,53 @@
                     <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
                         <a class="nav-link" href="assets/pdf/cttbpom.pdf" target="_blank">Format Baku BPOM</a>
 
-                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#cttpabrik1" aria-expanded="false" aria-controls="cttpabrik1">
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#cttpabrik0" aria-expanded="false" aria-controls="cttpabrik0">
                             Catatan Pabrik
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
-                        <div class="collapse" id="cttpabrik1" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                        <div class="nav -link collapse" id="cttpabrik0" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
                             <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" data-bs-toggle="collapse" data-bs-target="#cttpabrik1" aria-expanded="false" aria-controls="cttpabrik1" href="#">Dokumentasi
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                </a>
+                                    <div class="collapse" id="cttpabrik1" aria-labelledby="headingOne" data-bs-parent="#cttpabrik0">
+                                        <nav class="sb-sidenav-menu-nested nav">
 
-                                <a class="nav-link" href="pembersihanruangan">Pembersihan Ruangan</a>
-                                <a class="nav-link" href="pengolahanbatch">Pengolahan Batch</a>
-                                <a class="nav-link" href="penerimaanBB">Penerimaan dan Pengeluaran Bahan Awal</a>
-                                <a class="nav-link" href="#">Pembersihan dan Pemakaian Peralatan</a>
-                                <a class="nav-link" href="#">Pelatihan Hygine dan Sanitasi</a>
-                                <a class="nav-link" href="#">Program Pelatihan</a>
-                                <a class="nav-link" href="#">Pengemasan Batch Murni</a>
-                                <a class="nav-link" href="#">Pendistribusian</a>
-                                <a class="nav-link" href="#">Tera Alat</a>
-                                <a class="nav-link" href="#">Pembersihan Alat</a>
-                                <a class="nav-link" href="#">Penggunaan Utama</a>
-                                <a class="nav-link" href="#">Pengambilan Contoh Produk Jadi</a>
-                                <a class="nav-link" href="#">Pengambilan Contoh Bahan baku</a>
-                                <a class="nav-link" href="#">Pengambilan Contoh Bahan Pengemas</a>
-                                <a class="nav-link" href="#">Pemeriksaan Bahan Baku</a>
-                                <a class="nav-link" href="#">Pemeriksaan Bahan Pengemas</a>
-                                <a class="nav-link" href="#">Pemeriksaan Produk Jadi</a>
-                                <a class="nav-link" href="#">Ceklis & TTD Yang Sudah Dibersihkan</a>
+                                            <a class="nav-link" href="pembersihanruangan">Pembersihan Ruangan</a>
+                                            <a class="nav-link" href="pengolahanbatch">Pengolahan Batch</a>
+                                            <a class="nav-link" href="penerimaanBB">Penerimaan dan Pengeluaran Bahan Awal</a>
+                                            <a class="nav-link" href="#">Pembersihan dan Pemakaian Peralatan</a>
+                                            <a class="nav-link" href="#">Pelatihan Hygine dan Sanitasi</a>
+                                            <a class="nav-link" href="#">Program Pelatihan</a>
+                                            <a class="nav-link" href="#">Pengemasan Batch Murni</a>
+                                            <a class="nav-link" href="#">Pendistribusian</a>
+                                            <a class="nav-link" href="#">Tera Alat</a>
+                                            <a class="nav-link" href="#">Pembersihan Alat</a>
+                                            <a class="nav-link" href="#">Penggunaan Utama</a>
+                                            <a class="nav-link" href="#">Pengambilan Contoh Produk Jadi</a>
+                                            <a class="nav-link" href="#">Pengambilan Contoh Bahan baku</a>
+                                            <a class="nav-link" href="#">Pengambilan Contoh Bahan Pengemas</a>
+                                            <a class="nav-link" href="#">Pemeriksaan Bahan Baku</a>
+                                            <a class="nav-link" href="#">Pemeriksaan Bahan Pengemas</a>
+                                            <a class="nav-link" href="#">Pemeriksaan Produk Jadi</a>
+                                            <a class="nav-link" href="#">Ceklis & TTD Yang Sudah Dibersihkan</a>
+                                        </nav>
+                                    </div>
+                                <a class="nav-link" data-bs-toggle="collapse" data-bs-target="#cttpabrik2" aria-expanded="false" aria-controls="cttpabrik2" href="#">Higiene dan Sanitasi
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                </a>
+                                <div class="collapse" id="cttpabrik2" aria-labelledby="headingOne" data-bs-parent="#cttpabrik0">
+                                    <nav class="sb-sidenav-menu-nested nav">
+                                        <a class="nav-link" href="pembersihanruangan">Pemeriksaan  Personil</a>
+                                        <a class="nav-link" href="pengolahanbatch">Pembersihan Saniiitasi  Ruangan</a>
+                                        <a class="nav-link" href="penerimaanBB">Pembersihan Sanitasi Alat</a>
+                                        <a class="nav-link" href="#">No 4</a>
+                                        <a class="nav-link" href="#">No 5</a>
+                                    </nav>
+                                </div>
                             </nav>
                         </div>
+
                     </nav>
                 </div>
 
@@ -52,7 +72,52 @@
                 <div class="collapse" id="collapseLayouts1" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
                         <a class="nav-link" href="assets/pdf/cttbpom.pdf" target="_blank">FORMAT BAKU POB BPOM</a>
-                        <a class="nav-link" href="pobpabrik">POB PABRIK</a>
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pobpabrik0" aria-expanded="false" aria-controls="pobpabrik0">
+                            POB Pabrik
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="nav -link collapse" id="pobpabrik0" aria-labelledby="headingOne" data-bs-parent="#collapseLayouts1">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" data-bs-toggle="collapse" data-bs-target="#pobpabrik1" aria-expanded="false" aria-controls="pobpabrik1" href="#">Dokumentasi
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                </a>
+                                    <div class="collapse" id="pobpabrik1" aria-labelledby="headingOne" data-bs-parent="#pobpabrik0">
+                                        <nav class="sb-sidenav-menu-nested nav">
+
+                                            <a class="nav-link" href="pembersihanruangan">Pembersihan Ruangan</a>
+                                            <a class="nav-link" href="pengolahanbatch">Pengolahan Batch</a>
+                                            <a class="nav-link" href="penerimaanBB">Penerimaan dan Pengeluaran Bahan Awal</a>
+                                            <a class="nav-link" href="#">Pembersihan dan Pemakaian Peralatan</a>
+                                            <a class="nav-link" href="#">Pelatihan Hygine dan Sanitasi</a>
+                                            <a class="nav-link" href="#">Program Pelatihan</a>
+                                            <a class="nav-link" href="#">Pengemasan Batch Murni</a>
+                                            <a class="nav-link" href="#">Pendistribusian</a>
+                                            <a class="nav-link" href="#">Tera Alat</a>
+                                            <a class="nav-link" href="#">Pembersihan Alat</a>
+                                            <a class="nav-link" href="#">Penggunaan Utama</a>
+                                            <a class="nav-link" href="#">Pengambilan Contoh Produk Jadi</a>
+                                            <a class="nav-link" href="#">Pengambilan Contoh Bahan baku</a>
+                                            <a class="nav-link" href="#">Pengambilan Contoh Bahan Pengemas</a>
+                                            <a class="nav-link" href="#">Pemeriksaan Bahan Baku</a>
+                                            <a class="nav-link" href="#">Pemeriksaan Bahan Pengemas</a>
+                                            <a class="nav-link" href="#">Pemeriksaan Produk Jadi</a>
+                                            <a class="nav-link" href="#">Ceklis & TTD Yang Sudah Dibersihkan</a>
+                                        </nav>
+                                    </div>
+                                <a class="nav-link" data-bs-toggle="collapse" data-bs-target="#pobpabrik2" aria-expanded="false" aria-controls="pobpabrik2" href="#">Higiene dan Sanitasi
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                </a>
+                                <div class="collapse" id="pobpabrik2" aria-labelledby="headingOne" data-bs-parent="#pobpabrik0">
+                                    <nav class="sb-sidenav-menu-nested nav">
+                                        <a class="nav-link" href="pembersihanruangan">Pemeriksaan  Personil</a>
+                                        <a class="nav-link" href="pengolahanbatch">Pembersihan Saniiitasi  Ruangan</a>
+                                        <a class="nav-link" href="penerimaanBB">Pembersihan Sanitasi Alat</a>
+                                        <a class="nav-link" href="#">No 4</a>
+                                        <a class="nav-link" href="#">No 5</a>
+                                    </nav>
+                                </div>
+                            </nav>
+                        </div>
                     </nav>
                 </div>
 
