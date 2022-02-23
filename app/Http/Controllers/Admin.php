@@ -168,13 +168,18 @@ class Admin extends Controller
         return redirect('/pembersihanruangan');
     }
 
+    public function tampil_penerimaanbb(){
+        echo Auth::user()->name;
+        // return view('catatan.penerimaanBB');
+    }
+
     //tampil batch
     public function tampil_pengolahanbatch(){
         $id=Auth::user()->id;
         $kom = komposisi::all()->where('user_id',$id);
         $alat = peralatan::all()->where('user_id',$id);
         $nimbang = penimbangan::all()->where('user_id',$id);
-        return view('/pengolahanbatch', ['list_kom' => $kom,'list_alat'=>$alat, 'list_nimbang'=>$nimbang
+        return view('catatan.pengolahanbatch', ['list_kom' => $kom,'list_alat'=>$alat, 'list_nimbang'=>$nimbang
     ]);
     }
 
@@ -237,7 +242,6 @@ class Admin extends Controller
             'company_alamat' => $req['alamat'],
             'company_telepon' => $req['telp'],
             'company_logo' => $nama,
-            
             'user_id' => $id,
         ];
 
