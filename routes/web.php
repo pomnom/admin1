@@ -62,11 +62,11 @@ Route::group(['middleware' => 'auth'], function () {
     })->name("home");
     Route::get('/', [AuthController::class, 'showFormLogin']);
     Route::get('/pembersihanruangan', function () {
-        return view('catatan.pembersihanruangan');
+        return view('catatan.dokumen.pembersihanruangan');
     });
 
     Route::get('/penerimaanBB', function () {
-        return view('catatan.penerimaanBB');
+        return view('catatan.dokumen.penerimaanBB');
     });
 
     Route::get('/setting', [Admin::class, 'tampil_setting'])->name("setting");
