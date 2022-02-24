@@ -74,4 +74,25 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/input_kemasan', [Admin::class, 'tambah_kemasan']);
     Route::post('/input_bahanbaku', [Admin::class, 'tambah_bahanbaku']);
     Route::post('/input_company', [Admin::class, 'tambah_company']);
+
+    //View Belum jadi
+    Route::get('/ambilbahanbaku', [Admin::class, 'tampil_ambilbahanbaku']);
+    Route::get('/ambilkemasan', [Admin::class, 'tampil_ambilkemasan']);
+    Route::get('/ambilprodukjadi', [Admin::class, 'tampil_ambilprodukjadi']);
+    Route::get('/bersidanpakaialat', [Admin::class, 'tampil_bersidanpakaialat']);
+    Route::get('/kemasbatch', [Admin::class, 'tampil_kemasbatch']);
+    Route::get('/latihhigidansani', [Admin::class, 'tampil_latihhigidansani']);
+    Route::get('/pembersihanalat', [Admin::class, 'tampil_pembersihanalat']);
+    Route::get('/pendistribusian', [Admin::class, 'tampil_pendistribusian']);
+    Route::get('/pengggunaanutama', [Admin::class, 'tampil_pengggunaanutama']);
+    Route::get('/periksabahanbakku', [Admin::class, 'tampil_periksabahanbakku']);
+    Route::get('/periksakemasan', [Admin::class, 'tampil_periksakemasan']);
+    Route::get('/periksaproduksijadi', [Admin::class, 'tampil_periksaproduksijadi']);
+    Route::get('/programlatih', [Admin::class, 'tampil_programlatih']);
+    Route::get('/teraalat', [Admin::class, 'tampil_teraalat']);
+
+    Route::get('/periksapersonil', [Admin::class, 'tampil_periksapersonil']);
+    Route::get('/periksasanialat', [Admin::class, 'tampil_periksasanialat']);
+    Route::get('/periksasaniruang', [Admin::class, 'tampil_periksasaniruang']);
+    
 });

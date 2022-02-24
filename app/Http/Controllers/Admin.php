@@ -301,4 +301,74 @@ class Admin extends Controller
     ]);
     }
 
+    public function tampil_ambilbahanbaku () {
+        return view("catatan.dokumen.ambilbahanbaku");
+    }
+    
+    public function tampil_ambilkemasan () {
+        return view("catatan.dokumen.ambilkemasan");
+    }
+
+    public function tampil_ambilprodukjadi () {
+        return view("catatan.dokumen.ambilprodukjadi");
+    }
+
+    public function tampil_bersihdanpakaialat () {
+        return view("catatan.dokumen.bersihdanpakaialat");
+    }
+
+    public function tampil_kemasbatch () {
+        return view("catatan.dokumen.kemasbatch");
+    }
+
+    public function tampil_latihhigidansani () {
+        return view("catatan.dokumen.latihhigidansani");
+    }
+
+    public function tampil_pembbersihanalat () {
+        return view("catatan.dokumen.pembbersihanalat");
+    }
+
+    public function tampil_pendistribusian () {
+        return view("catatan.dokumen.pendistribusian");
+    }
+
+    public function tampil_penggunaanutama () {
+        return view("catatan.dokumen.penggunaanutama");
+    }
+    
+    public function tampil_periksabahanbaku () {
+        return view("catatan.dokumen.periksabahanbaku");
+    }
+
+    
+
+    public function tampil_periksakemasan () {
+        return view("catatan.dokumen.periksakemasan");
+    }
+
+    public function tampil_periksaprodukjadi () {
+        return view("catatan.dokumen.periksaprodukjadi");
+    }
+
+    public function tampil_programlatih () {
+        return view("catatan.dokumen.programlatih");
+    }
+
+    public function tampil_teraalat () {
+        return view("catatan.dokumen.teraalat");
+    }
+
+    public function tampil_periksapersonil () {
+        return view("catatan.dokumen.periksapersonil");
+    }
+
+    public function tampil_periksasanialat () {
+        return view("catatan.dokumen.periksasanialat");
+    }
+
+    public function tampil_periksasaniruang () {
+        return view("catatan.dokumen.periksasaniruang");
+    }
+
 }

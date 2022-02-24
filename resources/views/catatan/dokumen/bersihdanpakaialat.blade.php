@@ -5,6 +5,6 @@
 
 @section('content')
 <main>
-    {{"Pemeriksaan Produk Jadi"}}
+    {{"Pembersiihhhan dan Pemakaian alat"}}
 </main>
 @endsection
