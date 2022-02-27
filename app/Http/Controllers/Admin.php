@@ -360,15 +360,15 @@ class Admin extends Controller
     }
 
     public function tampil_periksapersonil () {
-        return view("catatan.dokumen.periksapersonil");
+        return view("catatan.higidansani.periksapersonil");
     }
 
     public function tampil_periksasanialat () {
-        return view("catatan.dokumen.periksasanialat");
+        return view("catatan.higidansani.periksasanialat");
     }
 
     public function tampil_periksasaniruang () {
-        return view("catatan.dokumen.periksasaniruang");
+        return view("catatan.higidansani.periksasaniruang");
     }
 
 }

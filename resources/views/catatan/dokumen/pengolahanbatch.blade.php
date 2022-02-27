@@ -389,10 +389,10 @@
                             Dropdown button
                         </button>
                         <div class="dropdown-menu">
-                            <li><a class="nav-link active" href="#tab-0" data-toggle="tab">Absolute Reference</a></li>
-                            <li><a class="nav-link" href="#tab-1" data-toggle="tab">Foot Plat</a></li>
-                            <li><a class="nav-link" href="#tab-2" data-toggle="tab">Pump Room</a></li>
-                            <li><a class="nav-link" href="#tab-3" data-toggle="tab">Batu Kali</a></li>
+                            <li><a class="nav-link active bg-white text-dark" href="#tab-0" data-toggle="tab">Absolute Reference</a></li>
+                            <li><a class="nav-link bg-white text-dark" href="#tab-1" data-toggle="tab">Foot Plat</a></li>
+                            <li><a class="nav-link bg-white text-dark" href="#tab-2" data-toggle="tab">Pump Room</a></li>
+                            <li><a class="nav-link bg-white text-dark" href="#tab-3" data-toggle="tab">Batu Kali</a></li>
                         </div>
                     </div>
                 </div>
