@@ -6,13 +6,107 @@
 @section('content')
 <main>
     <div class="container-fluid px-4">
-        <h1 class="mt-4">Peralatan </h1>
+        <h1 class="mt-4">Ruangan </h1>
         <ol class="breadcrumb mb-4">
-            <li class="breadcrumb-item active">Peralatan</li>
+            <li class="breadcrumb-item active">Catatan Pembersihan Ruangan</li>
         </ol>
         <div class="row">
 
-            <!--  -->
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-table me-1"></i>
+                    Pembersihan Alat pada Ruangan
+                </div>
+                <div class="card-body">
+
+                    <div class="row m-t-sm">
+                        <div class="col-lg-12">
+                            <div class="panel blank-panel">
+
+                                <div class="panel-body">
+                                    <div class="tab-content">
+                                        <div class="tab-pane active" id="tab-0">
+                                            <b>tab-0</b>
+                                        </div>
+                                        <div class="tab-pane" id="tab-1">
+                                            <b>tab-1</b>
+                                        </div>
+                                        <div class="tab-pane" id="tab-2">
+                                            <b>tab-2</b>
+                                        </div>
+                                        <div class="tab-pane " id="tab-3">
+                                            <div class="wrapper wrapper-content animated fadeInRight">
+                                                <b>tab-3</b>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- <table class="table">
+                        <tr>
+                            <th scope="col">Tahap Pengolahan</th>
+                            <th scope="col">Paraf Bagian Pengawasa Mutu</th>
+                        </tr>
+                    </table>
+
+                    <form>
+                        <div class="form-group row">
+                            <label for="inputEmail3" class="col-sm-8 col-form-label">Bahan yang sudah dikirim dari gudang bahan baku akan
+                                ditimbang terlebih dahulu</label>
+                            <div class="col-sm-10">
+                                <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                                    <option selected>Choose...</option>
+                                    <option value="1">Tari</option>
+                                    <option value="2">Dira</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="inputEmail3" class="col-sm-8 col-form-label">Bahan yang sudah ditimbang, ditimang diruang
+                                mixing</label>
+                            <div class="col-sm-10">
+                                <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                                    <option selected>Choose...</option>
+                                    <option value="1">Tari</option>
+                                    <option value="2">Dira</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="inputEmail3" class="col-sm-8 col-form-label">Setelah Selesai, Proses mixing akan dikarantina
+                                terlebih dahulu</label>
+                            <div class="col-sm-10">
+                                <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                                    <option selected>Choose...</option>
+                                    <option value="1">Tari</option>
+                                    <option value="2">Dira</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="inputEmail3" class="col-sm-8 col-form-label">Setelah dinyatakan lulus, baru kemudian dibawa keruang
+                                filling untuk dilakukan pengemasan</label>
+                            <div class="col-sm-10">
+                                <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                                    <option selected>Choose...</option>
+                                    <option value="1">Tari</option>
+                                    <option value="2">Dira</option>
+                                </select>
+                            </div>
+                        </div>
+                    </form> -->
+                </div>
+            </div>
+
+            <!-- Semula -->
             <div class="card mb-4">
 
                 <div class="card-body">

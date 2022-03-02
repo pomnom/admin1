@@ -8,113 +8,130 @@
     <div class="container-fluid px-4">
         <h1 class="mt-4">Peralatan </h1>
         <ol class="breadcrumb mb-4">
-            <li class="breadcrumb-item active">Peralatan</li>
+            <li class="breadcrumb-item active">Catatan Pembersihan Alat</li>
         </ol>
-        <div class="row">
+        <form action="/input_catatbersih" method="post">
+            @csrf
+            <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+            <div class="row">
+                <!-- Entry Data -->
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <i class="fas fa-table me-1"></i>
+                        Entry Data
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group row">
+                            <label for="inputEmail3" class="col-sm-2 col-form-label">Bulan</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" name="bulan" id="inlineFormCustomSelect">
+                                    <option selected>Choose...</option>
+                                    <option value="1">Januari</option>
+                                    <option value="2">Februari</option>
+                                    <option value="3">Maret</option>
+                                    <option value="4">April</option>
+                                    <option value="5">Mei</option>
+                                    <option value="6">Juni</option>
+                                    <option value="7">Juli</option>
+                                    <option value="8">Agustus</option>
+                                    <option value="9">September</option>
+                                    <option value="10">Oktober</option>
+                                    <option value="11">November</option>
+                                    <option value="12">Desember</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputPassword3" class="col-sm-2 col-form-label">Pelaksana</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="batchnum" class="form-control" id="inputPassword3" placeholder="Pelaksana">
+                            </div>
+                        </div>
 
-            <!--  -->
-            <div class="card mb-4">
+                        <div class="form-group row">
+                            <label for="inputPassword3" class="col-sm-2 col-form-label">Disetujui Oleh</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="batchnum" class="form-control" id="inputPassword3" placeholder="Disetujui Oleh">
+                            </div>
+                        </div>
 
-                <div class="card-body">
-                    <!-- pop up -->
-                    <!-- Button to trigger modal -->
-                    <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#modalForm">
-                        Tambah Peralatan
-                    </button>
-
-                    <!-- Modal -->
-                    <div class="modal fade" id="modalForm" role="dialog">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <!-- Modal Header -->
-                                <div class="modal-header">
-                                    <h4 class="modal-title" id="myModalLabel">
-                                        Entry Peralatan
-                                    </h4>
-                                </div>
-
-                                <!-- Modal Body -->
-                                <div class="modal-body">
-                                    <p class="statusMsg"></p>
-                                    <form action="/input_coa" method="post" enctype="multipart/form-data" role="form">
-
-                                        @csrf
-                                        <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-                                        <div class="form-group">
-                                            <label for="inputName">Nama Peralatan</label>
-                                            <input type="text" class="form-control" id="inputName" name="nama" />
-                                        </div>
-
-                                        <!-- Modal Footer -->
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-default" data-dismiss="modal">
-                                                Close
-                                            </button>
-                                            <button type="submit" class="btn btn-primary submitBtn">
-                                                Tambah
-                                            </button>
-                                        </div>
-
-
-                                    </form>
-                                </div>
-
-
+                        <div class="form-group row">
+                            <label for="inputPassword3" class="col-sm-2 col-form-label">Keterangan</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="batchnum" class="form-control" id="inputPassword3" placeholder="Keterangan">
                             </div>
                         </div>
                     </div>
-                    <!--  -->
-
-
-
                 </div>
-                <container>
-                    <form class="mt-5" action="tambah_higisanialat" method="post">
-                        <container class="col-lg-12 ml-4">
-                            <p class="" style="font-size: 25px; align: 'center'; ">Nama Peralatan</p>
 
-                            <div class="col-lg-1 d-flex justify-content-left">
-                                <p style="font-size: 20px;  margin-left:-10px;">Tanggal</p>
+                <!-- Bagian yang dibersihkan  -->
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <i class="fas fa-table me-1"></i>
+                        Daftar yang Dibersihkan
+                    </div>
+                    <div class="card-body">
+                        <!-- pop up -->
+                        <!-- Button to trigger modal -->
+                        <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#modalForm">
+                            Tambah Data Alat
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="modalForm" role="dialog">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <!-- Modal Header -->
+                                    <div class="modal-header">
+                                        <h4 class="modal-title" id="myModalLabel">
+                                            Entry Data
+                                        </h4>
+                                    </div>
+                                </div>
                             </div>
-                            <input type="date" class="form-control col-lg-5" id="tgl" name="tgl" />
-
-                            <div class="col-lg-1 d-flex justify-content-right">
-                                <p style="font-size: 20px;">Jam</p>
-                            </div>
-                            <input type="time" class="form-control col-lg-5" id="jam" name="jam" />
-                        </container>
-
-
-
-
-                        <container class="col-lg-12 mt-5">
-                            <div class="col-lg-3 justify-content-center">
-                                <p style="font-size: 20px;  ">Pelaksana</p>
-                                <input class="form-control" type="text" name="pelaksana" id="pelaksana">
-                            </div>
-                            <div class="col-lg-1"></div>
-
-                            <div class="col-lg-3 justify-content-center">
-                                <p style="font-size: 20px;  ">Disetujui Oleh</p>
-                                <input class="form-control" type="text" name="disetujui" id="disetujui">
-                            </div>
-                            <div class="col-lg-1"></div>
-
-                            <div class="col-lg-3 justify-content-center">
-                                <p style="font-size: 20px;  ">Keterangan</p>
-                                <input class="form-control" type="text" name="keterangan" id="keterangan">
-                            </div>
-                        </container>
-
-                        <div class="col-lg-12 d-flex justify-content-center">
-                            <button type="submit" class="btn btn-primary" style="margin-top: 25px;">Simpan</button>
                         </div>
-                    </form>
-                </container>
+
+                        <!-- pop up end -->
+                        <div class="table-responsive-lg">
+                            <form>
+                                <table class="table col-lg-13">
+                                    <thead>
+
+                                        <tr>
+                                            <th scope="col" style="width:5%" class="text-center">No</th>
+                                            <th scope="col" style="width:35%" class="text-center">Bagian yang Dibersihkan</th>
+                                            <th scope="col" style="width:30%" class="text-center">Tanggal</th>
+                                            <th scope="col" style="width:30%" class="text-center">Jam</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        <td scope="col" class="text-center">1</td>
+                                        <td scope="col" class="text-center">Spatula</td>
+                                        <td scope="col">
+                                            <center>
+                                                <input type="date" style="width: 80%;" class="form-control" id="tgl" name="tgl" />
+                                            </center>
+                                        </td>
+                                        <td scope="col">
+                                            <center>
+                                                <input type="time" style="width: 80%;" class="form-control" id="jam" name="jam" />
+                                            </center>
+                                        </td>
+                                        <td scope="col" class="justify-content-center"></td>
+                                    </tbody>
+                                </table>
+                                <div class="col-lg-12 d-flex justify-content-center">
+                                    <button type="submit" class="btn btn-primary" style="margin-top: 25px;">Simpan</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <!-- <a class="btn btn-primary" href="#">Edit</a>
-                    <a class="btn btn-primary" href="#">Cetak</a> -->
+            <!-- Semula  class="d-flex justify-content-center"-->
+        </form>
 
 </main>
 @endsection
