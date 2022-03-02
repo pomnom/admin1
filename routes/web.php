@@ -85,7 +85,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/pembersihanalat', [Admin::class, 'tampil_pembersihanalat']);
     Route::get('/pendistribusian', [Admin::class, 'tampil_pendistribusian']);
     Route::get('/pengggunaanutama', [Admin::class, 'tampil_pengggunaanutama']);
-    Route::get('/periksabahanbakku', [Admin::class, 'tampil_periksabahanbakku']);
+    Route::get('/periksabahanbaku', [Admin::class, 'tampil_periksabahanbaku']);
     Route::get('/periksakemasan', [Admin::class, 'tampil_periksakemasan']);
     Route::get('/periksaproduksijadi', [Admin::class, 'tampil_periksaproduksijadi']);
     Route::get('/programlatih', [Admin::class, 'tampil_programlatih']);

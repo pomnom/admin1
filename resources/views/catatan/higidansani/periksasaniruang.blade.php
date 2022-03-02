@@ -11,109 +11,45 @@
             <li class="breadcrumb-item active">Catatan Pembersihan Ruangan</li>
         </ol>
         <div class="row">
-
+            <!-- Entry Data -->
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-table me-1"></i>
+                    Entry Data
+                </div>
+                <div class="card-body">
+                    <div class="form-group row">
+                        <label for="inputEmail3" class="col-sm-2 col-form-label">Waktu Pembersihan</label>
+                        <div class="col-sm-10">
+                            <select class="form-control" name="bulan" id="inlineFormCustomSelect">
+                                <option selected>Choose...</option>
+                                <option value="1">Pagi</option>
+                                <option value="2">Sore</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- <div class="form-group row">
+                        <label for="inputEmail3" class="col-sm-2 col-form-label">Nama Ruangan</label>
+                        <div class="col-sm-10">
+                            <select class="form-control" name="bulan" id="inlineFormCustomSelect">
+                                <option selected>Choose...</option>
+                                <option value="1">Pagi</option>
+                                <option value="2">Sore</option>
+                            </select>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
             <div class="card mb-4">
                 <div class="card-header">
                     <i class="fas fa-table me-1"></i>
                     Pembersihan Alat pada Ruangan
                 </div>
                 <div class="card-body">
-
-                    <div class="row m-t-sm">
-                        <div class="col-lg-12">
-                            <div class="panel blank-panel">
-
-                                <div class="panel-body">
-                                    <div class="tab-content">
-                                        <div class="tab-pane active" id="tab-0">
-                                            <b>tab-0</b>
-                                        </div>
-                                        <div class="tab-pane" id="tab-1">
-                                            <b>tab-1</b>
-                                        </div>
-                                        <div class="tab-pane" id="tab-2">
-                                            <b>tab-2</b>
-                                        </div>
-                                        <div class="tab-pane " id="tab-3">
-                                            <div class="wrapper wrapper-content animated fadeInRight">
-                                                <b>tab-3</b>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <!-- <table class="table">
-                        <tr>
-                            <th scope="col">Tahap Pengolahan</th>
-                            <th scope="col">Paraf Bagian Pengawasa Mutu</th>
-                        </tr>
-                    </table>
-
-                    <form>
-                        <div class="form-group row">
-                            <label for="inputEmail3" class="col-sm-8 col-form-label">Bahan yang sudah dikirim dari gudang bahan baku akan
-                                ditimbang terlebih dahulu</label>
-                            <div class="col-sm-10">
-                                <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                                    <option selected>Choose...</option>
-                                    <option value="1">Tari</option>
-                                    <option value="2">Dira</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="inputEmail3" class="col-sm-8 col-form-label">Bahan yang sudah ditimbang, ditimang diruang
-                                mixing</label>
-                            <div class="col-sm-10">
-                                <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                                    <option selected>Choose...</option>
-                                    <option value="1">Tari</option>
-                                    <option value="2">Dira</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="inputEmail3" class="col-sm-8 col-form-label">Setelah Selesai, Proses mixing akan dikarantina
-                                terlebih dahulu</label>
-                            <div class="col-sm-10">
-                                <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                                    <option selected>Choose...</option>
-                                    <option value="1">Tari</option>
-                                    <option value="2">Dira</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="inputEmail3" class="col-sm-8 col-form-label">Setelah dinyatakan lulus, baru kemudian dibawa keruang
-                                filling untuk dilakukan pengemasan</label>
-                            <div class="col-sm-10">
-                                <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                                    <option selected>Choose...</option>
-                                    <option value="1">Tari</option>
-                                    <option value="2">Dira</option>
-                                </select>
-                            </div>
-                        </div>
-                    </form> -->
-                </div>
-            </div>
-
-            <!-- Semula -->
-            <div class="card mb-4">
-
-                <div class="card-body">
                     <!-- pop up -->
                     <!-- Button to trigger modal -->
                     <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#modalForm">
-                        Tambah Peralatan
+                        Tambah Data Ruangan
                     </button>
 
                     <!-- Modal -->
@@ -123,354 +59,94 @@
                                 <!-- Modal Header -->
                                 <div class="modal-header">
                                     <h4 class="modal-title" id="myModalLabel">
-                                        Entry Peralatan
+                                        Entry Data
                                     </h4>
                                 </div>
-
-                                <!-- Modal Body -->
-                                <div class="modal-body">
-                                    <p class="statusMsg"></p>
-                                    <form action="/input_coa" method="post" enctype="multipart/form-data" role="form">
-
-                                        @csrf
-                                        <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-                                        <div class="form-group">
-                                            <label for="inputName">Nama Peralatan</label>
-                                            <input type="text" class="form-control" id="inputName" name="nama" />
-                                        </div>
-
-                                        <!-- Modal Footer -->
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-default" data-dismiss="modal">
-                                                Close
-                                            </button>
-                                            <button type="submit" class="btn btn-primary submitBtn">
-                                                Tambah
-                                            </button>
-                                        </div>
-
-
-                                    </form>
-                                </div>
-
-
                             </div>
                         </div>
                     </div>
-                    <!--  -->
 
+                    <!-- pop up end -->
+                    <div class="table-responsive-lg">
+                        <form>
+                            <table class="table col-lg-13">
+                                <thead>
 
-
+                                    <tr>
+                                        <th scope="col" style="width:5%" class="text-center">No</th>
+                                        <th scope="col" style="width:45%" class="text-center">Nama Ruangan</th>
+                                        <th scope="col" style="width:50%" class="text-center">Item yang Dibersihkan</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <td scope="col" class="text-center">1</td>
+                                    <td scope="col" class="text-center">
+                                        <div class="form-group row">
+                                            <!-- <label for="inputEmail3" class="col-sm-2 col-form-label">Waktu</label> -->
+                                            <div class="col-sm-10">
+                                                <select class="form-control" name="bulan" id="inlineFormCustomSelect">
+                                                    <option selected>Choose...</option>
+                                                    <option value="1">Ruang mixing,filling,pengemasan primer</option>
+                                                    <option value="2">Ruang timbang</option>
+                                                    <option value="3">Ruang ...</option>
+                                                    <option value="4">Ruang ...</option>
+                                                    <option value="5">Ruang ...</option>
+                                                    <option value="6">Ruang ...</option>
+                                                    <option value="7">Ruang ...</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td scope="col">
+                                        
+                                            <div style="padding-left:10%;" class="form-group row">
+                                                <div class="col-sm-6">Lantai/ Dinding</div>
+                                                <div class="col-sm-6">
+                                                    <div class="custom-control custom-switch">
+                                                        <input type="checkbox" name="lantaidinding" class="custom-control-input" id="customSwitch1">
+                                                        <label class="custom-control-label" for="customSwitch1">Sudah</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div style="padding-left:10%;" class="form-group row">
+                                                <div class="col-sm-6">Meja</div>
+                                                <div class="col-sm-5">
+                                                    <div class="custom-control custom-switch">
+                                                        <input type="checkbox" name="meja" class="custom-control-input" id="customSwitch2">
+                                                        <label class="custom-control-label" for="customSwitch2">Sudah</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div style="padding-left:10%;" class="form-group row">
+                                                <div class="col-sm-6">Jendela</div>
+                                                <div class="col-sm-6">
+                                                    <div class="custom-control custom-switch">
+                                                        <input type="checkbox" name="jendela" class="custom-control-input" id="customSwitch3">
+                                                        <label class="custom-control-label" for="customSwitch3">Sudah</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div style="padding-left:10%;" class="form-group row">
+                                                <div class="col-sm-6">Langit-langit/ Plafon</div>
+                                                <div class="col-sm-6">
+                                                    <div class="custom-control custom-switch">
+                                                        <input type="checkbox" name="plafon" class="custom-control-input" id="customSwitch4">
+                                                        <label class="custom-control-label" for="customSwitch4">Sudah</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        
+                                    </td>
+                                    <td scope="col" class="justify-content-center"></td>
+                                </tbody>
+                            </table>
+                            <div class="col-lg-12 d-flex justify-content-center">
+                                <button type="submit" class="btn btn-primary" style="margin-top: 25px;">Simpan</button>
+                        </form>
+                    </div>
                 </div>
-                <container>
-                    <form class="mt-5" action="tambah_higisanialat" method="post">
-                        <div class="col-lg-12 mb-5">
-                            <p class="d-flex justify-content-center" style="font-size: 30px; ">Nama Alat</p>
-                            <container class="col-lg-3 mb-3 ">
-                                <p style="font-size: 25px; ">Jendela</p>
-                                <div class="radio-inline">
-                                    <label><input value="0" type="radio" name="posradio">
-                                        <p style="font-size: 18px;">Ya</p>
-                                    </label>
-                                </div>
-                                <div class="radio-inline">
-                                    <label><input value="1" type="radio" name="posradio">
-                                        <p style="font-size: 18px;">Tidak</p>
-                                    </label>
-                                </div>
-                            </container>
 
-                            <container class="col-lg-3 mb-3 ">
-                                <p class="" style="font-size: 25px; ">Pintu</p>
-                                <div class="radio-inline">
-                                    <label><input value="0" type="radio" name="posradio">
-                                        <p style="font-size: 18px;">Ya</p>
-                                    </label>
-                                </div>
-                                <div class="radio-inline">
-                                    <label><input value="1" type="radio" name="posradio">
-                                        <p style="font-size: 18px;">Tidak</p>
-                                    </label>
-                                </div>
-                            </container>
-
-                            <container class="col-lg-3 mb-3 ">
-                                <p class="" style="font-size: 25px; ">Langit-langit</p>
-                                <div class="radio-inline">
-                                    <label><input value="0" type="radio" name="posradio">
-                                        <p style="font-size: 18px;">Ya</p>
-                                    </label>
-                                </div>
-                                <div class="radio-inline">
-                                    <label><input value="1" type="radio" name="posradio">
-                                        <p style="font-size: 18px;">Tidak</p>
-                                    </label>
-                                </div>
-                            </container>
-
-                            <container class="col-lg-3 mb-3 ">
-                                <p class="" style="font-size: 25px; ">Lantai</p>
-                                <div class="radio-inline">
-                                    <label><input value="0" type="radio" name="posradio">
-                                        <p style="font-size: 18px;">Ya</p>
-                                    </label>
-                                </div>
-                                <div class="radio-inline">
-                                    <label><input value="1" type="radio" name="posradio">
-                                        <p style="font-size: 18px;">Tidak</p>
-                                    </label>
-                                </div>
-                            </container>
-
-                            <container class="col-lg-3 mb-3 ">
-                                <p class="" style="font-size: 25px; ">Meja</p>
-                                <div class="radio-inline">
-                                    <label><input value="0" type="radio" name="posradio">
-                                        <p style="font-size: 18px;">Ya</p>
-                                    </label>
-                                </div>
-                                <div class="radio-inline">
-                                    <label><input value="1" type="radio" name="posradio">
-                                        <p style="font-size: 18px;">Tidak</p>
-                                    </label>
-                                </div>
-                            </container>
-
-                            <container class="col-lg-3 mb-3 ">
-                                <p class="" style="font-size: 25px; ">Kursi</p>
-                                <div class="radio-inline">
-                                    <label><input value="0" type="radio" name="posradio">
-                                        <p style="font-size: 18px;">Ya</p>
-                                    </label>
-                                </div>
-                                <div class="radio-inline">
-                                    <label><input value="1" type="radio" name="posradio">
-                                        <p style="font-size: 18px;">Tidak</p>
-                                    </label>
-                                </div>
-                            </container>
-
-                            <container class="col-lg-3 mb-3 ">
-                                <p class="" style="font-size: 25px; ">Dinding</p>
-                                <div class="radio-inline">
-                                    <label><input value="0" type="radio" name="posradio">
-                                        <p style="font-size: 18px;">Ya</p>
-                                    </label>
-                                </div>
-                                <div class="radio-inline">
-                                    <label><input value="1" type="radio" name="posradio">
-                                        <p style="font-size: 18px;">Tidak</p>
-                                    </label>
-                                </div>
-                            </container>
-                        </div>
-
-                        <div class="col-lg-12 mb-5">
-                            <p class="d-flex justify-content-center" style="font-size: 30px; ">Nama Alat</p>
-                            <container class="col-lg-3 mb-3 ">
-                                <p style="font-size: 25px; ">Jendela</p>
-                                <div class="radio-inline">
-                                    <label><input value="0" type="radio" name="posradio">
-                                        <p style="font-size: 18px;">Ya</p>
-                                    </label>
-                                </div>
-                                <div class="radio-inline">
-                                    <label><input value="1" type="radio" name="posradio">
-                                        <p style="font-size: 18px;">Tidak</p>
-                                    </label>
-                                </div>
-                            </container>
-
-                            <container class="col-lg-3 mb-3 ">
-                                <p class="" style="font-size: 25px; ">Pintu</p>
-                                <div class="radio-inline">
-                                    <label><input value="0" type="radio" name="posradio">
-                                        <p style="font-size: 18px;">Ya</p>
-                                    </label>
-                                </div>
-                                <div class="radio-inline">
-                                    <label><input value="1" type="radio" name="posradio">
-                                        <p style="font-size: 18px;">Tidak</p>
-                                    </label>
-                                </div>
-                            </container>
-
-                            <container class="col-lg-3 mb-3 ">
-                                <p class="" style="font-size: 25px; ">Langit-langit</p>
-                                <div class="radio-inline">
-                                    <label><input value="0" type="radio" name="posradio">
-                                        <p style="font-size: 18px;">Ya</p>
-                                    </label>
-                                </div>
-                                <div class="radio-inline">
-                                    <label><input value="1" type="radio" name="posradio">
-                                        <p style="font-size: 18px;">Tidak</p>
-                                    </label>
-                                </div>
-                            </container>
-
-                            <container class="col-lg-3 mb-3 ">
-                                <p class="" style="font-size: 25px; ">Lantai</p>
-                                <div class="radio-inline">
-                                    <label><input value="0" type="radio" name="posradio">
-                                        <p style="font-size: 18px;">Ya</p>
-                                    </label>
-                                </div>
-                                <div class="radio-inline">
-                                    <label><input value="1" type="radio" name="posradio">
-                                        <p style="font-size: 18px;">Tidak</p>
-                                    </label>
-                                </div>
-                            </container>
-
-                            <container class="col-lg-3 mb-3 ">
-                                <p class="" style="font-size: 25px; ">Meja</p>
-                                <div class="radio-inline">
-                                    <label><input value="0" type="radio" name="posradio">
-                                        <p style="font-size: 18px;">Ya</p>
-                                    </label>
-                                </div>
-                                <div class="radio-inline">
-                                    <label><input value="1" type="radio" name="posradio">
-                                        <p style="font-size: 18px;">Tidak</p>
-                                    </label>
-                                </div>
-                            </container>
-
-                            <container class="col-lg-3 mb-3 ">
-                                <p class="" style="font-size: 25px; ">Kursi</p>
-                                <div class="radio-inline">
-                                    <label><input value="0" type="radio" name="posradio">
-                                        <p style="font-size: 18px;">Ya</p>
-                                    </label>
-                                </div>
-                                <div class="radio-inline">
-                                    <label><input value="1" type="radio" name="posradio">
-                                        <p style="font-size: 18px;">Tidak</p>
-                                    </label>
-                                </div>
-                            </container>
-
-                            <container class="col-lg-3 mb-3 ">
-                                <p class="" style="font-size: 25px; ">Dinding</p>
-                                <div class="radio-inline">
-                                    <label><input value="0" type="radio" name="posradio">
-                                        <p style="font-size: 18px;">Ya</p>
-                                    </label>
-                                </div>
-                                <div class="radio-inline">
-                                    <label><input value="1" type="radio" name="posradio">
-                                        <p style="font-size: 18px;">Tidak</p>
-                                    </label>
-                                </div>
-                            </container>
-                        </div>
-
-                        <div class="col-lg-12 mb-5">
-                            <p class="d-flex justify-content-center" style="font-size: 30px; ">Nama Alat</p>
-                            <container class="col-lg-3 mb-3 ">
-                                <p style="font-size: 25px; ">Jendela</p>
-                                <div class="radio-inline">
-                                    <label><input value="0" type="radio" name="posradio">
-                                        <p style="font-size: 18px;">Ya</p>
-                                    </label>
-                                </div>
-                                <div class="radio-inline">
-                                    <label><input value="1" type="radio" name="posradio">
-                                        <p style="font-size: 18px;">Tidak</p>
-                                    </label>
-                                </div>
-                            </container>
-
-                            <container class="col-lg-3 mb-3 ">
-                                <p class="" style="font-size: 25px; ">Pintu</p>
-                                <div class="radio-inline">
-                                    <label><input value="0" type="radio" name="posradio">
-                                        <p style="font-size: 18px;">Ya</p>
-                                    </label>
-                                </div>
-                                <div class="radio-inline">
-                                    <label><input value="1" type="radio" name="posradio">
-                                        <p style="font-size: 18px;">Tidak</p>
-                                    </label>
-                                </div>
-                            </container>
-
-                            <container class="col-lg-3 mb-3 ">
-                                <p class="" style="font-size: 25px; ">Langit-langit</p>
-                                <div class="radio-inline">
-                                    <label><input value="0" type="radio" name="posradio">
-                                        <p style="font-size: 18px;">Ya</p>
-                                    </label>
-                                </div>
-                                <div class="radio-inline">
-                                    <label><input value="1" type="radio" name="posradio">
-                                        <p style="font-size: 18px;">Tidak</p>
-                                    </label>
-                                </div>
-                            </container>
-
-                            <container class="col-lg-3 mb-3 ">
-                                <p class="" style="font-size: 25px; ">Lantai</p>
-                                <div class="radio-inline">
-                                    <label><input value="0" type="radio" name="posradio">
-                                        <p style="font-size: 18px;">Ya</p>
-                                    </label>
-                                </div>
-                                <div class="radio-inline">
-                                    <label><input value="1" type="radio" name="posradio">
-                                        <p style="font-size: 18px;">Tidak</p>
-                                    </label>
-                                </div>
-                            </container>
-
-                            <container class="col-lg-3 mb-3 ">
-                                <p class="" style="font-size: 25px; ">Meja</p>
-                                <div class="radio-inline">
-                                    <label><input value="0" type="radio" name="posradio">
-                                        <p style="font-size: 18px;">Ya</p>
-                                    </label>
-                                </div>
-                                <div class="radio-inline">
-                                    <label><input value="1" type="radio" name="posradio">
-                                        <p style="font-size: 18px;">Tidak</p>
-                                    </label>
-                                </div>
-                            </container>
-
-                            <container class="col-lg-3 mb-3 ">
-                                <p class="" style="font-size: 25px; ">Kursi</p>
-                                <div class="radio-inline">
-                                    <label><input value="0" type="radio" name="posradio">
-                                        <p style="font-size: 18px;">Ya</p>
-                                    </label>
-                                </div>
-                                <div class="radio-inline">
-                                    <label><input value="1" type="radio" name="posradio">
-                                        <p style="font-size: 18px;">Tidak</p>
-                                    </label>
-                                </div>
-                            </container>
-
-                            <container class="col-lg-3 mb-3 ">
-                                <p class="" style="font-size: 25px; ">Dinding</p>
-                                <div class="radio-inline">
-                                    <label><input value="0" type="radio" name="posradio">
-                                        <p style="font-size: 18px;">Ya</p>
-                                    </label>
-                                </div>
-                                <div class="radio-inline">
-                                    <label><input value="1" type="radio" name="posradio">
-                                        <p style="font-size: 18px;">Tidak</p>
-                                    </label>
-                                </div>
-                            </container>
-                        </div>
-
-                    </form>
-                </container>
             </div>
-
             <!-- <a class="btn btn-primary" href="#">Edit</a>
                     <a class="btn btn-primary" href="#">Cetak</a> -->
 

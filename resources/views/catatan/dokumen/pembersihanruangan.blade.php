@@ -51,7 +51,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="inputEmail3"  class="col-sm-2 col-form-label">Produk</label>
+                            <label for="inputEmail3" class="col-sm-2 col-form-label">Produk</label>
                             <div class="col-sm-10">
                                 <select class="form-control" name="produk_nama" id="inlineFormCustomSelect">
                                     <option selected>Choose...</option>
@@ -134,8 +134,6 @@
                             </div>
                         </div>
                     </div>
-
-
                     <div class="form-group row">
                         <div class="col-sm-2">Meja</div>
                         <div class="col-sm-10">
@@ -154,7 +152,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="form-group row">
                         <div class="col-sm-2">Langit-langit/ Plafon</div>
                         <div class="col-sm-10">
