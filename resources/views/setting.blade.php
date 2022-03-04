@@ -21,7 +21,7 @@
                 <div class="card-body">
 
                     <form action="/input_company" method="post" enctype="multipart/form-data" role="form">
-                       
+
                         @csrf
                         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                         <div class="form-group row" margin-bottom=10px;>
@@ -49,7 +49,7 @@
                                 <input type="file" name="upload" class="form-control-file" id="exampleFormControlFile1">
                             </div>
                         </div>
-  
+
                 </div>
             </div>
 
@@ -73,6 +73,7 @@
                                 <th scope="col">No</th>
                                 <th scope="col">Nama Produk</th>
                                 <th scope="col">Kode Produk</th>
+                                <th scope="col">Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -83,6 +84,9 @@
                                 <th scope="row">{{$i}}</th>
                                 <td>{{$row['produk_nama']}}</td>
                                 <td>{{$row['produk_kode']}}</td>
+                                <td>
+                                    <a href="#" type="button" class="btn btn-danger" onclick="return confirm('Hapus? ')">Hapus</a>
+                                </td>
                             </tr>
                             <?php $i++;
                             ?>
@@ -111,6 +115,7 @@
                             <tr>
                                 <th scope="col">No</th>
                                 <th scope="col">Jenis Kemasan</th>
+                                <th scope="col">Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -122,6 +127,9 @@
                             <tr>
                                 <th scope="row">{{$i}}</th>
                                 <td>{{$row['kemasan_nama']}}</td>
+                                <td>
+                                    <a href="#" type="button" class="btn btn-danger" onclick="return confirm('Hapus? ')">Hapus</a>
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>
@@ -153,6 +161,7 @@
                                 <th scope="col">No</th>
                                 <th scope="col">Nama Produk</th>
                                 <th scope="col">Kode Produk</th>
+                                <th scope="col">Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -165,6 +174,9 @@
                                 <th scope="row">{{$i}}</th>
                                 <td>{{$row['bahanbaku_nama']}}</td>
                                 <td>{{$row['bahanbaku_kode']}}</td>
+                                <td>
+                                    <a href="#" type="button" class="btn btn-danger" onclick="return confirm('Hapus? ')">Hapus</a>
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>

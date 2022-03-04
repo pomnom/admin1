@@ -79,12 +79,12 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/ambilbahanbaku', [Admin::class, 'tampil_ambilbahanbaku']);
     Route::get('/ambilkemasan', [Admin::class, 'tampil_ambilkemasan']);
     Route::get('/ambilprodukjadi', [Admin::class, 'tampil_ambilprodukjadi']);
-    Route::get('/bersidanpakaialat', [Admin::class, 'tampil_bersidanpakaialat']);
+    Route::get('/bersihdanpakaialat', [Admin::class, 'tampil_bersihdanpakaialat']);
     Route::get('/kemasbatch', [Admin::class, 'tampil_kemasbatch']);
     Route::get('/latihhigidansani', [Admin::class, 'tampil_latihhigidansani']);
     Route::get('/pembersihanalat', [Admin::class, 'tampil_pembersihanalat']);
     Route::get('/pendistribusian', [Admin::class, 'tampil_pendistribusian']);
-    Route::get('/pengggunaanutama', [Admin::class, 'tampil_pengggunaanutama']);
+    Route::get('/penggunaanutama', [Admin::class, 'tampil_penggunaanutama']);
     Route::get('/periksabahanbaku', [Admin::class, 'tampil_periksabahanbaku']);
     Route::get('/periksakemasan', [Admin::class, 'tampil_periksakemasan']);
     Route::get('/periksaproduksijadi', [Admin::class, 'tampil_periksaproduksijadi']);

@@ -37,7 +37,7 @@
                                         <a class="nav-link" href="penggunaanutama">Penggunaan Utama</a>
                                         <a class="nav-link" href="ambilprodukjadi">Pengambilan Contoh Produk Jadi</a>
                                         <a class="nav-link" href="ambilbahanbaku">Pengambilan Contoh Bahan baku</a>
-                                        <a class="nav-link" href="ambikemasan">Pengambilan Contoh Bahan Pengemas</a>
+                                        <a class="nav-link" href="ambilkemasan">Pengambilan Contoh Bahan Pengemas</a>
                                         <a class="nav-link" href="periksabahanbaku">Pemeriksaan Bahan Baku</a>
                                         <a class="nav-link" href="periksakemasan">Pemeriksaan Bahan Pengemas</a>
                                         <a class="nav-link" href="periksaprodukjadi">Pemeriksaan Produk Jadi</a>
@@ -97,7 +97,7 @@
                                         <a class="nav-link" href="penggunaanutama">Penggunaan Utama</a>
                                         <a class="nav-link" href="ambilprodukjadi">Pengambilan Contoh Produk Jadi</a>
                                         <a class="nav-link" href="ambilbahanbaku">Pengambilan Contoh Bahan baku</a>
-                                        <a class="nav-link" href="ambikemasan">Pengambilan Contoh Bahan Pengemas</a>
+                                        <a class="nav-link" href="ambilkemasan">Pengambilan Contoh Bahan Pengemas</a>
                                         <a class="nav-link" href="periksabahanbaku">Pemeriksaan Bahan Baku</a>
                                         <a class="nav-link" href="periksakemasan">Pemeriksaan Bahan Pengemas</a>
                                         <a class="nav-link" href="periksaprodukjadi">Pemeriksaan Produk Jadi</a>
