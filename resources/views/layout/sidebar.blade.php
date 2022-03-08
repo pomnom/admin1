@@ -72,7 +72,7 @@
                                 <div class="collapse" id="protappabrik1" aria-labelledby="headingOne" data-bs-parent="#protappabrik0">
                                     <nav class="sb-sidenav-menu-nested nav">
 
-                                    <a class="nav-link" href="pembersihanruangan">Penerimaan Penyerahan dan Penyimapanan</a>
+                                        <a class="nav-link" href="pembersihanruangan">Penerimaan Penyerahan dan Penyimapanan</a>
                                         <a class="nav-link" href="pengolahanbatch">Pengambilan Contoh</a>
                                         <a class="nav-link" href="#">Spesifikasi Bahan</a>
                                         <a class="nav-link" href="penerimaanBB">Pelatihan Higiene dan Sanitasi Bagi Karyawan</a>
