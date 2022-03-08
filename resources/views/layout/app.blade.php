@@ -36,7 +36,16 @@
 <body class="sb-nav-fixed">
     @include('layout.header')
     <div id="layoutSidenav">
-        @include('layout.sidebar')
+        @if (Auth::user()->level == 0)
+            @include('layout.sidebaradmin')
+        @elseif (Auth::user() == 1)
+            @include('layout.sidebarpemilik')
+        @elseif (Auth::user() == 2)
+            @include('layout.sidebarpelaksana')
+        @else
+         @include('layout.sidebarpegawai')
+        @endif
+
         <div id="layoutSidenav_content">
             @yield('content')
             @include('layout.footer')
