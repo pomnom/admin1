@@ -38,9 +38,9 @@
     <div id="layoutSidenav">
         @if (Auth::user()->level == 0)
             @include('layout.sidebaradmin')
-        @elseif (Auth::user() == 1)
+        @elseif (Auth::user()->level == 1)
             @include('layout.sidebarpemilik')
-        @elseif (Auth::user() == 2)
+        @elseif (Auth::user()->level == 2)
             @include('layout.sidebarpelaksana')
         @else
          @include('layout.sidebarpegawai')

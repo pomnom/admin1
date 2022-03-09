@@ -8,9 +8,14 @@
                     DASHBOARD
                 </a>
 
-                <a class="nav-link collapsed" href="#">
+                <a class="nav-link collapsed" href="tambahuser">
                     <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
                     TAMBAH PABRIK
+                </a>
+
+                <a class="nav-link collapsed" href="#">
+                    <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                    UPDATE PROTAP
                 </a>
 
 
