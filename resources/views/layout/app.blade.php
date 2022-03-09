@@ -21,7 +21,7 @@
     <!-- Latest minified bootstrap js -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="js/bootstrap-datepicker.js"></script>
-    <link rel="stylesheet" href="css/datepicker.css">
+    <link rel="stylesheet" href="assets('css/datepicker.css')">
 
 
     <!-- js -->
@@ -31,10 +31,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <script src="js/scripts.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-    <script src="assets/demo/chart-area-demo.js"></script>
-    <script src="assets/demo/chart-bar-demo.js"></script>
+    <script src="asset('assets/demo/chart-area-demo.js')"></script> 
+    <script src="asset('assets/demo/chart-bar-demo.js')"></script>
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
-    <script src="js/datatables-simple-demo.js"></script>
+    <script src="asset('js/datatables-simple-demo.js')"></script>
     <script>
         function openCity(evt, cityName) {
             var i, tabcontent, tablinks;
@@ -60,7 +60,7 @@
         @elseif (Auth::user()->level == 1)
         @include('layout.sidebarpemilik')
         @elseif (Auth::user()->level == 2)
-        @include('layout.sidebarpelaksana')
+        @include('layout.sidebarpengawas')
         @else
         @include('layout.sidebarpegawai')
         @endif

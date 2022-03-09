@@ -11732,3 +11732,7 @@ body {
 .logo_img {
   padding: 9px 0;
 }
+
+.selectsize {
+  height: 35px;
+}

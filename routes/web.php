@@ -51,11 +51,12 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/input_komposisi', [Admin::class, 'tambah_komposisi']);
     Route::post('/input_peralatan', [Admin::class, 'tambah_peralatan']);
     Route::post('/input_penimbangan', [Admin::class, 'tambah_penimbangan']);
+    Route::post('/tambah_batch', [Admin::class, 'tambah_batch']);
+    Route::post('/detil_batch', [Admin::class, 'tampil_detilbatch']); 
+    Route::get('/cetakpengolahanbatch', [Admin::class, 'tampil_detilbatch']);
 
 
-    Route::get('/laporan', function () {
-        return view('laporan');
-    });
+    Route::get('/laporan', [Admin::class, 'tampil_laporan']);
 
     Route::get('/index', function () {
         return view('index');

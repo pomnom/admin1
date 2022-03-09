@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\{bahanbaku, catatbersih, coa, company, dip, kemasan, perizinan,pobpabrik,komposisi,peralatan,penimbangan, produk};
+use App\Models\{bahanbaku, catatbersih, coa, company, dip, kemasan, perizinan,pobpabrik,komposisi, pengolahanbatch, peralatan,penimbangan, produk};
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rules\Exists;
@@ -175,21 +175,59 @@ class Admin extends Controller
 
     //tampil batch
     public function tampil_pengolahanbatch(){
-        $id=Auth::user()->id;
-        $kom = komposisi::all()->where('user_id',$id);
-        $alat = peralatan::all()->where('user_id',$id);
-        $nimbang = penimbangan::all()->where('user_id',$id);
-        return view('catatan.dokumen.pengolahanbatch', ['list_kom' => $kom,'list_alat'=>$alat, 'list_nimbang'=>$nimbang
+        $data = pengolahanbatch::all();
+        return view('catatan.dokumen.pengolahanbatch', ['data'=> $data ]);
+    }
+
+    public function tampil_detilbatch(Request $req){
+        // dd($req);
+        $id=$req['nobatch'];
+        $data = pengolahanbatch::all()->where('nomor_batch',$id);
+        $kom = komposisi::all()->where('nomor_batch',$id);
+        $alat = peralatan::all()->where('nomor_batch',$id);
+        $nimbang = penimbangan::all()->where('nomor_batch',$id);
+        return view('catatan.dokumen.detailbatch', ['data'=> $data,'list_kom' => $kom,'list_alat'=>$alat, 'list_nimbang'=>$nimbang
     ]);
+    }
+
+    public function cetak_pengolahanbatch (Request $req) {
+        $id=$req['nobatch'];
+        $data = pengolahanbatch::all()->where('nomor_batch',$id);
+        $kom = komposisi::all()->where('nomor_batch',$id);
+        $alat = peralatan::all()->where('nomor_batch',$id);
+        $nimbang = penimbangan::all()->where('nomor_batch',$id);
+        return view('catatan.dokumen.detailbatch', ['data'=> $data,'list_kom' => $kom,'list_alat'=>$alat, 'list_nimbang'=>$nimbang
+
+        ]);
+    }
+    
+    public function tambah_batch (Request $req) {
+        $id=Auth::user()->id;
+        $hasil = [            
+            'pob' => $req['pob'],
+            'kode_produk' => $req['kode_produk'],
+            'nama_produk' => $req['nama_produk'],
+            'nomor_batch' => $req['no_batch'],
+            'besar_batch' => $req['besar_batch'],
+            'bentuk_sedia' => $req['bentuk_sediaan'],
+            'kemasan' => $req['kemasan'],
+            'user_id' => $id,            
+        ];
+        
+        pengolahanbatch::insert($hasil);
+        
+        return redirect('/pengolahanbatch');
     }
 
     //komposisi
     public function tambah_komposisi(Request $req) {
         $id=Auth::user()->id;
+        $nobatch =$req['nobatch'];
         $hasil = [            
             'komposisi_id' => $req['id'],
             'kompisisi_nama' => $req['nama'],
             'komposisi_persen' => $req['persen'],
+            'nomor_batch' => $nobatch,
             'user_id' => $id,            
         ];
         
@@ -201,9 +239,11 @@ class Admin extends Controller
     //peralatan
     public function tambah_peralatan(Request $req) {
         $id=Auth::user()->id;
+        $nobatch =$req['nobatch'];
         $hasil = [
             'peralatan_id' => $req['kode'],
             'peralatan_nama' => $req['nama'],
+            'nomor_batch' => $nobatch,
             'user_id' => $id,
         ];
         
@@ -215,6 +255,7 @@ class Admin extends Controller
     //catat penimbangan
     public function tambah_penimbangan(Request $req) {
         $id=Auth::user()->id;
+        $nobatch =$req['nobatch'];
         $hasil = [
             'penimbangan_kodebahan' => $req['kode_bahan'],
             'penimbangan_namabahan' => $req['nama_bahan'],
@@ -223,6 +264,7 @@ class Admin extends Controller
             'penimbangan_jumlahtimbang' => $req['jumlah_timbang'],
             'penimbangan_timbangoleh' => $req['ditimbang'],
             'penimbangan_periksaoleh' => $req['diperiksa'],
+            'nomor_batch' => $nobatch,
             'user_id' => $id,
         ];
         
@@ -300,6 +342,14 @@ class Admin extends Controller
         return view('setting', ['list_com' => $kom,'list_produk'=>$produk, 'list_kemasan'=>$kemasan, 'list_bahanbaku'=>$bahanbaku
     ]);
     }
+
+    public function tampil_laporan() {
+        $data = pengolahanbatch::all();
+        return view('laporan', ['batch' => $data]);        
+    }
+    
+
+    
 
     public function tampil_ambilbahanbaku () {
         return view("catatan.dokumen.ambilbahanbaku");

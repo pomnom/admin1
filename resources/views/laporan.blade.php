@@ -10,20 +10,24 @@
         <ol class="breadcrumb mb-4">
             <li class="breadcrumb-item active">Laporan</li>
         </ol>
+
         <div class="row">
 
 
             <div class="card mb-4">
+                <button class="btn btn-success btn-lg mb-3" data-toggle="modal" data-target="#modalForm">
+                    Tambah Perizinan
+                </button>
                 <div class="card-header">
                     <i class="fas fa-table me-1"></i>
                     Pencarian Laporan
                 </div>
                 <div class="card-body">
 
-                    <form>
+                    <form action="tampillaporan" method="post">
                         <div class="form-group row">
                             <div class="col">
-                                <select class="form-control" id="inlineFormCustomSelect">
+                                <select class="form-control" style="height: 35px;" id="inlineFormCustomSelect">
                                     <option selected>Tahun</option>
                                     <option value="1">2020</option>
                                     <option value="2">2021</option>
@@ -31,7 +35,7 @@
                                 </select>
                             </div>
                             <div class="col">
-                                <select class="form-control" id="inlineFormCustomSelect">
+                                <select class="form-control" style="height: 35px;" id="inlineFormCustomSelect">
                                     <option selected>Bulan</option>
                                     <option value="1">Januari</option>
                                     <option value="2">Februari</option>
@@ -48,7 +52,7 @@
                                 </select>
                             </div>
                             <div class="col">
-                                <select class="form-control" id="inlineFormCustomSelect">
+                                <select class="form-control" style="height: 35px;" id="inlineFormCustomSelect">
                                     <option selected>Produk</option>
                                     <option value="1">Rosela</option>
                                     <option value="2">Kunyit</option>
@@ -77,24 +81,23 @@
                     </tr>
                 </thead>
                 <tbody>
+
+                    @foreach($batch as $row)
+                    <?php $i = 0;
+                    $i++; ?>
                     <tr>
-                        <th scope="row">1</th>
+                        <th scope="row">{{$i}}</th>
                         <td>Pembersihan Ruangan</td>
-                        <td><a href="assets/pdf/cttpembersihanruangan.pdf" target="_blank" button type="button" class="btn btn-primary">Buka</button></td>
+                        <td>
+                            <form method="post" action="detil_batch">
+                                @csrf
+                                <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+                                <input type="hidden" name="nobatch" value="{{ $row['nomor_batch'] }}" />
+                                <button type="submit" class="btn btn-primary">Buka</button>
+                            </form>
+                        </td>
                     </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Pembersihan Alat</td>
-                        <td><a href="assets/pdf/cttpembersihanalat.pdf" target="_blank" button type="button" class="btn btn-primary">Buka</button></td>
-                    </tr>
-
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Pengelolaan Batch</td>
-                        <td><a href="assets/pdf/cttpebgelolaanbatch.pdf" target="_blank" button type="button" class="btn btn-primary">Buka</button></td>
-                    </tr>
-
-
+                    @endforeach
                 </tbody>
             </table>
 

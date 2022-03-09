@@ -18,6 +18,7 @@
             </li>
         </ul>
         <div class="tab-content" id="pills-tabContent">
+
             <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                 <ol class="breadcrumb mb-4">
                     <li class="breadcrumb-item active">Bahan Baku</li>
@@ -533,6 +534,8 @@
                 </div>
             </div>
             <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+
+
                 <ol class="breadcrumb mb-4">
                     <li class="breadcrumb-item active">Kemasan</li>
                 </ol>

@@ -11,105 +11,14 @@
             <li class="breadcrumb-item active">Pengolahan Batch</li>
         </ol>
         <div class="row">
-            <div class="card mb-4">
-                <div class="card-header">
-                    <i class="fas fa-table me-1"></i>
-                    Bagian Produksi
-                </div>
-                <div class="card-body">
-                    <form>
-                        <div class="form-group row">
-                            <label for="inputEmail3" class="col-sm-2 col-form-label">Sesuai Dengan POB No</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="inputEmail3" placeholder="Nomor POB" />
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
 
             <div class="card mb-4">
-                <div class="card-header">
-                    <i class="fas fa-table me-1"></i>
-                    Produk
-                </div>
-                <div class="card-body">
-                    <form>
-                        <div class="form-group row">
-                            <label for="inputEmail3" class="col-sm-2 col-form-label">Kode Produk</label>
-                            <div class="col-sm-10">
-                                <select class="form-control" id="inlineFormCustomSelect">
-                                    <option selected>Choose...</option>
-                                    <option value="1">rsl</option>
-                                    <option value="2">kyt</option>
-                                </select>
-                            </div>
-                        </div>
 
-                        <div class="form-group row">
-                            <label for="inputEmail3" class="col-sm-2 col-form-label">Nama Produk</label>
-                            <div class="col-sm-10">
-                                <select class="form-control" id="inlineFormCustomSelect">
-                                    <option selected>Choose...</option>
-                                    <option value="1">Rosela</option>
-                                    <option value="2">Kunyit</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="inputEmail3" class="col-sm-2 col-form-label">Nomor Batch</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="inputEmail3" placeholder="Nomor Batch" />
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="inputEmail3" class="col-sm-2 col-form-label">Besar Batch</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="inputEmail3" placeholder="Besar Batch" />
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="inputEmail3" class="col-sm-2 col-form-label">Bentuk Sediaan</label>
-                            <div class="col-sm-10">
-                                <select class="form-control" id="inlineFormCustomSelect">
-                                    <option selected>Choose...</option>
-                                    <option value="1">Serbuk Tabur</option>
-                                    <option value="2">Cair</option>
-                                    <option value="2">Cairan Kental</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="inputEmail3" class="col-sm-2 col-form-label">Kemasan</label>
-                            <div class="col-sm-10">
-                                <select class="form-control" id="inlineFormCustomSelect">
-                                    <option selected>Choose...</option>
-                                    <option value="1">Pot</option>
-                                    <option value="2">Pouch</option>
-                                    <option value="2">Sachet</option>
-                                </select>
-                            </div>
-                        </div>
-
-
-                    </form>
-                </div>
-            </div>
-
-            <div class="card mb-4">
-                <div class="card-header">
-                    <i class="fas fa-table me-1"></i>
-                    Komposisi
-                </div>
                 <div class="card-body">
                     <!-- pop up -->
                     <!-- Button to trigger modal -->
                     <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#modalForm">
-                        Tambah Komposisi
+                        Tambah Perizinan
                     </button>
 
                     <!-- Modal -->
@@ -119,326 +28,198 @@
                                 <!-- Modal Header -->
                                 <div class="modal-header">
                                     <h4 class="modal-title" id="myModalLabel">
-                                        Entry Kopmosisi
+                                        Entry Perizinan
                                     </h4>
                                 </div>
 
                                 <!-- Modal Body -->
                                 <div class="modal-body">
                                     <p class="statusMsg"></p>
-                                    <form action="/input_komposisi" method="post" role="form">
-                                        @csrf
-                                        <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+                                    <form method="post" action="tambah_batch">
+                                        <div>
 
-                                        <div class="form-group">
-                                            <label for="inputName">Nama BB</label>
-                                            <input type="text" name="id" class="form-control" id="inputName" placeholder="Nama BB" />
+                                            <div class="card-header">
+                                                <i class="fas fa-table me-1"></i>
+                                                Bagian Produksi
+                                            </div>
+
+                                            <div class="card-body">
+
+                                                @csrf
+                                                <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+
+                                                <div class="form-group row">
+                                                    <label for="inputEmail3" class="col-sm-2 col-form-label">Sesuai Dengan POB No</label>
+                                                    <div class="col-sm-10">
+                                                        <input type="text" name="pob" class="form-control" id="inputEmail3" placeholder="Nomor POB" />
+                                                    </div>
+                                                </div>
+
+                                            </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label for="inputEmail">Kode BB</label>
-                                            <input type="text" name="nama" class="form-control" id="inputName" placeholder="Kode BB" />
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="inputMessage">Persentase</label>
-                                            <input type="text" name="persen" class="form-control" id="inputName" placeholder="Persentase" />
-                                        </div>
-                                        <!-- Modal Footer -->
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-default" data-dismiss="modal">
-                                                Close
-                                            </button>
-                                            <button type="submit" class="btn btn-primary submitBtn" onclick="submitContactForm()">
-                                                Tambah
-                                            </button>
-                                        </div>
+
+                                        <div class="card mb-4">
+                                            <div class="card-header">
+                                                <i class="fas fa-table me-1"></i>
+                                                Produk
+                                            </div>
+                                            <div class="card-body">
+
+                                                <div class="form-group row">
+                                                    <label for="inputEmail3" class="col-sm-2 col-form-label">Kode Produk</label>
+                                                    <div class="col-sm-10">
+                                                        <select style="height: 35px;" class="form-control" name="kode_produk" id="inlineFormCustomSelect">
+                                                            <option selected>Choose...</option>
+                                                            <option value="1">rsl</option>
+                                                            <option value="2">kyt</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row">
+                                                    <label for="inputEmail3" class="col-sm-2 col-form-label">Nama Produk</label>
+                                                    <div class="col-sm-10">
+                                                        <select style="height: 35px;" class="form-control" name="nama_produk" id="inlineFormCustomSelect">
+                                                            <option selected>Choose...</option>
+                                                            <option value="1">Rosela</option>
+                                                            <option value="2">Kunyit</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row">
+                                                    <label for="inputEmail3" class="col-sm-2 col-form-label">Nomor Batch</label>
+                                                    <div class="col-sm-10">
+                                                        <input type="text" name="no_batch" class="form-control" id="inputEmail3" placeholder="Nomor Batch" />
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row">
+                                                    <label for="inputEmail3" class="col-sm-2 col-form-label">Besar Batch</label>
+                                                    <div class="col-sm-10">
+                                                        <input type="text" name="besar_batch" class="form-control" id="inputEmail3" placeholder="Besar Batch" />
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row">
+                                                    <label for="inputEmail3" class="col-sm-2 col-form-label">Bentuk Sediaan</label>
+                                                    <div class="col-sm-10">
+                                                        <select style="height: 35px;" class="form-control" name="bentuk sediaan" id="inlineFormCustomSelect">
+                                                            <option selected>Choose...</option>
+                                                            <option value="1">Serbuk Tabur</option>
+                                                            <option value="2">Cair</option>
+                                                            <option value="2">Cairan Kental</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row">
+                                                    <label for="inputEmail3" class="col-sm-2 col-form-label">Kemasan</label>
+                                                    <div class="col-sm-10">
+                                                        <select style="height: 35px;" name="kemasan" class="form-control" id="inlineFormCustomSelect">
+                                                            <option selected>Choose...</option>
+                                                            <option value="1">Pot</option>
+                                                            <option value="2">Pouch</option>
+                                                            <option value="2">Sachet</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+
+
+                                            </div>
+                                            <button type="submit" class="btn btn-primary" style="float:left; width: 100px;  margin-left:25px">SIMPAN</button>
                                     </form>
                                 </div>
-
-
                             </div>
                         </div>
                     </div>
+                    <!--  -->
 
-                    <!-- pop up end -->
 
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">No</th>
-                                <th scope="col">Nama BB</th>
-                                <th scope="col">Kode BB</th>
-                                <th scope="col">Persentase (%)</th>
-                                <th scope="col">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php $i = 0 ?>
-                            @foreach($list_kom as $row)
-                            <?php $i++;
-                            ?>
-                            <tr>
-                                <th scope="row">{{$i}}</th>
-                                <td>{{$row['kompisisi_nama']}}</td>
-                                <td>{{$row['komposisi_id']}}</td>
-                                <td>{{$row['komposisi_persen']}}</td>
-                                <td>
-                                    <a href="#" type="button" class="btn btn-danger" onclick="return confirm('Hapus? ')">Hapus</a>
-                                </td>
-                            </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+
                 </div>
-            </div>
 
-            <div class="card mb-4">
-                <div class="card-header">
-                    <i class="fas fa-table me-1"></i>
-                    Peralatan
-                </div>
-                <div class="card-body">
-                    <!-- pop up -->
-                    <!-- Button to trigger modal -->
-                    <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#modalForm1">
-                        Tambah Peralatan
-                    </button>
+                <table class="table mt-5">
+                    <thead>
+                        <tr>
+                            <th scope="col">No</th>
+                            <th scope="col">Kode Produk</th>
+                            <th scope="col">Nama Produk</th>
+                            <th scope="col">Nomor Batch</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($data as $row)
+                        <?php $i = 0;
+                        $i++; ?>
+                        <tr>
+                            <td>{{$i}}</td>
+                            <td>{{$row['kode_produk']}}</td>
+                            <td>{{$row['nama_produk']}}</td>
+                            <td>{{$row['nomor_batch']}}</td>
+                            <td>
+                                <form method="post" action="detil_batch">
+                                    @csrf
+                                    <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+                                    <input type="hidden" name="nobatch" value="{{ $row['nomor_batch'] }}" />
+                                    <button type="submit" class="btn btn-primary">Buka</button>
+                                </form>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
 
-                    <!-- Modal -->
-                    <div class="modal fade" id="modalForm1" role="dialog">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <!-- Modal Header -->
-                                <div class="modal-header">
-                                    <h4 class="modal-title" id="myModalLabel">
-                                        Entry Peralatan
-                                    </h4>
-                                </div>
+                <!-- <div class="card mb-4">
+                    <div class="card-header">
+                        <i class="fas fa-table me-1"></i>
+                        Produk
 
-                                <!-- Modal Body -->
-                                <div class="modal-body">
-                                    <p class="statusMsg"></p>
-                                    <form action="/input_peralatan" method="post" role="form">
-                                        @csrf
-                                        <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-
-                                        <div class="form-group">
-                                            <label for="inputName">Nama Alat</label>
-                                            <input name="nama" type="text" class="form-control" id="inputName" placeholder="Nama Alat" />
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="inputEmail">Kode Alat</label>
-                                            <input name="kode" type="text" class="form-control" id="inputName" placeholder="Kode Alat" />
-                                        </div>
-                                        <!-- Modal Footer -->
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-default" data-dismiss="modal">
-                                                Close
-                                            </button>
-                                            <button type="submit" class="btn btn-primary submitBtn" onclick="submitContactForm()">
-                                                Tambah
-                                            </button>
-                                        </div>
-                                    </form>
-                                </div>
-
-
+                        <div class="dropdown float-right">
+                            <button class="btn btn-white dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Dropdown button
+                            </button>
+                            <div class="dropdown-menu">
+                                <li><a class="nav-link active bg-white text-dark" href="#tab-0" data-toggle="tab">Absolute Reference</a></li>
+                                <li><a class="nav-link bg-white text-dark" href="#tab-1" data-toggle="tab">Foot Plat</a></li>
+                                <li><a class="nav-link bg-white text-dark" href="#tab-2" data-toggle="tab">Pump Room</a></li>
+                                <li><a class="nav-link bg-white text-dark" href="#tab-3" data-toggle="tab">Batu Kali</a></li>
                             </div>
                         </div>
                     </div>
+                    <div class="card-body">
 
-                    <!-- pop up end -->
+                        <div class="row m-t-sm">
+                            <div class="col-lg-12">
+                                <div class="panel blank-panel">
 
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">No</th>
-                                <th scope="col">Nama Alat</th>
-                                <th scope="col">Kode Alat</th>
-                                <th scope="col">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php $i = 0 ?>
-                            @foreach($list_alat as $row)
-                            <?php $i++;
-                            ?>
-                            <tr>
-                                <th scope="row">{{$i}}</th>
-                                <td>{{$row['peralatan_nama']}}</td>
-                                <td>{{$row['peralatan_id']}}</td>
-                                <td>
-                                    <a href="#" type="button" class="btn btn-danger" onclick="return confirm('Hapus? ')">Hapus</a>
-                                </td>
-                            </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <div class="card mb-4">
-                <div class="card-header">
-                    <i class="fas fa-table me-1"></i>
-                    Penimbangan
-                </div>
-                <div class="card-body">
-                    <!-- pop up -->
-                    <!-- Button to trigger modal -->
-                    <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#modalForm2">
-                        Data Penimbangan
-                    </button>
-
-                    <!-- Modal -->
-                    <div class="modal fade" id="modalForm2" role="dialog">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <!-- Modal Header -->
-                                <div class="modal-header">
-                                    <h4 class="modal-title" id="myModalLabel">
-                                        Entry Penimbangan
-                                    </h4>
-                                </div>
-
-                                <!-- Modal Body -->
-                                <div class="modal-body">
-                                    <p class="statusMsg"></p>
-                                    <form action="/input_penimbangan" method="post" role="form">
-                                        @csrf
-                                        <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-
-                                        <div class="form-group">
-                                            <label for="inputName">Kode Bahan</label>
-                                            <input type="text" name="kode_bahan" class="form-control" id="inputName" placeholder="Kode Bahan" />
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="inputEmail">Nama Bahan</label>
-                                            <input type="text" name="nama_bahan" class="form-control" id="inputName" placeholder="Nama Bahan" />
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="inputEmail">Nomor Loth</label>
-                                            <input type="text" name="no_loth" class="form-control" id="inputName" placeholder="Nomor Loth" />
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="inputEmail">Jumlah yang Dibutuhkan</label>
-                                            <input type="text" name="jumlah_butuh" class="form-control" id="inputName" placeholder="Jumlah yang Dibutuhkan" />
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="inputEmail">Jumlah yang Ditimbang</label>
-                                            <input type="text" name="jumlah_timbang" class="form-control" id="inputName" placeholder="Jumlah yang Ditimbang" />
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="inputEmail">Ditimbang Oleh</label>
-                                            <input type="text" name="ditimbang" class="form-control" id="inputName" placeholder="Ditimbang Oleh" />
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="inputEmail">Diperiksa Oleh</label>
-                                            <input type="text" name="diperiksa" class="form-control" id="inputName" placeholder="Diperiksa Oleh" />
-                                        </div>
-                                        <!-- Modal Footer -->
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-default" data-dismiss="modal">
-                                                Close
-                                            </button>
-                                            <button type="submit" class="btn btn-primary submitBtn" onclick="submitContactForm()">
-                                                Tambah
-                                            </button>
-                                        </div>
-                                    </form>
-                                </div>
-
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- pop up end -->
-
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">No</th>
-                                <th scope="col">Kode Bahan</th>
-                                <th scope="col">Nama Bahan</th>
-                                <th scope="col">Nomor Loth</th>
-                                <th scope="col">Jml Dibutuhkan</th>
-                                <th scope="col">Jml Ditimbang</th>
-                                <th scope="col">Ditimbang Oleh</th>
-                                <th scope="col">Diperiksa Oleh</th>
-                                <th scope="col">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php $i = 0 ?>
-                            @foreach($list_nimbang as $row)
-                            <?php $i++;
-                            ?>
-                            <tr>
-                                <th scope="row">{{$i}}</th>
-                                <td>{{$row['penimbangan_kodebahan']}}</td>
-                                <td>{{$row['penimbangan_namabahan']}}</td>
-                                <td>{{$row['penimbangan_loth']}}</td>
-                                <td>{{$row['penimbangan_jumlahbutuh']}}</td>
-                                <td>{{$row['penimbangan_jumlahtimbang']}}</td>
-                                <td>{{$row['penimbangan_timbangoleh']}}</td>
-                                <td>{{$row['penimbangan_periksaoleh']}}</td>
-                                <td>
-                                    <a href="#" type="button" class="btn btn-danger" onclick="return confirm('Hapus? ')">Hapus</a>
-                                </td>
-                            </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <div class="card mb-4">
-                <div class="card-header">
-                    <i class="fas fa-table me-1"></i>
-                    Produk
-
-                    <div class="dropdown float-right">
-                        <button class="btn btn-white dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Dropdown button
-                        </button>
-                        <div class="dropdown-menu">
-                            <li><a class="nav-link active bg-white text-dark" href="#tab-0" data-toggle="tab">Absolute Reference</a></li>
-                            <li><a class="nav-link bg-white text-dark" href="#tab-1" data-toggle="tab">Foot Plat</a></li>
-                            <li><a class="nav-link bg-white text-dark" href="#tab-2" data-toggle="tab">Pump Room</a></li>
-                            <li><a class="nav-link bg-white text-dark" href="#tab-3" data-toggle="tab">Batu Kali</a></li>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-body">
-
-                    <div class="row m-t-sm">
-                        <div class="col-lg-12">
-                            <div class="panel blank-panel">
-
-                                <div class="panel-body">
-                                    <div class="tab-content">
-                                        <div class="tab-pane active" id="tab-0">
-                                            <b>tab-0</b>
-                                        </div>
-                                        <div class="tab-pane" id="tab-1">
-                                            <b>tab-1</b>
-                                        </div>
-                                        <div class="tab-pane" id="tab-2">
-                                            <b>tab-2</b>
-                                        </div>
-                                        <div class="tab-pane " id="tab-3">
-                                            <div class="wrapper wrapper-content animated fadeInRight">
-                                                <b>tab-3</b>
+                                    <div class="panel-body">
+                                        <div class="tab-content">
+                                            <div class="tab-pane active" id="tab-0">
+                                                <b>tab-0</b>
+                                            </div>
+                                            <div class="tab-pane" id="tab-1">
+                                                <b>tab-1</b>
+                                            </div>
+                                            <div class="tab-pane" id="tab-2">
+                                                <b>tab-2</b>
+                                            </div>
+                                            <div class="tab-pane " id="tab-3">
+                                                <div class="wrapper wrapper-content animated fadeInRight">
+                                                    <b>tab-3</b>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
+
                                 </div>
 
                             </div>
-
                         </div>
-                    </div>
 
-                    <!-- <table class="table">
+                        <!-- <table class="table">
                         <tr>
                             <th scope="col">Tahap Pengolahan</th>
                             <th scope="col">Paraf Bagian Pengawasa Mutu</th>
@@ -494,11 +275,11 @@
                             </div>
                         </div>
                     </form> -->
-                </div>
             </div>
+        </div> -->
 
-            <a class="btn btn-primary" href="index" style="float:left; width: 100px;  margin-left:25px">SIMPAN</a>
-        </div>
+
+    </div>
     </div>
 </main>
 @endsection

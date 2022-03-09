@@ -19,6 +19,7 @@
             </li>
         </ul>
         <div class="tab-content" id="pills-tabContent">
+
             <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                 <ol class="breadcrumb mb-4">
                     <li class="breadcrumb-item active">Catatan Pengambilan Contoh Bahan Baku</li>
@@ -144,7 +145,7 @@
                     </div>
                 </div>
             </div>
-            <div class="tab-pane fade" id="#pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+            <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
                 <ol class="breadcrumb mb-4">
                     <li class="breadcrumb-item active">Catatan Pengambilan Contoh Produk Jadi</li>
                 </ol>
@@ -269,7 +270,7 @@
                     </div>
                 </div>
             </div>
-            <div class="tab-pane fade" id="#pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+            <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
                 <ol class="breadcrumb mb-4">
                     <li class="breadcrumb-item active">Catatan Pengambilan Contoh Kemasan</li>
                 </ol>
@@ -394,6 +395,8 @@
                     </div>
                 </div>
             </div>
+
+
         </div>
 
     </div>

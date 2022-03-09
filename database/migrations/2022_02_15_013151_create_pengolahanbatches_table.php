@@ -14,7 +14,14 @@ class CreatePengolahanbatchesTable extends Migration
     public function up()
     {
         Schema::create('pengolahanbatches', function (Blueprint $table) {
-            $table->id();
+            $table->id("batch");
+            $table->string("pob",100);
+            $table->string("kode_produk",100);
+            $table->string("nama_produk",100);
+            $table->string("nomor_batch",100);
+            $table->string("besar_batch",100);
+            $table->string("bentuk_sedia",100);
+            $table->string("kemasan",100);
             $table->integer("user_id",false);
             $table->timestamps();
         });
