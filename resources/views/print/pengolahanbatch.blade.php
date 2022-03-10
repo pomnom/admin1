@@ -4,14 +4,14 @@
 <head>
     <meta charset="utf-8">
     <style>
-        table,
+        table {
+            width:100%;
+        }
         tr,
-        td, th, tbody,
-        thead {
+        td{
             border: 1px solid black;
             border-collapse: collapse;
             text-align: center;
-            width:auto;
         }
     </style>
     <title>A4</title>
@@ -91,74 +91,73 @@
             @endforeach
         </table>
         <br><br><br><br>
-        <table class="table">
-                        <thead>
+        <table>
+                        
                             <tr>
-                                <th scope="col">No</th>
-                                <th scope="col">Nama BB</th>
-                                <th scope="col">Kode BB</th>
-                                <th scope="col">Persentase (%)</th>
+                                <td scope="col">No</td>
+                                <td scope="col">Nama BB</td>
+                                <td scope="col">Kode BB</td>
+                                <td scope="col">Persentase (%)</td>
                             </tr>
-                        </thead>
-                        <tbody>
+
+                        
                             <?php $i = 0 ?>
                             @foreach($list_kom as $row)
                             <?php $i++;
                             ?>
                             <tr>
-                                <th scope="row">{{$i}}</th>
+                                <td >{{$i}}</td>
                                 <td>{{$row['kompisisi_nama']}}</td>
                                 <td>{{$row['komposisi_id']}}</td>
                                 <td>{{$row['komposisi_persen']}}</td>
                             </tr>
                             @endforeach
-                        </tbody>
+                        
                     </table>
 
                     <br><br><br><br>
                     <table class="table">
-                        <thead>
+                        
                             <tr>
-                                <th scope="col">No</th>
-                                <th scope="col">Nama Alat</th>
-                                <th scope="col">Kode Alat</th>
+                                <td scope="col">No</td>
+                                <td scope="col">Nama Alat</td>
+                                <td scope="col">Kode Alat</td>
                             </tr>
-                        </thead>
-                        <tbody>
+                        
+                        
                             <?php $i = 0 ?>
                             @foreach($list_alat as $row)
                             <?php $i++;
                             ?>
                             <tr>
-                                <th scope="row">{{$i}}</th>
+                                <td scope="row">{{$i}}</td>
                                 <td>{{$row['peralatan_nama']}}</td>
                                 <td>{{$row['peralatan_id']}}</td>
                             </tr>
                             @endforeach
-                        </tbody>
+                        
                     </table>
                     <br><br><br><br>
 
                     <table class="table">
-                        <thead>
+                       
                             <tr>
-                                <th scope="col">No</th>
-                                <th scope="col">Kode Bahan</th>
-                                <th scope="col">Nama Bahan</th>
-                                <th scope="col">Nomor Loth</th>
-                                <th scope="col">Jml Dibutuhkan</th>
-                                <th scope="col">Jml Ditimbang</th>
-                                <th scope="col">Ditimbang Oleh</th>
-                                <th scope="col">Diperiksa Oleh</th>
+                                <td scope="col">No</td>
+                                <td scope="col">Kode Bahan</td>
+                                <td scope="col">Nama Bahan</td>
+                                <td scope="col">Nomor Lotd</td>
+                                <td scope="col">Jml Dibutuhkan</td>
+                                <td scope="col">Jml Ditimbang</td>
+                                <td scope="col">Ditimbang Oleh</td>
+                                <td scope="col">Diperiksa Oleh</td>
                             </tr>
-                        </thead>
-                        <tbody>
+                        
                             <?php $i = 0 ?>
                             @foreach($list_nimbang as $row)
                             <?php $i++;
                             ?>
                             <tr>
-                                <th scope="row">{{$i}}</th>
+                                <td scope="row">{{$i}}</td>
                                 <td>{{$row['penimbangan_kodebahan']}}</td>
                                 <td>{{$row['penimbangan_namabahan']}}</td>
                                 <td>{{$row['penimbangan_loth']}}</td>
@@ -169,7 +168,7 @@
                               
                             </tr>
                             @endforeach
-                        </tbody>
+                        
                     </table>
 
         </center>
