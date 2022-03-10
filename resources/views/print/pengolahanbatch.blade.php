@@ -98,7 +98,6 @@
                                 <th scope="col">Nama BB</th>
                                 <th scope="col">Kode BB</th>
                                 <th scope="col">Persentase (%)</th>
-                                <th scope="col">Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -111,9 +110,6 @@
                                 <td>{{$row['kompisisi_nama']}}</td>
                                 <td>{{$row['komposisi_id']}}</td>
                                 <td>{{$row['komposisi_persen']}}</td>
-                                <td>
-                                    <a href="#" type="button" class="btn btn-danger" onclick="return confirm('Hapus? ')">Hapus</a>
-                                </td>
                             </tr>
                             @endforeach
                         </tbody>
@@ -126,7 +122,6 @@
                                 <th scope="col">No</th>
                                 <th scope="col">Nama Alat</th>
                                 <th scope="col">Kode Alat</th>
-                                <th scope="col">Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -138,9 +133,6 @@
                                 <th scope="row">{{$i}}</th>
                                 <td>{{$row['peralatan_nama']}}</td>
                                 <td>{{$row['peralatan_id']}}</td>
-                                <td>
-                                    <a href="#" type="button" class="btn btn-danger" onclick="return confirm('Hapus? ')">Hapus</a>
-                                </td>
                             </tr>
                             @endforeach
                         </tbody>
@@ -158,7 +150,6 @@
                                 <th scope="col">Jml Ditimbang</th>
                                 <th scope="col">Ditimbang Oleh</th>
                                 <th scope="col">Diperiksa Oleh</th>
-                                <th scope="col">Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -175,9 +166,7 @@
                                 <td>{{$row['penimbangan_jumlahtimbang']}}</td>
                                 <td>{{$row['penimbangan_timbangoleh']}}</td>
                                 <td>{{$row['penimbangan_periksaoleh']}}</td>
-                                <td>
-                                    <a href="#" type="button" class="btn btn-danger" onclick="return confirm('Hapus? ')">Hapus</a>
-                                </td>
+                              
                             </tr>
                             @endforeach
                         </tbody>
