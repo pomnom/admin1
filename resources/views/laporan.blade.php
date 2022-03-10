@@ -87,9 +87,9 @@
                     $i++; ?>
                     <tr>
                         <th scope="row">{{$i}}</th>
-                        <td>Pembersihan Ruangan</td>
+                        <td>Pngoolahan Batch</td>
                         <td>
-                            <form method="post" action="detil_batch">
+                            <form method="post" action="printpengolahanbatch">
                                 @csrf
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                                 <input type="hidden" name="nobatch" value="{{ $row['nomor_batch'] }}" />

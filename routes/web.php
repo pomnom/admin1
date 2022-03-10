@@ -53,7 +53,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/input_penimbangan', [Admin::class, 'tambah_penimbangan']);
     Route::post('/tambah_batch', [Admin::class, 'tambah_batch']);
     Route::post('/detil_batch', [Admin::class, 'tampil_detilbatch']); 
-    Route::get('/cetakpengolahanbatch', [Admin::class, 'tampil_detilbatch']);
+    Route::post('/printpengolahanbatch', [Admin::class, 'cetak_pengolahanbatch']);
 
 
     Route::get('/laporan', [Admin::class, 'tampil_laporan']);
