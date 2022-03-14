@@ -52,7 +52,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/input_peralatan', [Admin::class, 'tambah_peralatan']);
     Route::post('/input_penimbangan', [Admin::class, 'tambah_penimbangan']);
     Route::post('/tambah_batch', [Admin::class, 'tambah_batch']);
-    Route::post('/detil_batch', [Admin::class, 'tampil_detilbatch']); 
+    Route::post('/detil_batch', [Admin::class, 'tampil_detilbatch']);
     Route::post('/printpengolahanbatch', [Admin::class, 'cetak_pengolahanbatch']);
 
 
@@ -95,5 +95,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/periksapersonil', [Admin::class, 'tampil_periksapersonil']);
     Route::get('/periksasanialat', [Admin::class, 'tampil_periksasanialat']);
     Route::get('/periksasaniruang', [Admin::class, 'tampil_periksasaniruang']);
-    
+
+    //yusril
+    Route::get('program-dan-pelatihan-higiene-dan-sanitasi', [Admin::class, 'tampil_programpelatihanhigienitasdansanitasi']);
+    Route::get('pemusnahan-produk', [Admin::class, 'tampil_pemusnahanproduk']);
+    Route::get('penanganan-keluhan', [Admin::class, 'tampil_penanganankeluhan']);
 });
