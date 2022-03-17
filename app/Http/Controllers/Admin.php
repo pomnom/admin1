@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\{bahanbaku, catatbersih, coa, company, dip, kemasan, perizinan, pobpabrik, komposisi, pengolahanbatch, peralatan, penimbangan, produk};
+use App\Models\{bahanbaku, catatbersih, coa, company, dip, distribusiproduk, kemasan, perizinan, pobpabrik, komposisi, pemusnahanproduk, penanganankeluhan, penarikanproduk, pendistribusianproduk, pengolahanbatch, peralatan, penimbangan, produk, programpelatihan, programpelatihanhiginitas};
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rules\Exists;
@@ -462,16 +462,121 @@ class Admin extends Controller
     }
 
     //yusril
+    public function tambah_pelatihanhiginitas(Request $req)
+    {
+        $id = Auth::user()->id;
+        $hasil = [
+            'id_programpelatihan' => $req['kode_pelatihan'],
+            'materi_pelatihan' => $req['materi_pelatihan'],
+            'peserta_pelatihan' => $req['peserta_pelatihan'],
+            'pelatih' => $req['pelatih'],
+            'metode_pelatihan' => $req['metode_pelatihan'],
+            'jadwal_mulai_pelatihan' => $req['mulai'],
+            'jadwal_berakhir_pelatihan' => $req['berakhir'],
+            'metode_penilaian' => $req['metode_penilaian'],
+            'user_id' => $id,
+        ];
+
+        programpelatihan::insert($hasil);
+
+        return redirect('/program-dan-pelatihan-higiene-dan-sanitasi');
+    }
     public function tampil_programpelatihanhigienitasdansanitasi()
     {
-        return view("catatan.dokumen.programpelatihanhiginitas");
+        $data = programpelatihan::all();
+        return view('catatan.dokumen.programpelatihanhiginitas', ['data' => $data]);
+    }
+    public function tambah_pemusnahanproduk(Request $req)
+    {
+        $id = Auth::user()->id;
+        $hasil = [
+            'id_produk_pemusnahan' => $req['kode_pemusnahan'],
+            'tanggal_pemusnahan' => $req['tanggal'],
+            'nama_produk_jadi' => $req['nama_produk_jadi'],
+            'id_batch' => $req['no_batch'],
+            'asal_produk_jadi' => $req['asal_produk_jadi'],
+            'jumlah_produk_jadi' => $req['jumlah_produk_jadi'],
+            'alasan_pemusnahan' => $req['alasan_pemusnahan'],
+            'cara_pemunsnahan' => $req['cara_pemusnahan'],
+            'nama_petugas' => $req['petugas'],
+            'user_id' => $id,
+        ];
+
+        pemusnahanproduk::insert($hasil);
+
+        return redirect('/pemusnahan-produk');
     }
     public function tampil_pemusnahanproduk()
     {
-        return view("catatan.dokumen.pemusnahanproduk");
+        $data = pemusnahanproduk::all();
+        return view('catatan.dokumen.pemusnahanproduk', ['data' => $data]);
+    }
+    public function tambah_keluhan(Request $req)
+    {
+        $id = Auth::user()->id;
+        $hasil = [
+            'id_penanganankeluhan' => $req['kode_keluhan'],
+            'nama_customer' => $req['nama_customer'],
+            'tanggal_keluhan' => $req['tanggal_keluhan'],
+            'keluhan' => $req['keluhan'],
+            'tanggal_ditanggapi' => $req['tanggal_tanggapi_keluhan'],
+            'produk_yang_digunakan' => $req['produk_yang_digunakan'],
+            'penanganan_keluhan' => $req['penanganan_keluhan'],
+            'tindak_lanjut' => $req['tindak_lanjut'],
+            'user_id' => $id,
+        ];
+
+        penanganankeluhan::insert($hasil);
+
+        return redirect('/penanganan-keluhan');
     }
     public function tampil_penanganankeluhan()
     {
-        return view("catatan.dokumen.penanganankeluhan");
+        $data = penanganankeluhan::all();
+        return view('catatan.dokumen.penanganankeluhan', ['data' => $data]);
+    }
+    public function tambah_penarikan(Request $req)
+    {
+        $id = Auth::user()->id;
+        $hasil = [
+            'id_produk_penarikan' => $req['kode_penarikan'],
+            'tanggal_penarikan' => $req['tanggal'],
+            'nama_distributor' => $req['nama_distributor'],
+            'produk_ditarik' => $req['produk_ditarik'],
+            'jumlah_produk_ditarik' => $req['jumlah_produk_ditarik'],
+            'id_batch' => $req['no_batch'],
+            'alasan_penarikan' => $req['alasan_penarikan'],
+            'user_id' => $id,
+        ];
+
+        penarikanproduk::insert($hasil);
+
+        return redirect('/penarikan-produk');
+    }
+    public function tampil_penarikanproduk()
+    {
+        $data = penarikanproduk::all();
+        return view('catatan.dokumen.penarikanproduk', ['data' => $data]);
+    }
+    public function tambah_distribusi(Request $req)
+    {
+        $id = Auth::user()->id;
+        $hasil = [
+            'id_distribusi' => $req['kode_distribusi'],
+            'tanggal' => $req['tanggal'],
+            'id_batch' => $req['no_batch'],
+            'jumlah' => $req['jumlah'],
+            'nama_distributor' => $req['nama_distributor'],
+            'user_id' => $id,
+        ];
+
+        distribusiproduk::insert($hasil);
+
+        return redirect('/pendistribusian-produk');
+    }
+    public function tampil_distribusi()
+    {
+        $data = distribusiproduk::all();
+        return view('catatan.dokumen.pendistribusianproduk', ['data' => $data]);
     }
 }

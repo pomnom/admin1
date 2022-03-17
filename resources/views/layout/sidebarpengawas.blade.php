@@ -27,9 +27,9 @@
                                         <a class="nav-link" href="#">Pengemasan Batch</a>
                                         <a class="nav-link" href="#">Peberian Nomor Batch</a>
                                         <a class="nav-link" href="#">Pelulusan Produk Jadi</a>
-                                        <a class="nav-link" href="#">Pendistribusian Produk</a>
+                                        <a class="nav-link" href="pendistribusian-produk">Pendistribusian Produk</a>
                                         <a class="nav-link" href="penanganan-keluhan">Penanganan Keluhan</a>
-                                        <a class="nav-link" href="#">Penarikan Produk</a>
+                                        <a class="nav-link" href="penarikan-produk">Penarikan Produk</a>
                                         <a class="nav-link" href="pemusnahan-produk">Pemusnahan Produk</a>
                                         <a class="nav-link" href="#">Penanganan Contoh Tertinggal</a>
                                         <a class="nav-link" href="#">Pembuatan PROTAP dan Penomoran</a>

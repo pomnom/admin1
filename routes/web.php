@@ -100,4 +100,11 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('program-dan-pelatihan-higiene-dan-sanitasi', [Admin::class, 'tampil_programpelatihanhigienitasdansanitasi']);
     Route::get('pemusnahan-produk', [Admin::class, 'tampil_pemusnahanproduk']);
     Route::get('penanganan-keluhan', [Admin::class, 'tampil_penanganankeluhan']);
+    Route::get('penarikan-produk', [Admin::class, 'tampil_penarikanproduk']);
+    Route::get('pendistribusian-produk', [Admin::class, 'tampil_distribusi']);
+    Route::post('tambah_pelatihanhiginitas', [Admin::class, 'tambah_pelatihanhiginitas']);
+    Route::post('tambah_pemusnahanproduk', [Admin::class, 'tambah_pemusnahanproduk']);
+    Route::post('tambah_keluhan', [Admin::class, 'tambah_keluhan']);
+    Route::post('tambah_penarikan', [Admin::class, 'tambah_penarikan']);
+    Route::post('tambah_distribusi', [Admin::class, 'tambah_distribusi']);
 });

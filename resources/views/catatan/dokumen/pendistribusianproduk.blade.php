@@ -5,8 +5,8 @@
 @section('content')
 <main>
     <div class="container-fluid px-4">
-        <h1>Catatan Pemusnahan Produk</h1>
-        <ol class="breadcrumb mb-4">Pemusnahan Produk</li>
+        <h1>Catatan Pendistribusian Produk</h1>
+        <ol class="breadcrumb mb-4">Pendistribusian Produk</li>
         </ol>
         <div class="row">
 
@@ -16,7 +16,7 @@
                     <!-- pop up -->
                     <!-- Button to trigger modal -->
                     <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#modalForm">
-                        Tambah Pemusnahan Produk
+                        Tambah Pendistribusian Produk
                     </button>
 
                     <!-- Modal -->
@@ -26,41 +26,34 @@
                                 <!-- Modal Header -->
                                 <div class="modal-header">
                                     <h4 class="modal-title" id="myModalLabel">
-                                        Entry Pemusnahan Produk
+                                        Entry Pendistribusian Produk
                                     </h4>
                                 </div>
 
                                 <!-- Modal Body -->
                                 <div class="modal-body">
                                     <p class="statusMsg"></p>
-                                    <form method="post" action="tambah_pemusnahanproduk">
+                                    <form method="post" action="tambah_distribusi">
                                         <div class="card mb-4">
                                             <div class="card-header">
                                                 <i class="fas fa-table me-1"></i>
-                                                Pemusnahan
+                                                Distribusi
                                             </div>
                                             @csrf
                                             <input type="hidden" name="_token" value="{{ csrf_token() }}" />   
                                             <div class="card-body">
 
                                                 <div class="form-group row">
-                                                    <label for="inputEmail3" class="col-sm-2 col-form-label">Kode Pemusnahan</label>
+                                                    <label for="inputEmail3" class="col-sm-2 col-form-label">Kode Pendistribusian</label>
                                                     <div class="col-sm-10"> 
-                                                        <input type="text" name="kode_pemusnahan" class="form-control" id="inputEmail3" placeholder="Kode Pemusnahan" />
+                                                        <input type="text" name="kode_distribusi" class="form-control" id="inputEmail3" placeholder="Kode Pemusnahan" />
                                                     </div>
                                                 </div>
 
                                                 <div class="form-group row">
-                                                    <label for="inputEmail3" class="col-sm-2 col-form-label">Tanggal</label>
+                                                    <label for="inputEmail3" class="col-sm-2 col-form-label">Tanggal Pendistribusian</label>
                                                     <div class="col-sm-10"> 
                                                         <input type="datetime-local" name="tanggal" class="form-control" id="inputEmail3" placeholder="" />
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group row">
-                                                    <label for="inputEmail3" class="col-sm-2 col-form-label">Nama Produk Jadi</label>
-                                                    <div class="col-sm-10">
-                                                        <input type="text" name="nama_produk_jadi" class="form-control" id="inputEmail3" placeholder="Nama Produk Jadi" />
                                                     </div>
                                                 </div>
 
@@ -72,37 +65,16 @@
                                                 </div>
 
                                                 <div class="form-group row">
-                                                    <label for="inputEmail3" class="col-sm-2 col-form-label">Asal Produk Jadi</label>
+                                                    <label for="inputEmail3" class="col-sm-2 col-form-label">Jumlah</label>
                                                     <div class="col-sm-10">
-                                                        <input type="text" name="asal_produk_jadi" class="form-control" id="inputEmail3" placeholder="Asal Produk Jadi" />
+                                                        <input type="text" name="jumlah" class="form-control" id="inputEmail3" placeholder="Jumlah" />
                                                     </div>
                                                 </div>
 
                                                 <div class="form-group row">
-                                                    <label for="inputEmail3" class="col-sm-2 col-form-label">Jumlah Produk Jadi</label>
+                                                    <label for="inputEmail3" class="col-sm-2 col-form-label">Nama Distributor</label>
                                                     <div class="col-sm-10">
-                                                        <input type="text" name="jumlah_produk_jadi" class="form-control" id="inputEmail3" placeholder="Jumlah Produk Jadi" />
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group row">
-                                                    <label for="inputEmail3" class="col-sm-2 col-form-label">Alasan Pemusnahan</label>
-                                                    <div class="col-sm-10">
-                                                        <input type="text" name="alasan_pemusnahan" class="form-control" id="inputEmail3" placeholder="Alasan Pemusnahan" />
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group row">
-                                                    <label for="inputEmail3" class="col-sm-2 col-form-label">Cara Pemusnahan</label>
-                                                    <div class="col-sm-10">
-                                                        <input type="text" name="cara_pemusnahan" class="form-control" id="inputEmail3" placeholder="Cara Pemusnahan" />
-                                                    </div>
-                                                </div>
-                                                
-                                                <div class="form-group row">
-                                                    <label for="inputEmail3" class="col-sm-2 col-form-label">Petugas</label>
-                                                    <div class="col-sm-10">
-                                                        <input type="text" name="petugas" class="form-control" id="inputEmail3" placeholder="Petugas" />
+                                                        <input type="text" name="nama_distributor" class="form-control" id="inputEmail3" placeholder="Nama Distributor" />
                                                     </div>
                                                 </div>
                                                 
@@ -115,23 +87,17 @@
                     </div>
                     <!--  -->
 
-
-
                 </div>
 
                 <table class="table mt-5">
                     <thead>
                         <tr>
                             <th scope="col">No</th>
-                            <th scope="col">Kode Pemusnahan Produk</th>
+                            <th scope="col">Kode Distribusi</th>
                             <th scope="col">Tanggal</th>
-                            <th scope="col">Nama Produk Jadi</th>
                             <th scope="col">No Batch</th>
-                            <th scope="col">Asal Produk Jadi</th>
-                            <th scope="col">Jumlah Produk Jadi</th>
-                            <th scope="col">Alasan Pemusnahan</th>
-                            <th scope="col">Cara Pemusnahan</th>
-                            <th scope="col">Petugas</th>
+                            <th scope="col">Jumlah Produk</th>
+                            <th scope="col">Nama Distributor</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
@@ -141,14 +107,11 @@
                         $i++; ?>
                         <tr>
                             <td>{{ $i }}</td>
-                            <td>{{ $row['id_produk_pemusnahan'] }}</td>
-                            <td>{{ $row['tanggal_pemusnahan'] }}</td>
-                            <td>{{ $row['nama_produk_jadi'] }}</td>
-                            <td>{{ $row['id_batch'] }}</td>
-                            <td>{{ $row['asal_produk_jadi'] }}</td>
-                            <td>{{ $row['alasan_pemusnahan'] }}</td>
-                            <td>{{ $row['cara_pemusnahan'] }}</td>
-                            <td>{{ $row['nama_petugas'] }}</td>
+                            <td>{{ $row['id_distribusi'] }}</td>
+                            <td>{{ $row['tanggal'] }}</td>
+                            <td>{{ $row['tanggal'] }}</td>
+                            <td>{{ $row['jumlah'] }}</td>
+                            <td>{{ $row['nama_distributor'] }}</td>
                             <td>
                                 <form method="post" action="detil_batch">
                                     <input type="hidden" name="_token" value="" />

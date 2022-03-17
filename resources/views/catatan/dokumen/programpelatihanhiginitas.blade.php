@@ -34,13 +34,22 @@
                                 <!-- Modal Body -->
                                 <div class="modal-body">
                                     <p class="statusMsg"></p>
-                                    <form method="post" action="">
+                                    <form method="post" action="tambah_pelatihanhiginitas">
                                         <div class="card mb-4">
                                             <div class="card-header">
                                                 <i class="fas fa-table me-1"></i>
                                                 Pelatihan
                                             </div>
                                             <div class="card-body">
+                                                @csrf
+                                                <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+
+                                                <div class="form-group row">
+                                                    <label for="inputEmail3" class="col-sm-2 col-form-label">Kode Pelatihan</label>
+                                                    <div class="col-sm-10">
+                                                        <input type="text" name="kode_pelatihan" class="form-control" id="inputEmail3" placeholder="Kode Pelatihan" />
+                                                    </div>
+                                                </div>
 
                                                 <div class="form-group row">
                                                     <label for="inputEmail3" class="col-sm-2 col-form-label">Materi Pelatihan</label>
@@ -76,11 +85,11 @@
                                                         <div class="form-group row">
                                                             <label for="inputEmail3" class="col-sm-2 col-form-label">Mulai</label>
                                                             <div class="col-sm-10">
-                                                                <input type="date" name="metode_pelatihan" class="form-control" id="inputEmail3" placeholder="xx/xx/xxxx" />
+                                                                <input type="datetime-local" name="mulai" class="form-control" id="inputEmail3" placeholder="xx/xx/xxxx" />
                                                             </div>
                                                             <label for="inputEmail3" class="col-sm-2 col-form-label">Selesai</label>
                                                             <div class="col-sm-10">
-                                                                <input type="date" name="metode_pelatihan" class="form-control" id="inputEmail3" placeholder="xx/xx/xxxx" />
+                                                                <input type="datetime-local" name="berakhir" class="form-control" id="inputEmail3" placeholder="xx/xx/xxxx" />
                                                             </div>
                                                         </div>
                                                     </div>
@@ -112,6 +121,7 @@
                     <thead>
                         <tr>
                             <th scope="col">No</th>
+                            <th scope="col">Kode Pelatihan</th>
                             <th scope="col">Materi</th>
                             <th scope="col">Peserta</th>
                             <th scope="col">Pelatih</th>
@@ -122,14 +132,18 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach($data as $row)
+                        <?php $i = 0;
+                        $i++; ?>
                         <tr>
-                            <td>1</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td>{{ $i }}</td>
+                            <td>{{ $row['id_programpelatihan'] }}</td>
+                            <td>{{ $row['materi_pelatihan'] }}</td>
+                            <td>{{ $row['peserta_pelatihan'] }}</td>
+                            <td>{{ $row['pelatih'] }}</td>
+                            <td>{{ $row['metode_pelatihan'] }}</td>
+                            <td>{{ $row['jadwal_mulai_pelatihan'] }} sampai {{ $row['jadwal_berakhir_pelatihan'] }}</td>
+                            <td>{{ $row['metode_penilaian'] }}</td>
                             <td>
                                 <form method="post" action="detil_batch">
                                     <input type="hidden" name="_token" value="" />
@@ -138,6 +152,7 @@
                                 </form>
                             </td>
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

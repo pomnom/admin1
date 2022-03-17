@@ -1,12 +1,12 @@
 @extends('layout.app')
 @section('title')
-<title>Penanganan Keluhan</title>
+<title>Pemusnahan Produk</title>
 @endsection
 @section('content')
 <main>
     <div class="container-fluid px-4">
-        <h1>Catatan Penanganan Keluhan</h1>
-        <ol class="breadcrumb mb-4">Penanganan Keluhan</li>
+        <h1>Catatan Penarikan Produk</h1>
+        <ol class="breadcrumb mb-4">Penarikan Produk</li>
         </ol>
         <div class="row">
 
@@ -16,8 +16,9 @@
                     <!-- pop up -->
                     <!-- Button to trigger modal -->
                     <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#modalForm">
-                        Tambah Penanganan Keluhan
+                        Tambah Penarikan Produk
                     </button>
+
                     <!-- Modal -->
                     <div class="modal fade" id="modalForm" role="dialog">
                         <div class="modal-dialog">
@@ -25,75 +26,69 @@
                                 <!-- Modal Header -->
                                 <div class="modal-header">
                                     <h4 class="modal-title" id="myModalLabel">
-                                        Entry Penanganan Keluhan
+                                        Entry Penarikan Produk
                                     </h4>
                                 </div>
 
                                 <!-- Modal Body -->
                                 <div class="modal-body">
                                     <p class="statusMsg"></p>
-                                    <form method="post" action="tambah_keluhan">
-                                        @csrf
-                                        <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+                                    <form method="post" action="tambah_penarikan">
                                         <div class="card mb-4">
                                             <div class="card-header">
                                                 <i class="fas fa-table me-1"></i>
-                                                Penanganan Keluhan
+                                                Penarikan
                                             </div>
+                                            @csrf
+                                            <input type="hidden" name="_token" value="{{ csrf_token() }}" />   
                                             <div class="card-body">
+
                                                 <div class="form-group row">
-                                                    <label for="inputEmail3" class="col-sm-2 col-form-label">Kode Keluhan</label>
-                                                    <div class="col-sm-10">
-                                                        <input type="text" name="kode_keluhan" class="form-control" id="inputEmail3" placeholder="Kode Keluhan" />
-                                                    </div>
-                                                </div>
-                                                
-                                                <div class="form-group row">
-                                                    <label for="inputEmail3" class="col-sm-2 col-form-label">Nama Customer</label>
-                                                    <div class="col-sm-10">
-                                                        <input type="text" name="nama_customer" class="form-control" id="inputEmail3" placeholder="Nama Customer" />
-                                                    </div>
-                                                </div>
-                                                
-                                                <div class="form-group row">
-                                                    <label for="inputEmail3" class="col-sm-2 col-form-label">Tanggal Keluhan</label>
+                                                    <label for="inputEmail3" class="col-sm-2 col-form-label">Kode Penarikan</label>
                                                     <div class="col-sm-10"> 
-                                                        <input type="datetime-local" name="tanggal_keluhan" class="form-control" id="inputEmail3" placeholder="" />
+                                                        <input type="text" name="kode_penarikan" class="form-control" id="inputEmail3" placeholder="Kode Pemusnahan" />
                                                     </div>
                                                 </div>
 
                                                 <div class="form-group row">
-                                                    <label for="inputEmail3" class="col-sm-2 col-form-label">Keluhan</label>
-                                                    <div class="col-sm-10">
-                                                        <input type="text" name="keluhan" class="form-control" id="inputEmail3" placeholder="Keluhan" />
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group row">
-                                                    <label for="inputEmail3" class="col-sm-2 col-form-label">Tanggal Tanggapi Keluhan</label>
+                                                    <label for="inputEmail3" class="col-sm-2 col-form-label">Tanggal</label>
                                                     <div class="col-sm-10"> 
-                                                        <input type="datetime-local" name="tanggal_tanggapi_keluhan" class="form-control" id="inputEmail3" placeholder="" />
+                                                        <input type="datetime-local" name="tanggal" class="form-control" id="inputEmail3" placeholder="" />
                                                     </div>
                                                 </div>
 
                                                 <div class="form-group row">
-                                                    <label for="inputEmail3" class="col-sm-2 col-form-label">Produk Yang Digunakan</label>
+                                                    <label for="inputEmail3" class="col-sm-2 col-form-label">Nama Distributor</label>
                                                     <div class="col-sm-10">
-                                                        <input type="text" name="produk_yang_digunakan" class="form-control" id="inputEmail3" placeholder="Produk Yang Digunakan" />
+                                                        <input type="text" name="nama_distributor" class="form-control" id="inputEmail3" placeholder="Nama Distributor" />
                                                     </div>
                                                 </div>
 
                                                 <div class="form-group row">
-                                                    <label for="inputEmail3" class="col-sm-2 col-form-label">Penanganan Keluhan</label>
+                                                    <label for="inputEmail3" class="col-sm-2 col-form-label">Produk Ditarik</label>
                                                     <div class="col-sm-10">
-                                                        <input type="text" name="penanganan_keluhan" class="form-control" id="inputEmail3" placeholder="Penanganan Keluhan" />
+                                                        <input type="text" name="produk_ditarik" class="form-control" id="inputEmail3" placeholder="Produk Ditarik" />
                                                     </div>
                                                 </div>
 
                                                 <div class="form-group row">
-                                                    <label for="inputEmail3" class="col-sm-2 col-form-label">Tindak Lanjut</label>
+                                                    <label for="inputEmail3" class="col-sm-2 col-form-label">Jumlah Produk Ditarik</label>
                                                     <div class="col-sm-10">
-                                                        <input type="text" name="tindak_lanjut" class="form-control" id="inputEmail3" placeholder="Tindak Lanjut" />
+                                                        <input type="text" name="jumlah_produk_ditarik" class="form-control" id="inputEmail3" placeholder="Jumlah Produk Ditarik" />
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row">
+                                                    <label for="inputEmail3" class="col-sm-2 col-form-label">No Batch</label>
+                                                    <div class="col-sm-10">
+                                                        <input type="text" name="no_batch" class="form-control" id="inputEmail3" placeholder="No Batch" />
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row">
+                                                    <label for="inputEmail3" class="col-sm-2 col-form-label">Alasan Penarikan</label>
+                                                    <div class="col-sm-10">
+                                                        <input type="text" name="alasan_penarikan" class="form-control" id="inputEmail3" placeholder="Alasan Penarikan" />
                                                     </div>
                                                 </div>
                                                 
@@ -114,14 +109,13 @@
                     <thead>
                         <tr>
                             <th scope="col">No</th>
-                            <th scope="col">Kode Keluhan</th>
-                            <th scope="col">Nama Customer</th>
-                            <th scope="col">Tanggal Keluhan</th>
-                            <th scope="col">Keluhan</th>
-                            <th scope="col">Tanggal Ditanggapi Keluhan</th>
-                            <th scope="col">Produk Yang Digunakan</th>
-                            <th scope="col">Penanganan Keluhan</th>
-                            <th scope="col">Tindak Lanjut</th>
+                            <th scope="col">Kode Penarikan Produk</th>
+                            <th scope="col">Tanggal</th>
+                            <th scope="col">Nama Distributor</th>
+                            <th scope="col">Produk Ditarik</th>
+                            <th scope="col">Jumlah Produk Ditarik</th>
+                            <th scope="col">No Batch</th>
+                            <th scope="col">Alasan Penarikan</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
@@ -130,15 +124,14 @@
                         <?php $i = 0;
                         $i++; ?>
                         <tr>
-                            <td>{{$i}}</td>
-                            <td>{{ $row['id_penanganankeluhan'] }}</td>
-                            <td>{{ $row['nama_customer'] }}</td>
-                            <td>{{ $row['tanggal_keluhan'] }}</td>
-                            <td>{{ $row['keluhan'] }}</td>
-                            <td>{{ $row['tanggal_ditanggapi'] }}</td>
-                            <td>{{ $row['produk_yang_digunakan'] }}</td>
-                            <td>{{ $row['penanganan_keluhan'] }}</td>
-                            <td>{{ $row['tindak_lanjut'] }}</td>
+                            <td>{{ $i }}</td>
+                            <td>{{ $row['id_produk_penarikan'] }}</td>
+                            <td>{{ $row['tanggal_penarikan'] }}</td>
+                            <td>{{ $row['nama_distributor'] }}</td>
+                            <td>{{ $row['produk_ditarik'] }}</td>
+                            <td>{{ $row['jumlah_produk_ditarik'] }}</td>
+                            <td>{{ $row['id_batch'] }}</td>
+                            <td>{{ $row['alasan_penarikan'] }}</td>
                             <td>
                                 <form method="post" action="detil_batch">
                                     <input type="hidden" name="_token" value="" />
