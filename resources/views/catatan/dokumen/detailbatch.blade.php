@@ -169,7 +169,7 @@
                                 <td>{{$row['komposisi_id']}}</td>
                                 <td>{{$row['komposisi_persen']}}</td>
                                 <td>
-                                    <a href="#" type="button" class="btn btn-danger" onclick="return confirm('Hapus? ')">Hapus</a>
+                                    <a href="/hapus_komposisi/{{$row['komposisi_id']}}" type="button" class="btn btn-danger" onclick="return confirm('Hapus? ')">Hapus</a>
                                 </td>
                             </tr>
                             @endforeach
@@ -254,7 +254,7 @@
                                 <td>{{$row['peralatan_nama']}}</td>
                                 <td>{{$row['peralatan_id']}}</td>
                                 <td>
-                                    <a href="#" type="button" class="btn btn-danger" onclick="return confirm('Hapus? ')">Hapus</a>
+                                    <a href="/hapus_peralatan/{{$row['peralatan_id']}}" type="button" class="btn btn-danger" onclick="return confirm('Hapus? ')">Hapus</a>
                                 </td>
                             </tr>
                             @endforeach
@@ -369,7 +369,7 @@
                                 <td>{{$row['penimbangan_timbangoleh']}}</td>
                                 <td>{{$row['penimbangan_periksaoleh']}}</td>
                                 <td>
-                                    <a href="#" type="button" class="btn btn-danger" onclick="return confirm('Hapus? ')">Hapus</a>
+                                    <a href="hapus_penimbangan/{{$row['penimbangan_id']}}" type="button" class="btn btn-danger" onclick="return confirm('Hapus? ')">Hapus</a>
                                 </td>
                             </tr>
                             @endforeach
@@ -388,10 +388,10 @@
                             Dropdown button
                         </button>
                         <div class="dropdown-menu">
-                            <li><a class="nav-link active bg-white text-dark" href="#tab-0" data-toggle="tab">Absolute Reference</a></li>
-                            <li><a class="nav-link bg-white text-dark" href="#tab-1" data-toggle="tab">Foot Plat</a></li>
-                            <li><a class="nav-link bg-white text-dark" href="#tab-2" data-toggle="tab">Pump Room</a></li>
-                            <li><a class="nav-link bg-white text-dark" href="#tab-3" data-toggle="tab">Batu Kali</a></li>
+                            <li><a class="nav-link active bg-white text-dark" href="#tab-0" data-toggle="tab">Padat</a></li>
+                            <li><a class="nav-link bg-white text-dark" href="#tab-1" data-toggle="tab">Cair</a></li>
+                            <li><a class="nav-link bg-white text-dark" href="#tab-2" data-toggle="tab">kental</a></li>
+                            <li><a class="nav-link bg-white text-dark" href="#tab-3" data-toggle="tab">Bubuk</a></li>
                         </div>
                     </div>
                 </div>

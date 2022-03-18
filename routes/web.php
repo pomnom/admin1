@@ -51,6 +51,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/input_komposisi', [Admin::class, 'tambah_komposisi']);
     Route::post('/input_peralatan', [Admin::class, 'tambah_peralatan']);
     Route::post('/input_penimbangan', [Admin::class, 'tambah_penimbangan']);
+    Route::get('/hapus_komposisi/{id}', [Admin::class, 'hapus_komposisi']);
+    Route::get('/hapus_peralatan/{id}', [Admin::class, 'hapus_peralatan']);
+    Route::get('/hapus_penimbangan/{id}', [Admin::class, 'hapus_penimbangan']);
     Route::post('/tambah_batch', [Admin::class, 'tambah_batch']);
     Route::post('/detil_batch', [Admin::class, 'tampil_detilbatch']); 
     Route::post('/printpengolahanbatch', [Admin::class, 'cetak_pengolahanbatch']);
@@ -95,5 +98,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/periksapersonil', [Admin::class, 'tampil_periksapersonil']);
     Route::get('/periksasanialat', [Admin::class, 'tampil_periksasanialat']);
     Route::get('/periksasaniruang', [Admin::class, 'tampil_periksasaniruang']);
+    
+    //boss
+    Route::get('/aplicant', [Admin::class, 'tampil_aplicant']);
+    Route::get('/karyawan', [Admin::class, 'tampil_karyawan']);
     
 });

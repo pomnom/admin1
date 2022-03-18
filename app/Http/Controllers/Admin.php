@@ -273,6 +273,30 @@ class Admin extends Controller
         return redirect('/pengolahanbatch');
     }
 
+    public function hapus_komposisi($id)
+    {
+        
+        $data = komposisi::all()->where('komposisi_id', $id);
+        $post = komposisi::all()->where('komposisi_id', $id)->each->delete();
+        return redirect('/pengolahanbatch');
+    }
+
+    public function hapus_peralatan($id)
+    {
+        $data = peralatan::all()->where('peralatan_id', $id);
+        $post = peralatan::all()->where('peralatan_id', $id)->each->delete();
+        
+        return redirect('/pengolahanbatch');
+    }
+
+    public function hapus_penimbangan($id)
+    {
+        $data = penimbangan::all()->where('penimbangan_id', $id);
+        $post = penimbangan::all()->where('penimbangan_id', $id)->each->delete();
+        
+        return redirect('/pengolahanbatch');
+    }
+
     public function tambah_company(Request $req)
     {   $file = $req->file('upload');
         $nama = $file->getClientOriginalName();
@@ -421,4 +445,5 @@ class Admin extends Controller
         return view("catatan.higidansani.periksasaniruang");
     }
 
+    
 }

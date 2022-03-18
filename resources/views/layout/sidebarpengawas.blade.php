@@ -45,8 +45,6 @@
                                         <a class="nav-link" href="periksapersonil">Pemeriksaan Personil</a>
                                         <a class="nav-link" href="periksasaniruang">Pembersihan Saniiitasi Ruangan</a>
                                         <a class="nav-link" href="periksasanialat">Pembersihan Sanitasi Alat</a>
-                                        <a class="nav-link" href="#">No 4</a>
-                                        <a class="nav-link" href="#">No 5</a>
                                     </nav>
                                 </div>
                             </nav>
