@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\{Admin, AuthController};
+use App\Http\Controllers\{Admin, AuthController, pemilik, superadmin};
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -99,8 +99,12 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/periksasanialat', [Admin::class, 'tampil_periksasanialat']);
     Route::get('/periksasaniruang', [Admin::class, 'tampil_periksasaniruang']);
     
-    //boss
-    Route::get('/aplicant', [Admin::class, 'tampil_aplicant']);
-    Route::get('/karyawan', [Admin::class, 'tampil_karyawan']);
-    
+    //pemilik
+    Route::get('/aplicant', [pemilik::class, 'tampil_aplicant']);
+    Route::get('/karyawan', [pemilik::class, 'tampil_karyawan']);
+
+    //super admin
+    Route::get('/dashboard', [superadmin::class, 'tampil_dashboard']);
+    Route::get('/pabrik', [superadmin::class, 'tampil_pabrik']);
+    Route::get('/protap', [superadmin::class, 'tampil_protap']);  
 });
