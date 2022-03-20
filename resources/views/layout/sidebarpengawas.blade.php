@@ -21,12 +21,12 @@
                                         <a class="nav-link" href="penerimaanBB">Penerimaan Penyerahan dan Penyimapanan</a>
                                         <a class="nav-link" href="ambilcontoh">Pengambilan Contoh</a>
                                         <a class="nav-link" href="program-dan-pelatihan-higiene-dan-sanitasi">Program dan Pelatihan Higiene dan Sanitasi</a>
-                                        <a class="nav-link" href="#">Pengoperasian Peralatan Utama</a>
+                                        <a class="nav-link" href="pengoprasian-alat">Pengoperasian Peralatan Utama</a>
                                         <a class="nav-link" href="#">Penimbangan</a>
                                         <a class="nav-link" href="pengolahanbatch">Pengolahan Batch</a>
                                         <a class="nav-link" href="#">Pengemasan Batch</a>
                                         <a class="nav-link" href="#">Peberian Nomor Batch</a>
-                                        <a class="nav-link" href="#">Pelulusan Produk Jadi</a>
+                                        <a class="nav-link" href="pelulusan-produk">Pelulusan Produk Jadi</a>
                                         <a class="nav-link" href="pendistribusian-produk">Pendistribusian Produk</a>
                                         <a class="nav-link" href="penanganan-keluhan">Penanganan Keluhan</a>
                                         <a class="nav-link" href="penarikan-produk">Penarikan Produk</a>

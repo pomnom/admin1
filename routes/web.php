@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\{Admin, AuthController};
 use Illuminate\Support\Facades\Route;
+use RealRashid\SweetAlert\Facades\Alert;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -102,6 +104,11 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('penanganan-keluhan', [Admin::class, 'tampil_penanganankeluhan']);
     Route::get('penarikan-produk', [Admin::class, 'tampil_penarikanproduk']);
     Route::get('pendistribusian-produk', [Admin::class, 'tampil_distribusi']);
+    Route::get('pengoprasian-alat', [Admin::class, 'tampil_pengorasianalat']);
+    Route::get('pelulusan-produk', [Admin::class, 'tampil_pelulusanproduk']);
+    Route::get('ambilcontoh', [Admin::class, 'tampil_pengambilancontoh']);
+    Route::post('tambah_pelulusan', [Admin::class, 'tambah_pelulusan']);
+    Route::post('tambah_operasialat', [Admin::class, 'tambah_operasialat']);
     Route::post('tambah_pelatihanhiginitas', [Admin::class, 'tambah_pelatihanhiginitas']);
     Route::post('tambah_pemusnahanproduk', [Admin::class, 'tambah_pemusnahanproduk']);
     Route::post('tambah_keluhan', [Admin::class, 'tambah_keluhan']);

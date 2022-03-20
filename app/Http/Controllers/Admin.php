@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\{bahanbaku, catatbersih, coa, company, dip, distribusiproduk, kemasan, perizinan, pobpabrik, komposisi, pemusnahanproduk, penanganankeluhan, penarikanproduk, pendistribusianproduk, pengolahanbatch, peralatan, penimbangan, produk, programpelatihan, programpelatihanhiginitas};
+use App\Models\{bahanbaku, catatbersih, coa, company, dip, distribusiproduk, kemasan, perizinan, pobpabrik, komposisi, pelulusanproduk, pemusnahanproduk, penanganankeluhan, penarikanproduk, pendistribusianproduk, pengolahanbatch, pengoprasianalat, pengorasianalat, peralatan, penimbangan, produk, programpelatihan, programpelatihanhiginitas};
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rules\Exists;
@@ -578,5 +578,61 @@ class Admin extends Controller
     {
         $data = distribusiproduk::all();
         return view('catatan.dokumen.pendistribusianproduk', ['data' => $data]);
+    }
+    public function tambah_operasialat(Request $req)
+    {
+        $id = Auth::user()->id;
+        $hasil = [
+            'pob' => $req['pelaksanaan_pob'],
+            'tanggal' => $req['tanggal'],
+            'nama_alat' => $req['nama_alat'],
+            'tipe_merek' => $req['tipemerek'],
+            'ruang' => $req['ruang'],
+            'mulai' => $req['mulai'],
+            'selesai' => $req['selesai'],
+            'oleh' => $req['oleh'],
+            'ket' => $req['ket'],
+            'user_id' => $id,
+        ];
+
+        pengoprasianalat::insert($hasil);
+
+        return redirect('/pengoprasian-alat');
+    }
+    public function tampil_pengorasianalat()
+    {
+        $data = pengoprasianalat::all();
+        return view('catatan.dokumen.pengoprasianalat', ['data' => $data]);
+    }
+    public function tambah_pelulusan(Request $req)
+    {
+        $id = Auth::user()->id;
+        $hasil = [
+            'nama_bahan' => $req['nama_bahan'],
+            'no_batch' => $req['nobatch'],
+            'kedaluwarsa' => $req['kedaluwarsa'],
+            'nama_pemasok' => $req['nama_pemasok'],
+            'tanggal' => $req['tanggal'],
+            'warna' => $req['warna'],
+            'bau' => $req['bau'],
+            'ph' => $req['ph'],
+            'berat_jenis' => $req['nerat_jenis'],
+            'kesimpulan' => $req['kesimpulan'],
+            'user_id' => $id,
+        ];
+
+        pelulusanproduk::insert($hasil);
+
+        return redirect('/pelulusan-produk');
+    }
+    public function tampil_pelulusanproduk()
+    {
+        $data = pelulusanproduk::all();
+        return view('catatan.dokumen.pelulusanproduk', ['data' => $data]);
+    }
+
+    public function tampil_pengambilancontoh()
+    {
+        return view('catatan.dokumen.pengambilancontoh');
     }
 }
