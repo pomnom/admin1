@@ -116,7 +116,7 @@
                                     <form action="/input_komposisi" method="post" role="form">
                                         @csrf
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-                                        <input type="hidden" name="nobatch" value="{{ $row['nomor_batch'] }}"
+                                        <input type="hidden" name="nobatch" value="{{ $row['nomor_batch'] }}"/>
                                         <div class="form-group">
                                             <label for="inputName">Nama BB</label>
                                             <input type="text" name="id" class="form-control" id="inputName" placeholder="Nama BB" />
@@ -169,7 +169,7 @@
                                 <td>{{$row['komposisi_id']}}</td>
                                 <td>{{$row['komposisi_persen']}}</td>
                                 <td>
-                                    <a href="/hapus_komposisi/{{$row['komposisi_id']}}" type="button" class="btn btn-danger" onclick="return confirm('Hapus? ')">Hapus</a>
+                                    <a href="/hapus_komposisi/{{$row['komposisi_id']}}/{{$id}}" type="button" class="btn btn-danger" onclick="return confirm('Hapus? ')">Hapus</a>
                                 </td>
                             </tr>
                             @endforeach
@@ -207,7 +207,7 @@
                                     <form action="/input_peralatan" method="post" role="form">
                                         @csrf
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-                                        <input type="hidden" name="nobatch" value="{{ $row['nomor_batch'] }}"
+                                        <input type="hidden" name="nobatch" value="{{ $row['nomor_batch'] }}" />
                                         <div class="form-group">
                                             <label for="inputName">Nama Alat</label>
                                             <input name="nama" type="text" class="form-control" id="inputName" placeholder="Nama Alat" />
@@ -292,7 +292,7 @@
                                     <form action="/input_penimbangan" method="post" role="form">
                                         @csrf
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-                                        <input type="hidden" name="nobatch" value="{{ $row['nomor_batch'] }}">
+                                        <input type="hidden" name="nobatch" value="{{ $row['nomor_batch'] }}"/>
                                         <div class="form-group">
                                             <label for="inputName">Kode Bahan</label>
                                             <input type="text" name="kode_bahan" class="form-control" id="inputName" placeholder="Kode Bahan" />

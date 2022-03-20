@@ -47,8 +47,9 @@
                                             <label for="inputEmail">Username</label>
                                         </div>
                                         <div class="form-floating mb-3">
-                                            <input class="form-control" name="pabrik" id="inputEmail" type="text" placeholder="name@example.com" />
-                                            <label for="inputEmail">Pabrik</label>
+                                            <div classs="form-group">
+                                                <input type="text" id="search" name="search" class="form-control" />
+                                            </div>
                                         </div>
                                         <div class="row mb-3">
                                             <div class="col-md-6">
@@ -94,7 +95,21 @@
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-    <script src="js/scripts.js"></script>
+    <!-- <script src="js/scripts.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
+    <script type="text/javascript">
+        var route = "{{ url('autocomplete-search') }}";
+        $('#search').typeahead({
+            source: function(query, process) {
+                return $.get(route, {
+                    query: query
+                }, function(data) {
+                    return process(data);
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\pabrik;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Auth;
@@ -11,7 +12,6 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 // use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Models\user;
-use App\Models\user as ModelsUser;
 
 class AuthController extends Controller
 {
@@ -39,7 +39,6 @@ class AuthController extends Controller
         if (Auth::attempt($data)) { // true sekalian session field di users nanti bisa dipanggil via Auth
             echo "Login Success";
             return redirect('/setting');
-
         } else { // false
 
             //Login Fail
@@ -79,5 +78,26 @@ class AuthController extends Controller
     {
         Auth::logout(); // menghapus session yang aktif
         return redirect('login');
+    }
+
+    public function autocompleteSearch(Request $request)
+    {
+        $query = $request->get('query');
+        //   dd($query);
+        $filterResult = pabrik::select("nama")
+            ->where("nama", "LIKE", "%{$query}%")
+            ->get();
+        $data =  json_decode($filterResult, true);
+        //   dd( json_decode($data));
+        $res = array();
+        foreach ($data as $x => $x_value) {
+            $i = 0;
+            array_push($res, $x_value['nama']);
+            $i++;
+            // var_dump($x_value);
+        }
+        return ($res);
+        // $json =response()->json($filterResult);
+        // var_dump($json[]);
     }
 }

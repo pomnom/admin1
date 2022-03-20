@@ -160,12 +160,7 @@
                             <td>{{$row['nama_produk']}}</td>
                             <td>{{$row['nomor_batch']}}</td>
                             <td>
-                                <form method="post" action="detil_batch">
-                                    @csrf
-                                    <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-                                    <input type="hidden" name="nobatch" value="{{ $row['nomor_batch'] }}" />
-                                    <button type="submit" class="btn btn-primary">Buka</button>
-                                </form>
+                                <a class="btn btn-primary" href="detil_batch/{{$row['nomor_batch']}}">Buka</a>
                             </td>
                         </tr>
                         @endforeach

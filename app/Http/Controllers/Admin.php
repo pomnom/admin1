@@ -198,7 +198,20 @@ class Admin extends Controller
         $kom = komposisi::all()->where('nomor_batch', $id);
         $alat = peralatan::all()->where('nomor_batch', $id);
         $nimbang = penimbangan::all()->where('nomor_batch', $id);
-        return view('catatan.dokumen.detailbatch', [
+        return view('catatan.dokumen.detailbatch', ['id'=>$id,
+            'data' => $data, 'list_kom' => $kom, 'list_alat' => $alat, 'list_nimbang' => $nimbang
+        ]);
+    }
+
+    public function tampil_detilbatchid($id)
+    {
+        // dd($req);
+        // $id = $req['nobatch'];
+        $data = pengolahanbatch::all()->where('nomor_batch', $id);
+        $kom = komposisi::all()->where('nomor_batch', $id);
+        $alat = peralatan::all()->where('nomor_batch', $id);
+        $nimbang = penimbangan::all()->where('nomor_batch', $id);
+        return view('catatan.dokumen.detailbatch', ['id'=>$id,
             'data' => $data, 'list_kom' => $kom, 'list_alat' => $alat, 'list_nimbang' => $nimbang
         ]);
     }
@@ -231,8 +244,8 @@ class Admin extends Controller
         ];
 
         pengolahanbatch::insert($hasil);
-
-        return redirect('/pengolahanbatch');
+        $to = $req['no_batch'];
+        return redirect('/pengolahanbatch',['id',$to]);
     }
 
     //komposisi
@@ -250,7 +263,8 @@ class Admin extends Controller
 
         komposisi::insert($hasil);
 
-        return redirect('/pengolahanbatch');
+        $to = $req['no_batch'];
+        return redirect('/pengolahanbatch',['id',$to]);
     }
 
     //peralatan
@@ -267,7 +281,8 @@ class Admin extends Controller
 
         peralatan::insert($hasil);
 
-        return redirect('/pengolahanbatch');
+        $to = $req['no_batch'];
+        return redirect('/pengolahanbatch',['id',$to]);
     }
 
     //catat penimbangan
@@ -289,15 +304,15 @@ class Admin extends Controller
 
         penimbangan::insert($hasil);
 
-        return redirect('/pengolahanbatch');
+        return redirect('/detil_batch/'.$nobatch);
     }
 
-    public function hapus_komposisi($id)
+    public function hapus_komposisi($id,$to)
     {
 
         $data = komposisi::all()->where('komposisi_id', $id);
         $post = komposisi::all()->where('komposisi_id', $id)->each->delete();
-        return redirect('/pengolahanbatch');
+        return redirect('/detil_batch/'.$to);
     }
 
     public function hapus_peralatan($id)
