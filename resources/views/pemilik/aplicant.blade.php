@@ -72,24 +72,34 @@
                         <tr>
                             <th scope="col">No</th>
                             <th scope="col">Nama</th>
-                            <th scope="col">Posisi</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach($data as $row)
+                        <?php $i = 0;
+                        $i++;  ?>
                         <tr>
-                            <td scope="col">1</td>
-                            <td scope="col">Coba</td>
-                            <td scope="col">Pengawas</td>
+                            <td scope="col">{{$i}}</td>
+                            <td scope="col">{{$row['nama']}}</td>
                             <td scope="col">
-                                <button class="btn btn-success btn-m" >
-                                    Terima
-                                </button>
-                                <button class="btn btn-danger btn-m">
-                                    Tolak
-                                </button>
+                                <form action="terima" method="post" style="float: left; margin-right:15px;">
+                                @csrf    
+                                <input type="hidden" name="id" value="{{$row['id']}}">
+                                    <button type="submit" class="btn btn-success btn-m">
+                                        Terima
+                                    </button>
+                                </form>
+                                <form action="tolak" method="post">
+                                @csrf  
+                                <input type="hidden" name="id" value="{{$row['id']}}">
+                                    <button type="submit" class="btn btn-danger btn-m">
+                                        Tolak
+                                    </button>
+                                </form>
                             </td>
                         </tr>
+                        @endforeach
 
 
                     </tbody>

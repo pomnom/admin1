@@ -19,6 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('namadepan', 255);
             $table->string('namabelakang',255);
             $table->integer('level',false);
+            $table->integer('pabrik',false);
             // $table->string('foto',255);
             $table->string('password',250);
             $table->rememberToken();

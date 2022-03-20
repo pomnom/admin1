@@ -101,10 +101,13 @@ Route::group(['middleware' => 'auth'], function () {
     
     //pemilik
     Route::get('/aplicant', [pemilik::class, 'tampil_aplicant']);
+    Route::post('/terima', [pemilik::class, 'terima']);
+    Route::post('/tolak', [pemilik::class, 'tolak']);    
     Route::get('/karyawan', [pemilik::class, 'tampil_karyawan']);
 
     //super admin
     Route::get('/dashboard', [superadmin::class, 'tampil_dashboard']);
     Route::get('/pabrik', [superadmin::class, 'tampil_pabrik']);
+    Route::post('/register_pabrik', [superadmin::class, 'register']);
     Route::get('/protap', [superadmin::class, 'tampil_protap']);  
 });

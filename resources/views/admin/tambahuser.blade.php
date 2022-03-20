@@ -6,7 +6,7 @@
 @section('content')
 <main>
     <div class="container">
-        <form action="/register" method="post">
+        <form action="/register_pabrik" method="post">
             @csrf
             <input type="hidden" name="_token" value="{{ csrf_token() }}" />
 
@@ -27,6 +27,10 @@
             <div class="form-floating mb-3">
                 <input class="form-control" name="username" id="inputEmail" type="text" placeholder="name@example.com" />
                 <label for="inputEmail">Username</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input class="form-control" name="pabrik" id="inputEmail" type="text" placeholder="name@example.com" />
+                <label for="inputEmail">Pabrik</label>
             </div>
             <div class="row mb-3">
                 <div class="col-md-6">

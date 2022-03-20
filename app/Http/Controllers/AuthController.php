@@ -61,7 +61,8 @@ class AuthController extends Controller
         $user->nama = ucwords(strtolower($request->username));
         $user->namadepan = $request->namadepan;
         $user->namabelakang = $request->namabelakang;
-        $user->level = 0;
+        $user->pabrik = $request->pabrik;
+        $user->level = -1;
         $user->password = bcrypt($request->password);
         $simpan = $user->save();
 
