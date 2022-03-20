@@ -630,7 +630,27 @@ class Admin extends Controller
         $data = pelulusanproduk::all();
         return view('catatan.dokumen.pelulusanproduk', ['data' => $data]);
     }
+    public function tambah_contohbahan(Request $req)
+    {
+        $id = Auth::user()->id;
+        $hasil = [
+            'nama_bahan' => $req['nama_bahan'],
+            'no_batch' => $req['nobatch'],
+            'kedaluwarsa' => $req['kedaluwarsa'],
+            'nama_pemasok' => $req['nama_pemasok'],
+            'tanggal' => $req['tanggal'],
+            'warna' => $req['warna'],
+            'bau' => $req['bau'],
+            'ph' => $req['ph'],
+            'berat_jenis' => $req['nerat_jenis'],
+            'kesimpulan' => $req['kesimpulan'],
+            'user_id' => $id,
+        ];
 
+        pelulusanproduk::insert($hasil);
+
+        return redirect('/pelulusan-produk');
+    }
     public function tampil_pengambilancontoh()
     {
         return view('catatan.dokumen.pengambilancontoh');

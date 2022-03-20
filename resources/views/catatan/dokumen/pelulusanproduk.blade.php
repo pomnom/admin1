@@ -33,7 +33,7 @@
                                     <!-- Modal Body -->
                                     <div class="modal-body">
                                         <p class="statusMsg"></p>
-                                        <form method="post" action="tambah_pelulusan">
+                                        <form method="post" action="tambah_pelulusan" id='forminput'>
                                             <div class="card mb-4">
                                                 <div class="card-header">
                                                     <i class="fas fa-table me-1"></i>
@@ -148,8 +148,9 @@
                                                     </div>
                                                 </div>
 
-                                                <button type="submit" class="btn btn-primary"
-                                                    style="float:left; width: 100px;  margin-left:25px">SIMPAN</button>
+                                                <a class="btn btn-primary" onclick="salert()" href="#"
+                                                    style="float:left; width: 100px;  margin-left:25px"
+                                                    role="button">Simpan</a>
                                         </form>
                                     </div>
                                 </div>

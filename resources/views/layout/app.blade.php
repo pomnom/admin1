@@ -43,6 +43,10 @@
     <script src="asset('assets/demo/chart-bar-demo.js')"></script>
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
     <script src="asset('js/datatables-simple-demo.js')"></script>
+    {{-- sweetalert --}}
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.6/dist/sweetalert2.all.min.js"></script>
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.min.css'>
+    <script src="js/alert.js"></script>
     <script>
         function openCity(evt, cityName) {
             var i, tabcontent, tablinks;

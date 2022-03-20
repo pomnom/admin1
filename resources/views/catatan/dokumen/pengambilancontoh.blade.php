@@ -326,11 +326,11 @@
                                         <thead>
                                             <tr>
                                                 <th scope="col">No</th>
-                                                <th scope="col">Nama Bahan Baku</th>
+                                                <th scope="col">Nama Produk Jadi</th>
                                                 <th scope="col">No Batch</th>
                                                 <th scope="col">Tanggal Pengambilan Contoh</th>
                                                 <th scope="col">Kedaluwarsa</th>
-                                                <th scope="col">Jumlah bahan baku dalam master Box</th>
+                                                <th scope="col">Jumlah Produk Jadi dalam master Box</th>
                                                 <th scope="col">Jumlah Produk Yang Diambil</th>
                                                 <th scope="col">Jenis Dan warna kemasan</th>
                                                 <th scope="col">Kesimpulan</th>
@@ -503,11 +503,11 @@
                                         <thead>
                                             <tr>
                                                 <th scope="col">No</th>
-                                                <th scope="col">Nama Bahan Baku</th>
+                                                <th scope="col">Nama Bahan Pengemas</th>
                                                 <th scope="col">No Batch</th>
                                                 <th scope="col">Tanggal Pengambilan Contoh</th>
                                                 <th scope="col">Kedaluwarsa</th>
-                                                <th scope="col">Jumlah bahan baku dalam master Box</th>
+                                                <th scope="col">Jumlah Bahan Pengemas dalam master Box</th>
                                                 <th scope="col">Jumlah Produk Yang Diambil</th>
                                                 <th scope="col">Jenis Dan warna kemasan</th>
                                                 <th scope="col">Kesimpulan</th>
