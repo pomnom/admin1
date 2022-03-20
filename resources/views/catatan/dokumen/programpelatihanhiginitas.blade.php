@@ -49,7 +49,7 @@
                                                             Pelatihan</label>
                                                         <div class="col-sm-10">
                                                             <input type="text" name="kode_pelatihan" class="form-control"
-                                                                id="inputEmail3" placeholder="Kode Pelatihan" />
+                                                                id="inputEmail3" placeholder="Kode Pelatihan" required />
                                                         </div>
                                                     </div>
 
