@@ -50,7 +50,7 @@
                 <table class="table table-bordered">
                     <tr>
                         <td rowspan="2">
-                            <img src="img/personal_picture.jpeg" ;alt="Your Picture">
+                            <img src="{{asset('asset/logo/logo.jpg')}}" ;alt="Your Picture">
                         </td>
                         <td>
                             Bagian </br> Produksi

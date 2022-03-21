@@ -65,6 +65,8 @@
         @include('layout.sidebarpemilik')
         @elseif (Auth::user()->level == 2)
         @include('layout.sidebarpengawas')
+        @elseif (Auth::user()->level == 3)
+        @include('layout.sidebarauditor')
         @else
         @include('layout.sidebarpegawai')
         @endif
