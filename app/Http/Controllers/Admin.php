@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\{bahanbaku, catatbersih, coa, company, dip, kemasan, perizinan, pobpabrik, komposisi, pengolahanbatch, peralatan, penimbangan, produk};
+use App\Models\{bahanbaku, catatbersih, coa, company, dip, distribusiproduk, kemasan, perizinan, pobpabrik, komposisi, pelulusanproduk, pemusnahanproduk, penanganankeluhan, penarikanproduk, pendistribusianproduk, pengolahanbatch, pengoprasianalat, pengorasianalat, peralatan, penimbangan, produk, programpelatihan, programpelatihanhiginitas};
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rules\Exists;
@@ -198,7 +198,8 @@ class Admin extends Controller
         $kom = komposisi::all()->where('nomor_batch', $id);
         $alat = peralatan::all()->where('nomor_batch', $id);
         $nimbang = penimbangan::all()->where('nomor_batch', $id);
-        return view('catatan.dokumen.detailbatch', ['id'=>$id,
+        return view('catatan.dokumen.detailbatch', [
+            'id' => $id,
             'data' => $data, 'list_kom' => $kom, 'list_alat' => $alat, 'list_nimbang' => $nimbang
         ]);
     }
@@ -211,7 +212,8 @@ class Admin extends Controller
         $kom = komposisi::all()->where('nomor_batch', $id);
         $alat = peralatan::all()->where('nomor_batch', $id);
         $nimbang = penimbangan::all()->where('nomor_batch', $id);
-        return view('catatan.dokumen.detailbatch', ['id'=>$id,
+        return view('catatan.dokumen.detailbatch', [
+            'id' => $id,
             'data' => $data, 'list_kom' => $kom, 'list_alat' => $alat, 'list_nimbang' => $nimbang
         ]);
     }
@@ -245,7 +247,7 @@ class Admin extends Controller
 
         pengolahanbatch::insert($hasil);
         $to = $req['no_batch'];
-        return redirect('/pengolahanbatch',['id',$to]);
+        return redirect('/pengolahanbatch', ['id', $to]);
     }
 
     //komposisi
@@ -264,7 +266,7 @@ class Admin extends Controller
         komposisi::insert($hasil);
 
         $to = $req['no_batch'];
-        return redirect('/pengolahanbatch',['id',$to]);
+        return redirect('/pengolahanbatch', ['id', $to]);
     }
 
     //peralatan
@@ -282,7 +284,7 @@ class Admin extends Controller
         peralatan::insert($hasil);
 
         $to = $req['no_batch'];
-        return redirect('/pengolahanbatch',['id',$to]);
+        return redirect('/pengolahanbatch', ['id', $to]);
     }
 
     //catat penimbangan
@@ -304,15 +306,15 @@ class Admin extends Controller
 
         penimbangan::insert($hasil);
 
-        return redirect('/detil_batch/'.$nobatch);
+        return redirect('/detil_batch/' . $nobatch);
     }
 
-    public function hapus_komposisi($id,$to)
+    public function hapus_komposisi($id, $to)
     {
 
         $data = komposisi::all()->where('komposisi_id', $id);
         $post = komposisi::all()->where('komposisi_id', $id)->each->delete();
-        return redirect('/detil_batch/'.$to);
+        return redirect('/detil_batch/' . $to);
     }
 
     public function hapus_peralatan($id)
@@ -393,7 +395,7 @@ class Admin extends Controller
     }
 
     public function tampil_setting()
-    { 
+    {
         if (Auth::user()->level < 0) {
             return view('tunggu');
         } else {
@@ -414,93 +416,198 @@ class Admin extends Controller
         return view('laporan', ['batch' => $data]);
     }
 
-
-
-
-    public function tampil_ambilbahanbaku()
+    //yusril
+    public function tambah_pelatihanhiginitas(Request $req)
     {
-        return view("catatan.dokumen.ambilbahanbaku");
+        $id = Auth::user()->id;
+        $hasil = [
+            'id_programpelatihan' => $req['kode_pelatihan'],
+            'materi_pelatihan' => $req['materi_pelatihan'],
+            'peserta_pelatihan' => $req['peserta_pelatihan'],
+            'pelatih' => $req['pelatih'],
+            'metode_pelatihan' => $req['metode_pelatihan'],
+            'jadwal_mulai_pelatihan' => $req['mulai'],
+            'jadwal_berakhir_pelatihan' => $req['berakhir'],
+            'metode_penilaian' => $req['metode_penilaian'],
+            'user_id' => $id,
+        ];
+
+        programpelatihan::insert($hasil);
+
+        return redirect('/program-dan-pelatihan-higiene-dan-sanitasi');
     }
-
-    public function tampil_ambilkemasan()
+    public function tampil_programpelatihanhigienitasdansanitasi()
     {
-        return view("catatan.dokumen.ambilkemasan");
+        $data = programpelatihan::all();
+        return view('catatan.dokumen.programpelatihanhiginitas', ['data' => $data]);
     }
-
-    public function tampil_ambilprodukjadi()
+    public function tambah_pemusnahanproduk(Request $req)
     {
-        return view("catatan.dokumen.ambilprodukjadi");
+        $id = Auth::user()->id;
+        $hasil = [
+            'id_produk_pemusnahan' => $req['kode_pemusnahan'],
+            'tanggal_pemusnahan' => $req['tanggal'],
+            'nama_produk_jadi' => $req['nama_produk_jadi'],
+            'id_batch' => $req['no_batch'],
+            'asal_produk_jadi' => $req['asal_produk_jadi'],
+            'jumlah_produk_jadi' => $req['jumlah_produk_jadi'],
+            'alasan_pemusnahan' => $req['alasan_pemusnahan'],
+            'cara_pemunsnahan' => $req['cara_pemusnahan'],
+            'nama_petugas' => $req['petugas'],
+            'user_id' => $id,
+        ];
+
+        pemusnahanproduk::insert($hasil);
+
+        return redirect('/pemusnahan-produk');
     }
-
-    public function tampil_bersihdanpakaialat()
+    public function tampil_pemusnahanproduk()
     {
-        return view("catatan.dokumen.bersihdanpakaialat");
+        $data = pemusnahanproduk::all();
+        return view('catatan.dokumen.pemusnahanproduk', ['data' => $data]);
     }
-
-    public function tampil_kemasbatch()
+    public function tambah_keluhan(Request $req)
     {
-        return view("catatan.dokumen.kemasbatch");
+        $id = Auth::user()->id;
+        $hasil = [
+            'id_penanganankeluhan' => $req['kode_keluhan'],
+            'nama_customer' => $req['nama_customer'],
+            'tanggal_keluhan' => $req['tanggal_keluhan'],
+            'keluhan' => $req['keluhan'],
+            'tanggal_ditanggapi' => $req['tanggal_tanggapi_keluhan'],
+            'produk_yang_digunakan' => $req['produk_yang_digunakan'],
+            'penanganan_keluhan' => $req['penanganan_keluhan'],
+            'tindak_lanjut' => $req['tindak_lanjut'],
+            'user_id' => $id,
+        ];
+
+        penanganankeluhan::insert($hasil);
+
+        return redirect('/penanganan-keluhan');
     }
-
-    public function tampil_latihhigidansani()
+    public function tampil_penanganankeluhan()
     {
-        return view("catatan.dokumen.latihhigidansani");
+        $data = penanganankeluhan::all();
+        return view('catatan.dokumen.penanganankeluhan', ['data' => $data]);
     }
-
-    public function tampil_pembbersihanalat()
+    public function tambah_penarikan(Request $req)
     {
-        return view("catatan.dokumen.pembbersihanalat");
+        $id = Auth::user()->id;
+        $hasil = [
+            'id_produk_penarikan' => $req['kode_penarikan'],
+            'tanggal_penarikan' => $req['tanggal'],
+            'nama_distributor' => $req['nama_distributor'],
+            'produk_ditarik' => $req['produk_ditarik'],
+            'jumlah_produk_ditarik' => $req['jumlah_produk_ditarik'],
+            'id_batch' => $req['no_batch'],
+            'alasan_penarikan' => $req['alasan_penarikan'],
+            'user_id' => $id,
+        ];
+
+        penarikanproduk::insert($hasil);
+
+        return redirect('/penarikan-produk');
     }
-
-    public function tampil_pendistribusian()
+    public function tampil_penarikanproduk()
     {
-        return view("catatan.dokumen.pendistribusian");
+        $data = penarikanproduk::all();
+        return view('catatan.dokumen.penarikanproduk', ['data' => $data]);
     }
-
-    public function tampil_penggunaanutama()
+    public function tambah_distribusi(Request $req)
     {
-        return view("catatan.dokumen.penggunaanutama");
+        $id = Auth::user()->id;
+        $hasil = [
+            'id_distribusi' => $req['kode_distribusi'],
+            'tanggal' => $req['tanggal'],
+            'id_batch' => $req['no_batch'],
+            'jumlah' => $req['jumlah'],
+            'nama_distributor' => $req['nama_distributor'],
+            'user_id' => $id,
+        ];
+
+        distribusiproduk::insert($hasil);
+
+        return redirect('/pendistribusian-produk');
     }
-
-    public function tampil_periksabahanbaku()
+    public function tampil_distribusi()
     {
-        return view("catatan.dokumen.periksabahanbaku");
+        $data = distribusiproduk::all();
+        return view('catatan.dokumen.pendistribusianproduk', ['data' => $data]);
     }
-
-
-
-    public function tampil_periksakemasan()
+    public function tambah_operasialat(Request $req)
     {
-        return view("catatan.dokumen.periksakemasan");
+        $id = Auth::user()->id;
+        $hasil = [
+            'pob' => $req['pelaksanaan_pob'],
+            'tanggal' => $req['tanggal'],
+            'nama_alat' => $req['nama_alat'],
+            'tipe_merek' => $req['tipemerek'],
+            'ruang' => $req['ruang'],
+            'mulai' => $req['mulai'],
+            'selesai' => $req['selesai'],
+            'oleh' => $req['oleh'],
+            'ket' => $req['ket'],
+            'user_id' => $id,
+        ];
+
+        pengoprasianalat::insert($hasil);
+
+        return redirect('/pengoprasian-alat');
     }
-
-    public function tampil_periksaprodukjadi()
+    public function tampil_pengorasianalat()
     {
-        return view("catatan.dokumen.periksaprodukjadi");
+        $data = pengoprasianalat::all();
+        return view('catatan.dokumen.pengoprasianalat', ['data' => $data]);
     }
-
-    public function tampil_programlatih()
+    public function tambah_pelulusan(Request $req)
     {
-        return view("catatan.dokumen.programlatih");
+        $id = Auth::user()->id;
+        $hasil = [
+            'nama_bahan' => $req['nama_bahan'],
+            'no_batch' => $req['nobatch'],
+            'kedaluwarsa' => $req['kedaluwarsa'],
+            'nama_pemasok' => $req['nama_pemasok'],
+            'tanggal' => $req['tanggal'],
+            'warna' => $req['warna'],
+            'bau' => $req['bau'],
+            'ph' => $req['ph'],
+            'berat_jenis' => $req['nerat_jenis'],
+            'kesimpulan' => $req['kesimpulan'],
+            'user_id' => $id,
+        ];
+
+        pelulusanproduk::insert($hasil);
+
+        return redirect('/pelulusan-produk');
     }
-
-    public function tampil_teraalat()
+    public function tampil_pelulusanproduk()
     {
-        return view("catatan.dokumen.teraalat");
+        $data = pelulusanproduk::all();
+        return view('catatan.dokumen.pelulusanproduk', ['data' => $data]);
     }
-
-    public function tampil_periksapersonil()
+    public function tambah_contohbahan(Request $req)
     {
-        return view("catatan.higidansani.periksapersonil");
+        $id = Auth::user()->id;
+        $hasil = [
+            'nama_bahan' => $req['nama_bahan'],
+            'no_batch' => $req['nobatch'],
+            'kedaluwarsa' => $req['kedaluwarsa'],
+            'nama_pemasok' => $req['nama_pemasok'],
+            'tanggal' => $req['tanggal'],
+            'warna' => $req['warna'],
+            'bau' => $req['bau'],
+            'ph' => $req['ph'],
+            'berat_jenis' => $req['nerat_jenis'],
+            'kesimpulan' => $req['kesimpulan'],
+            'user_id' => $id,
+        ];
+
+        pelulusanproduk::insert($hasil);
+
+        return redirect('/pelulusan-produk');
     }
-
-    public function tampil_periksasanialat()
+    public function tampil_pengambilancontoh()
     {
-        return view("catatan.higidansani.periksasanialat");
-    }
-
-    public function tampil_periksasaniruang()
-    {
-        return view("catatan.higidansani.periksasaniruang");
+        return view('catatan.dokumen.pengambilancontoh');
     }
 }
