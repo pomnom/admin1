@@ -1,6 +1,6 @@
 @extends('layout.app')
 @section('title')
-    <title>Pembersihan Ruangan</title>
+    <title>Penerimaan Penyerahan dan Penyimpanan</title>
 @endsection
 @section('content')
     <main>

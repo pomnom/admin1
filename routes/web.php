@@ -23,7 +23,7 @@ Route::get('/showregister', [AuthController::class, 'showFormRegister']);
 Route::post('/register', [AuthController::class, 'register']);
 Route::get('/autocomplete-search', [AuthController::class, 'autocompleteSearch']);
 
-Route::view('/template','print.template');
+Route::view('/template', 'print.template');
 
 Route::get('/resetpass', function () {
     return view('auth.resetpass');
@@ -124,6 +124,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('pengoprasian-alat', [Admin::class, 'tampil_pengorasianalat']);
     Route::get('pelulusan-produk', [Admin::class, 'tampil_pelulusanproduk']);
     Route::get('ambilcontoh', [Admin::class, 'tampil_pengambilancontoh']);
+    Route::get('penimbangan', [Admin::class, 'tampil_penimbangan']);
+    Route::post('tambah_contohbahan', [Admin::class, 'tambah_contohbahan']);
+    Route::post('tambah_contohproduk', [Admin::class, 'tambah_contohproduk']);
+    Route::post('tambah_contohkemasan', [Admin::class, 'tambah_contohkemasan']);
     Route::post('tambah_pelulusan', [Admin::class, 'tambah_pelulusan']);
     Route::post('tambah_operasialat', [Admin::class, 'tambah_operasialat']);
     Route::post('tambah_pelatihanhiginitas', [Admin::class, 'tambah_pelatihanhiginitas']);

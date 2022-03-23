@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\{bahanbaku, catatbersih, coa, company, dip, distribusiproduk, kemasan, perizinan, pobpabrik, komposisi, pelulusanproduk, pemusnahanproduk, penanganankeluhan, penarikanproduk, pendistribusianproduk, pengolahanbatch, pengoprasianalat, pengorasianalat, peralatan, penimbangan, produk, programpelatihan, programpelatihanhiginitas};
+use App\Models\{bahanbaku, catatbersih, coa, company, contohbahanbaku, contohkemasan, contohprodukjadi, dip, distribusiproduk, kemasan, perizinan, pobpabrik, komposisi, pelulusanproduk, pemusnahanproduk, penanganankeluhan, penarikanproduk, pendistribusianproduk, pengolahanbatch, pengoprasianalat, pengorasianalat, peralatan, penimbangan, produk, programpelatihan, programpelatihanhiginitas};
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rules\Exists;
@@ -589,25 +589,74 @@ class Admin extends Controller
     {
         $id = Auth::user()->id;
         $hasil = [
-            'nama_bahan' => $req['nama_bahan'],
+            'id_bahanbaku' => $req['kode_bahan'],
+            'nama_bahanbaku' => $req['nama_bahan'],
             'no_batch' => $req['nobatch'],
+            'tanggal_ambil' => $req['tanggal'],
             'kedaluwarsa' => $req['kedaluwarsa'],
-            'nama_pemasok' => $req['nama_pemasok'],
-            'tanggal' => $req['tanggal'],
-            'warna' => $req['warna'],
-            'bau' => $req['bau'],
-            'ph' => $req['ph'],
-            'berat_jenis' => $req['nerat_jenis'],
+            'jumlah_bahanbakubox' => $req['jumlah_box'],
+            'jumlah_produk' => $req['jumlah_ambil'],
+            'jenis_warnakemasan' => $req['jenis_warna_kemasan'],
             'kesimpulan' => $req['kesimpulan'],
             'user_id' => $id,
         ];
 
-        pelulusanproduk::insert($hasil);
+        contohbahanbaku::insert($hasil);
 
-        return redirect('/pelulusan-produk');
+        return redirect('/ambilcontoh#pills-home');
+    }
+    public function tambah_contohproduk(Request $req)
+    {
+        $id = Auth::user()->id;
+        $hasil = [
+            'id_produkjadi' => $req['kode_produk'],
+            'nama_produkjadi' => $req['nama_produk'],
+            'no_batch' => $req['nobatch'],
+            'tanggal_ambil' => $req['tanggal'],
+            'kedaluwarsa' => $req['kedaluwarsa'],
+            'jumlah_produkbox' => $req['jumlah_box'],
+            'jumlah_produk' => $req['jumlah_ambil'],
+            'jenis_warnakemasan' => $req['jenis_warna_kemasan'],
+            'kesimpulan' => $req['kesimpulan'],
+            'user_id' => $id,
+        ];
+
+        contohprodukjadi::insert($hasil);
+
+        return redirect('/ambilcontoh#pills-profile');
+    }
+    public function tambah_contohkemasan(Request $req)
+    {
+        $id = Auth::user()->id;
+        $hasil = [
+            'id_kemasan' => $req['kode_kemasan'],
+            'nama_kemasan' => $req['nama_kemasan'],
+            'no_batch' => $req['nobatch'],
+            'tanggal_ambil' => $req['tanggal'],
+            'kedaluwarsa' => $req['kedaluwarsa'],
+            'jumlah_kemasanbox' => $req['jumlah_box'],
+            'jumlah_produk' => $req['jumlah_ambil'],
+            'jenis_warnakemasan' => $req['jenis_warna_kemasan'],
+            'kesimpulan' => $req['kesimpulan'],
+            'user_id' => $id,
+        ];
+
+        contohkemasan::insert($hasil);
+
+        return redirect('/ambilcontoh#pills-contact');
     }
     public function tampil_pengambilancontoh()
     {
-        return view('catatan.dokumen.pengambilancontoh');
+        $data = contohbahanbaku::all();
+        $data1 = contohprodukjadi::all();
+        $data2 = contohkemasan::all();
+        return view('catatan.dokumen.pengambilancontoh', ['data' => $data, 'data1' => $data1, 'data2' => $data2]);
+    }
+    public function tampil_penimbangan()
+    {
+        $data = contohbahanbaku::all();
+        $data1 = contohprodukjadi::all();
+        $data2 = contohkemasan::all();
+        return view('catatan.dokumen.penimbangan', ['data' => $data, 'data1' => $data1, 'data2' => $data2]);
     }
 }

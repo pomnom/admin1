@@ -14,7 +14,8 @@
                     <div class="card-body">
                         <!-- pop up -->
                         <!-- Button to trigger modal -->
-                        <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#modalForm">
+                        <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#modalForm"
+                            onclick="setdatetoday()">
                             Tambah Pelulusan Produk Jadi
                         </button>
 
@@ -37,6 +38,8 @@
                                                 <div class="card-header">
                                                     <i class="fas fa-table me-1"></i>
                                                     Produk
+                                                </div>
+                                                <div class="card-header" id='headertgl'>
                                                 </div>
                                                 @csrf
                                                 <input type="hidden" name="_token" value="{{ csrf_token() }}" />
@@ -78,14 +81,8 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="form-group row">
-                                                        <label for="inputEmail3"
-                                                            class="col-sm-2 col-form-label">Tanggal</label>
-                                                        <div class="col-sm-10">
-                                                            <input type="datetime-local" name="tanggal"
-                                                                class="form-control" id="inputEmail3" placeholder="" />
-                                                        </div>
-                                                    </div>
+                                                    <input type="hidden" id='ambil_tanggal' class="form-control"
+                                                        name="tanggal" placeholder="" />
 
                                                 </div>
 
@@ -176,9 +173,9 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <?php $i = 0; ?>
                             @foreach ($data as $row)
-                                <?php $i = 0;
-                                $i++; ?>
+                                <?php $i++; ?>
                                 <tr>
                                     <td>{{ $i }}</td>
                                     <td>{{ $row['nama_bahan'] }}</td>
